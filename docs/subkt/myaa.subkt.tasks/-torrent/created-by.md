@@ -1,0 +1,12 @@
+[subkt](../../index.md) / [myaa.subkt.tasks](../index.md) / [Torrent](index.md) / [createdBy](./created-by.md)
+
+# createdBy
+
+`val createdBy: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+
+String identifying the program that created the torrent. Optional.
+
+**Getter**
+
+String identifying the program that created the torrent. Optional.
+

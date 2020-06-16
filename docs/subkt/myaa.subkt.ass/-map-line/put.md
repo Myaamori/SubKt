@@ -1,0 +1,8 @@
+[subkt](../../index.md) / [myaa.subkt.ass](../index.md) / [MapLine](index.md) / [put](./put.md)
+
+# put
+
+`open fun put(key: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, value: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`): `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?``fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> put(key: `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](put.md#T)`, `[`L`](index.md#L)`>, value: `[`T`](put.md#T)`): `[`T`](put.md#T)`?`
+
+Write to a field in a type-safe way using a [LineAccessor](../-line-accessor/index.md).
+
