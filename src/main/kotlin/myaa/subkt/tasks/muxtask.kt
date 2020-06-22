@@ -388,7 +388,7 @@ open class Mux : PropertyTask() {
             tracks.filter { it.include.get() }.forEach { yield("$it [$fname]") }
             attachments.filter { it.include.get() }.forEach { yield("$it [$fname]") }
 
-            chapters?.takeIf { includeChapters.get() }
+            chapters?.takeIf { includeChapters.get() }?.let { yield("$it chapters [$fname]") }
         }.joinToString("\n")
     }
 
@@ -739,7 +739,7 @@ open class Mux : PropertyTask() {
         yield(mkvmerge.get())
 
         if (deterministic.get()) {
-            val seed = deterministicSeed.getOrElse(outFile.absolutePath.hashCode().toLong())
+            val seed = deterministicSeed.getOrElse(outFile.name.hashCode().toLong())
             yield("--deterministic")
             yield("$seed")
         }
@@ -803,6 +803,10 @@ open class Mux : PropertyTask() {
                     "--attachments",
                     "--no-attachments"
             ))
+
+            if (!file.includeChapters.get()) {
+                yield("--no-chapters")
+            }
 
             // custom per-file options
             yieldAll(file.fileOptions.get())
