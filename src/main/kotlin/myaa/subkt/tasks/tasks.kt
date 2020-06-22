@@ -1405,12 +1405,6 @@ abstract class AbstractTransferTask<T> : AbstractCopyTask(), SubTask {
 }
 
 private class SSLSessionReuseFTPSClient(implicit: Boolean) : FTPSClient(implicit) {
-    companion object {
-        init {
-            System.setProperty("jdk.tls.useExtendedMasterSecret", "false")
-        }
-    }
-
     // adapted from: https://trac.cyberduck.io/changeset/10760
     @Throws(IOException::class)
     override fun _prepareDataSocket_(socket: Socket) {
