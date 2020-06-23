@@ -1010,6 +1010,268 @@ open class Nyaa : PropertyTask() {
 }
 
 /**
+ * Task for uploading a torrent file to anidex.info.
+ * A predefined task instance can be accessed through [Subs.anidex].
+ *
+ * @sample myaa.subkt.tasks.samples.anidexSample
+ */
+open class Anidex : PropertyTask() {
+    /**
+     * Torrent categories on Nyaa.
+     */
+    enum class AnidexCategories(val categoryId: Int) {
+        ANIME_SUB(1),
+        ANIME_RAW(2),
+        ANIME_DUB(3),
+        LA_SUB(4),
+        LA_RAW(5),
+        LIGHT_NOVEL(6),
+        MANGA_TL(6),
+        MANGA_RAW(8),
+        MUSIC_LOSSY(9),
+        MUSIC_LOSSLESS(10),
+        MUSIC_VIDEO(11),
+        GAMES(12),
+        APPLICATIONS(13),
+        PICTURES(14),
+        AV(15),
+        OTHER(16)
+    }
+
+    enum class AnidexLanguage(val langId: Int) {
+        ENGLISH(1),
+        JAPANESE(2),
+        POLISH(3),
+        SERBOCROATIAN(4),
+        DUTCH(5),
+        ITALIAN(6),
+        RUSSIAN(7),
+        GERMAN(8),
+        HUNGARIAN(9),
+        FRENCH(10),
+        FINNISH(11),
+        VIETNAMESE(12),
+        GREEK(13),
+        BULGARIAN(14),
+        SPANISH_SPAIN(15),
+        PORTUGUESE_BRAZIL(16),
+        PORTUGUESE_PORTUGAL(17),
+        SWEDISH(18),
+        ARABIC(19),
+        DANISH(20),
+        CHINESE_SIMPLIFIED(21),
+        BENGALI(22),
+        ROMANIAN(23),
+        CZECH(24),
+        MONGOLIAN(25),
+        TURKISH(26),
+        INDONESIAN(27),
+        KOREAN(28),
+        SPANISH_LATAM(29),
+        PERSIAN(30),
+        MALAYSIAN(31)
+    }
+
+    /**
+     * The API endpoint. Don't change unless you know what you're doing.
+     * Defaults to `api`.
+     */
+    @get:Input
+    val endpoint = defaultProperty("api/")
+
+    /**
+     * The hostname. Don't change unless you know what you're doing.
+     * Defaults to `anidex.info`.
+     */
+    @get:Input
+    val host = defaultProperty("anidex.info")
+
+    /**
+     * If true, uses HTTPS to connect; HTTP otherwise.
+     * Don't change unless you know what you're doing.
+     * Defaults to `true`.
+     */
+    @get:Input
+    val https = defaultProperty(true)
+
+    /**
+     * The port to connect to. Don't change unless you know what you're doing.
+     * Defaults to `443` if [https] is true; `80` otherwise.
+     */
+    @get:Input
+    @get:Optional
+    val port = project.objects.property<Int>()
+
+    /**
+     * The API key for posting the torrent.
+     */
+    @get:Input
+    val apiKey = project.objects.property<String>()
+
+    /**
+     * What category to post the torrent to.
+     * Defaults to [AnidexCategories.ANIME_SUB].
+     */
+    @get:Input
+    val category = defaultProperty(AnidexCategories.ANIME_SUB)
+
+    /**
+     * The name (title) of the torrent. By default lets Anidex choose a title
+     * based on the torrent file.
+     */
+    @get:Input
+    @get:Optional
+    val torrentName = project.objects.property<String>()
+
+    /**
+     * The group to post the torrent as.
+     * Defaults to `0`, i.e. individual/no group.
+     */
+    @get:Input
+    val group = defaultProperty(0)
+
+    /**
+     * The language of the torrent.
+     * Defaults to [AnidexLanguage.ENGLISH].
+     */
+    @get:Input
+    val lang = defaultProperty(AnidexLanguage.ENGLISH)
+
+    /**
+     * If true, marks the torrent as a batch torrent.
+     * Defaults to `false`.
+     */
+    @get:Input
+    val batch = defaultProperty(false)
+
+    /**
+     * If true, marks the torrent as an R18+ torrent.
+     * Defaults to `false`.
+     */
+    @get:Input
+    val r18 = defaultProperty(false)
+
+    /**
+     * If true, marks the torrent as a remake.
+     * Defaults to `false`.
+     */
+    @get:Input
+    val remake = defaultProperty(false)
+
+    /**
+     * If true, marks the torrent as hidden.
+     * Defaults to `true`.
+     */
+    @get:Input
+    val hidden = defaultProperty(true)
+
+    /**
+     * If true, auto-submit torrent to TokyoToshokan.
+     * A TokyoToshokan API key must have been provided in the upload settings.
+     * Defaults to false.
+     */
+    @get:Input
+    val ttApi = defaultProperty(false)
+
+    /**
+     * The torrent description. Defaults to empty.
+     */
+    @get:Input
+    @get:Optional
+    val torrentDescription = project.objects.property<String>()
+
+    /**
+     * The torrent file to upload.
+     */
+    @get:InputFiles
+    val from = project.objects.fileCollection()
+
+    @get:OutputFiles
+    protected val out = super.propertyFile
+
+    /**
+     * The URL of the uploaded torrent.
+     * Only available if the upload succeeded.
+     */
+    @get:Internal
+    var anidexUrl by TaskProperty { "" }
+        private set
+
+    override fun run() {
+        val torrentFile = from.singleFile
+
+        val client = HttpClient {
+            expectSuccess = false
+        }
+
+        val data = runBlocking {
+            val response = client.submitFormWithBinaryData<HttpResponse>(
+                    scheme = if (https.get()) "https" else "http",
+                    host = host.get(),
+                    port = port.orNull ?: if (https.get()) 443 else 80,
+                    path = endpoint.get(),
+                    formData = formData {
+                        // TODO: ktor doesn't quote Content-Disposition parameters,
+                        // resulting in anidex not reading the filename correctly,
+                        // thinking it doesn't end in .torrent, and rejecting
+                        // the request
+                        // https://github.com/ktorio/ktor/issues/1691
+                        val quotedFilename = torrentFile.name
+                                .replace("\"", "\\\"").let { "\"$it\"" }
+                        append("file", quotedFilename) {
+                            writeFully(torrentFile.readBytes())
+                        }
+                        append("subcat_id", category.get().categoryId)
+                        append("group_id", group.get())
+                        append("api_key", apiKey.get())
+                        append("lang_id", lang.get().langId)
+
+                        torrentName.orNull?.let {
+                            append("torrent_name", it)
+                        }
+
+                        torrentDescription.orNull?.let {
+                            append("description", it)
+                        }
+
+                        if (batch.get()) {
+                            append("batch", 1)
+                        }
+
+                        if (r18.get()) {
+                            append("\u0068\u0065\u006e\u0074\u0061\u0069", 1)
+                        }
+
+                        if (remake.get()) {
+                            append("reencode", 1)
+                        }
+
+                        if (hidden.get()) {
+                            append("private", 1)
+                        }
+
+                        if (ttApi.get()) {
+                            append("tt_api", 1)
+                        }
+                    }
+            )
+
+            val data = response.receive<String>()
+
+            if (!response.status.isSuccess()) {
+                error("couldn't upload torrent: $data")
+            } else {
+                data
+            }
+        }
+
+        anidexUrl = data
+
+        println("Uploaded torrent: $anidexUrl")
+    }
+}
+
+/**
  * Task for sending general HTTP requests.
  * Data should be sent using one of [json], [body] and [form].
  * The response can be retrieved from [responseData] or [responseJson].
@@ -1867,6 +2129,13 @@ val Subs.torrent
  */
 val Subs.nyaa
     get() = task<Nyaa>("nyaa")
+
+/**
+ * Convenience property that upon use automatically instantiates and returns a
+ * [TaskGroup] of type [Anidex] with the name `anidex`.
+ */
+val Subs.anidex
+    get() = task<Anidex>("anidex")
 
 /**
  * Convenience property that upon use automatically instantiates and returns a

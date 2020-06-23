@@ -7,6 +7,7 @@ import myaa.subkt.tasks.*
 import myaa.subkt.ass.EventLineAccessor
 import myaa.subkt.ass.assTime
 import myaa.subkt.tasks.*
+import myaa.subkt.tasks.Anidex.*
 import myaa.subkt.tasks.Mux.*
 import myaa.subkt.tasks.Nyaa.*
 import org.gradle.api.NamedDomainObjectProvider
@@ -225,6 +226,18 @@ fun Subs.nyaaSample(torrent: TaskGroup<Torrent>) {
         torrentName("[Group] My Show - 01.mkv")
         torrentDescription("This is the *description*.")
         information("#channel @ irc.rizon.net")
+        hidden(true)
+    }
+}
+
+fun Subs.anidexSample(torrent: TaskGroup<Torrent>) {
+    anidex {
+        from(torrent.item())
+        apiKey("your-key-goes-hre")
+        category(AnidexCategories.ANIME_SUB)
+        lang(AnidexLanguage.ENGLISH)
+        torrentName("[Group] My Show - 01.mkv")
+        torrentDescription("This is the *description*.")
         hidden(true)
     }
 }

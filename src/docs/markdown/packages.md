@@ -26,6 +26,7 @@ The package provides the following Gradle tasks:
 * [HTTP] for making HTTP(S) requests
 * [Torrent] for generating a torrent file
 * [Nyaa] for publishing to nyaa.si
+* [Anidex] for publishing to anidex.info
 * [Discord] for posting messages to a Discord webhook
 
 In addition, simple wrappers of standard Gradle tasks implementing [SubTask] are available for convenience:
