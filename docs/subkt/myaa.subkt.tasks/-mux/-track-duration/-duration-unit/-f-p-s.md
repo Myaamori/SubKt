@@ -2,7 +2,7 @@
 
 # FPS
 
-`FPS`
+`FPS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L143)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # MILLISECONDS
 
-`MILLISECONDS`
+`MILLISECONDS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L140)
 
 ### Inherited Properties
 

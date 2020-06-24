@@ -2,4 +2,4 @@
 
 # global_tags
 
-`val global_tags: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`MkvGlobalTag`](../-mkv-global-tag/index.md)`>?`
+`val global_tags: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`MkvGlobalTag`](../-mkv-global-tag/index.md)`>?` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/mkvmerge/mkvmerge.kt#L126)

@@ -2,7 +2,7 @@
 
 # NANOSECONDS
 
-`NANOSECONDS`
+`NANOSECONDS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L142)
 
 ### Inherited Properties
 

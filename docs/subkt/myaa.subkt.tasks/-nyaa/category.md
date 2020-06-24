@@ -2,7 +2,7 @@
 
 # category
 
-`val category: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Nyaa.NyaaCategories`](-nyaa-categories/index.md)`>`
+`val category: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Nyaa.NyaaCategories`](-nyaa-categories/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L842)
 
 What category to post the torrent to.
 Defaults to [NyaaCategories.ANIME_ENGLISH](-nyaa-categories/-a-n-i-m-e_-e-n-g-l-i-s-h.md).

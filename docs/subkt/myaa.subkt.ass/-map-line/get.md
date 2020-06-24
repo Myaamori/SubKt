@@ -2,7 +2,7 @@
 
 # get
 
-`open fun get(key: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?``fun <T> get(key: `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](get.md#T)`, `[`L`](index.md#L)`>): `[`T`](get.md#T)
+`open fun get(key: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`?` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L324)`fun <T> get(key: `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](get.md#T)`, `[`L`](index.md#L)`>): `[`T`](get.md#T) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L329)
 
 Get a field in a type-safe way using a [LineAccessor](../-line-accessor/index.md).
 

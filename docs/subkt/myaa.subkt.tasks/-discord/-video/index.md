@@ -2,7 +2,7 @@
 
 # Video
 
-`inner class Video`
+`inner class Video` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L148)
 
 The video of an embed.
 

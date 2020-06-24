@@ -2,7 +2,7 @@
 
 # WrapperDelegate
 
-`class WrapperDelegate<T>`
+`class WrapperDelegate<T>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L242)
 
 Delegate which always returns the constant [item](item.md).
 

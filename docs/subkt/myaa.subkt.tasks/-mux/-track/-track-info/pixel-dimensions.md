@@ -2,4 +2,4 @@
 
 # pixelDimensions
 
-`val pixelDimensions: `[`Mux.Dimensions`](../../-dimensions/index.md)`?`
+`val pixelDimensions: `[`Mux.Dimensions`](../../-dimensions/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L169)

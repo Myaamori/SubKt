@@ -2,7 +2,7 @@
 
 # FormatSection
 
-`abstract class FormatSection<T : `[`MapLine`](../-map-line/index.md)`<`[`T`](index.md#T)`>> : `[`Section`](../-section/index.md)
+`abstract class FormatSection<T : `[`MapLine`](../-map-line/index.md)`<`[`T`](index.md#T)`>> : `[`Section`](../-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L887)
 
 Represents a section containing a sequence of lines, starting with a `Format` line
 specifying the order of the fields on each line.

@@ -2,4 +2,4 @@
 
 # properties
 
-`val properties: `[`MkvContainerProperties`](../-mkv-container-properties/index.md)`?`
+`val properties: `[`MkvContainerProperties`](../-mkv-container-properties/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/mkvmerge/mkvmerge.kt#L68)

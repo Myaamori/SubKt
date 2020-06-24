@@ -2,7 +2,7 @@
 
 # TrackType
 
-`enum class TrackType`
+`enum class TrackType` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L97)
 
 The type of a track, available through [Track.TrackInfo.type](../-track/-track-info/type.md).
 

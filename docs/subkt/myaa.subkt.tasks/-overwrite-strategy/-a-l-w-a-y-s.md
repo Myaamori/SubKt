@@ -2,7 +2,7 @@
 
 # ALWAYS
 
-`ALWAYS`
+`ALWAYS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1559)
 
 Always overwrite.
 

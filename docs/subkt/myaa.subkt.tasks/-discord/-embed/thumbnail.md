@@ -2,7 +2,7 @@
 
 # thumbnail
 
-`var thumbnail: `[`Discord.Thumbnail`](../-thumbnail/index.md)`?`
+`var thumbnail: `[`Discord.Thumbnail`](../-thumbnail/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L301)
 
 The thumbnail of this embed.
 
@@ -10,7 +10,7 @@ The thumbnail of this embed.
 
 The thumbnail of this embed.
 
-`fun thumbnail(action: `[`Discord.Thumbnail`](../-thumbnail/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+`fun thumbnail(action: `[`Discord.Thumbnail`](../-thumbnail/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L359)
 
 Set the thumbnail of this embed.
 

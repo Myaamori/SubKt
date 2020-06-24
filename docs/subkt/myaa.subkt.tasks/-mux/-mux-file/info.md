@@ -2,7 +2,7 @@
 
 # info
 
-`val info: `[`MkvInfo`](../../../myaa.subkt.tasks.mkvmerge/-mkv-info/index.md)
+`val info: `[`MkvInfo`](../../../myaa.subkt.tasks.mkvmerge/-mkv-info/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L331)
 
 Raw file info from mkvmerge.
 

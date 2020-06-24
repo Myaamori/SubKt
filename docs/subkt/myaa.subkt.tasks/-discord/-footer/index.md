@@ -2,7 +2,7 @@
 
 # Footer
 
-`inner class Footer`
+`inner class Footer` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L56)
 
 The footer of an embed.
 

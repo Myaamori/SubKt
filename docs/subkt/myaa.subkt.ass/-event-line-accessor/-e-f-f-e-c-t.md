@@ -2,4 +2,4 @@
 
 # EFFECT
 
-`object EFFECT : `[`EventLineAccessor`](index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`
+`object EFFECT : `[`EventLineAccessor`](index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L438)

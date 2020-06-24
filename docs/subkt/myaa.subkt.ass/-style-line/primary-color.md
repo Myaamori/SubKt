@@ -2,4 +2,4 @@
 
 # primaryColor
 
-`var primaryColor: `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)
+`var primaryColor: `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L535)

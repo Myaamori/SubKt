@@ -2,7 +2,7 @@
 
 # ANIME_NONENGLISH
 
-`ANIME_NONENGLISH`
+`ANIME_NONENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L761)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # OTHER
 
-`OTHER`
+`OTHER` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L102)
 
 ### Inherited Properties
 

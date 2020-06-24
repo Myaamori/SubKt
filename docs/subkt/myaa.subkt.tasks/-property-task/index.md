@@ -2,7 +2,7 @@
 
 # PropertyTask
 
-`abstract class PropertyTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md)
+`abstract class PropertyTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L586)
 
 Parent task type that automatically keeps track of and stores
 properties in JSON format.

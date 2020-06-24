@@ -2,7 +2,7 @@
 
 # ErrorMode
 
-`enum class ErrorMode`
+`enum class ErrorMode` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L63)
 
 Used in some tasks to specify the failure mode.
 

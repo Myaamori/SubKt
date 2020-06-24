@@ -2,4 +2,4 @@
 
 # end
 
-`var end: `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)
+`var end: `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L454)

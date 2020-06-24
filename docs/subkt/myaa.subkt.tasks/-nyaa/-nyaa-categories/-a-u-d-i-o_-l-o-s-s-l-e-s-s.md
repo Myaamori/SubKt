@@ -2,7 +2,7 @@
 
 # AUDIO_LOSSLESS
 
-`AUDIO_LOSSLESS`
+`AUDIO_LOSSLESS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L763)
 
 ### Inherited Properties
 

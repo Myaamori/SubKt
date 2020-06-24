@@ -2,7 +2,7 @@
 
 # properties
 
-`val properties: `[`SubProperties`](../-sub-properties/index.md)
+`val properties: `[`SubProperties`](../-sub-properties/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L324)
 
 A [SubProperties](../-sub-properties/index.md) instance for looking up properties using [get](get.md) and related functions..
 

@@ -2,7 +2,7 @@
 
 # item
 
-`fun <U> `[`ItemGroup`](../-item-group/index.md)`<`[`U`](item.md#U)`>.item(): `[`U`](item.md#U)
+`fun <U> `[`ItemGroup`](../-item-group/index.md)`<`[`U`](item.md#U)`>.item(): `[`U`](item.md#U) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L448)
 
 Gets the item from the given item group that corresponds to [entry](entry.md).
 

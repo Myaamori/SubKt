@@ -2,7 +2,7 @@
 
 # S_ART_DOUJINSHI
 
-`S_ART_DOUJINSHI`
+`S_ART_DOUJINSHI` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L778)
 
 ### Inherited Properties
 

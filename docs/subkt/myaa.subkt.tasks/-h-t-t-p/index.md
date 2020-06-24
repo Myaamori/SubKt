@@ -2,7 +2,7 @@
 
 # HTTP
 
-`open class HTTP : `[`PropertyTask`](../-property-task/index.md)`, `[`SubTask`](../-sub-task/index.md)
+`open class HTTP : `[`PropertyTask`](../-property-task/index.md)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1281)
 
 Task for sending general HTTP requests.
 Data should be sent using one of [json](json.md), [body](body.md) and [form](form.md).

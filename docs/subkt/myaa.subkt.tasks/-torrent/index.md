@@ -2,7 +2,7 @@
 
 # Torrent
 
-`open class Torrent : `[`AbstractArchiveTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/AbstractArchiveTask.html)`, `[`SubTask`](../-sub-task/index.md)
+`open class Torrent : `[`AbstractArchiveTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/AbstractArchiveTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L634)
 
 Task to create a torrent file from a set of files.
 A predefined task instance can be accessed through [Subs.torrent](../torrent.md).

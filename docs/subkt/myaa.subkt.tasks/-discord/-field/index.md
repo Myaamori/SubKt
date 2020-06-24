@@ -2,7 +2,7 @@
 
 # Field
 
-`inner class Field`
+`inner class Field` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L220)
 
 ### Constructors
 

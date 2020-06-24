@@ -2,7 +2,7 @@
 
 # Swap
 
-`open class Swap : `[`ASSTask`](../-a-s-s-task/index.md)
+`open class Swap : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L420)
 
 Task to enable/disable honorifics and the like using the same syntax as
 [Daiz's autoswapper](https://github.com/Daiz/AegisubMacros#autoswapperlua---autoswapper).

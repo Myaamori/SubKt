@@ -2,7 +2,7 @@
 
 # Line
 
-`abstract class Line : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html)
+`abstract class Line : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L243)
 
 A basic line with a type.
 

@@ -2,7 +2,7 @@
 
 # RUSSIAN
 
-`RUSSIAN`
+`RUSSIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1048)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # swap
 
-`val `[`Subs`](-subs/index.md)`.swap: `[`TaskGroup`](-task-group/index.md)`<`[`Swap`](-swap/index.md)`>`
+`val `[`Subs`](-subs/index.md)`.swap: `[`TaskGroup`](-task-group/index.md)`<`[`Swap`](-swap/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L501)
 
 Convenience property that upon use automatically instantiates and returns a
 [TaskGroup](-task-group/index.md) of type [Swap](-swap/index.md) with the name `swap`.

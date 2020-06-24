@@ -96,6 +96,12 @@ tasks {
             prefix = "com.turn.ttorrent"
             suppress = true
         }
+
+        linkMapping {
+            dir = project.file("src/main/kotlin").absolutePath
+            url = "https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin"
+            suffix = "#L"
+        }
         // }
     }
 }

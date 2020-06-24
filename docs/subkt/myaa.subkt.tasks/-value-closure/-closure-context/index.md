@@ -2,7 +2,7 @@
 
 # ClosureContext
 
-`inner class ClosureContext<T> : `[`BaseContext`](../../-base-context/index.md)
+`inner class ClosureContext<T> : `[`BaseContext`](../../-base-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L458)
 
 [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html) implementation for getting properties in a [ValueClosure](../index.md) context.
 

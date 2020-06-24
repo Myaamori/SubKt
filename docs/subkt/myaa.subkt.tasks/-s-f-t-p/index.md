@@ -2,7 +2,7 @@
 
 # SFTP
 
-`abstract class SFTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<ChannelSftp>`
+`abstract class SFTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<ChannelSftp>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1843)
 
 Task for uploading files via SFTP (SSH).
 A predefined task instance can be accessed through [Subs.sftp](../sftp.md).

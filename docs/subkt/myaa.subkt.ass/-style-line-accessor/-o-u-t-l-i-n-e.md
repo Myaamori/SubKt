@@ -2,4 +2,4 @@
 
 # OUTLINE
 
-`object OUTLINE : `[`StyleLineAccessor`](index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>`
+`object OUTLINE : `[`StyleLineAccessor`](index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L512)

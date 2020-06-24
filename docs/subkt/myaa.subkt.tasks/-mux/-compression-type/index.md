@@ -2,7 +2,7 @@
 
 # CompressionType
 
-`enum class CompressionType`
+`enum class CompressionType` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L113)
 
 The type of compression to use, for use with [Track.compression](../-track/compression.md).
 

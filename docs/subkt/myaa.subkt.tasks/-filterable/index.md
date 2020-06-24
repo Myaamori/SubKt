@@ -2,7 +2,7 @@
 
 # Filterable
 
-`interface Filterable`
+`interface Filterable` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L30)
 
 Represents an item that can be optionally discarded.
 

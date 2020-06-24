@@ -2,7 +2,7 @@
 
 # AegisubProjectGarbageSection
 
-`class AegisubProjectGarbageSection : `[`KeyValSection`](../-key-val-section/index.md)
+`class AegisubProjectGarbageSection : `[`KeyValSection`](../-key-val-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L735)
 
 Represents an Aegisub project garbage section.
 

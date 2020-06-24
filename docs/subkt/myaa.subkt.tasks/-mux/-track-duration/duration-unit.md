@@ -2,4 +2,4 @@
 
 # durationUnit
 
-`val durationUnit: `[`Mux.TrackDuration.DurationUnit`](-duration-unit/index.md)
+`val durationUnit: `[`Mux.TrackDuration.DurationUnit`](-duration-unit/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L137)

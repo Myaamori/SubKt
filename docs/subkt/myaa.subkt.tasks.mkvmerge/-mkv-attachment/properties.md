@@ -2,4 +2,4 @@
 
 # properties
 
-`val properties: `[`MkvAttachmentProperty`](../-mkv-attachment-property/index.md)
+`val properties: `[`MkvAttachmentProperty`](../-mkv-attachment-property/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/mkvmerge/mkvmerge.kt#L20)

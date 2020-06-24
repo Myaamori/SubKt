@@ -2,7 +2,7 @@
 
 # ValueClosure
 
-`class ValueClosure<T>`
+`class ValueClosure<T>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L407)
 
 ### Types
 

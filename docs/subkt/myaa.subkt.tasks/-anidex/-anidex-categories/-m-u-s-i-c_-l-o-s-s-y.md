@@ -2,7 +2,7 @@
 
 # MUSIC_LOSSY
 
-`MUSIC_LOSSY`
+`MUSIC_LOSSY` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1031)
 
 ### Inherited Properties
 
