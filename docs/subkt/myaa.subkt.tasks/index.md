@@ -23,6 +23,7 @@ The package provides the following Gradle tasks:
 * [HTTP](-h-t-t-p/index.md) for making HTTP(S) requests
 * [Torrent](-torrent/index.md) for generating a torrent file
 * [Nyaa](-nyaa/index.md) for publishing to nyaa.si
+* [Anidex](-anidex/index.md) for publishing to anidex.info
 * [Discord](-discord/index.md) for posting messages to a Discord webhook
 
 In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-sub-task/index.md) are available for convenience:
@@ -37,6 +38,7 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 | Name | Summary |
 |---|---|
 | [AbstractTransferTask](-abstract-transfer-task/index.md) | `abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](-sub-task/index.md) |
+| [Anidex](-anidex/index.md) | `open class Anidex : `[`PropertyTask`](-property-task/index.md)<br>Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](anidex.md). |
 | [ASSTask](-a-s-s-task/index.md) | `abstract class ASSTask : `[`PropertyTask`](-property-task/index.md)<br>Represents a task that outputs an ASS file. |
 | [BaseContext](-base-context/index.md) | `abstract class BaseContext : `[`AbstractContext`](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html)<br>Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |
 | [Chapters](-chapters/index.md) | `open class Chapters : `[`PropertyTask`](-property-task/index.md)<br>Generates a chapter file from an ASS file in the same way as Significance. The provided ASS file will be searched for lines where the field specified by [field](-chapters/field.md) contains the value specified by [chapterMarker](-chapters/chapter-marker.md), and for each such line a chapter will be generated using the start time as the time, and the value of the field specified by [chapterName](-chapters/chapter-name.md) as the chapter name. A predefined task instance can be accessed through [Subs.chapters](chapters.md). |
@@ -96,6 +98,7 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 
 | Name | Summary |
 |---|---|
+| [anidex](anidex.md) | `val `[`Subs`](-subs/index.md)`.anidex: `[`TaskGroup`](-task-group/index.md)`<`[`Anidex`](-anidex/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [Anidex](-anidex/index.md) with the name `anidex`. |
 | [chapters](chapters.md) | `val `[`Subs`](-subs/index.md)`.chapters: `[`TaskGroup`](-task-group/index.md)`<`[`Chapters`](-chapters/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [Chapters](-chapters/index.md) with the name `chapters`. |
 | [discord](discord.md) | `val `[`Subs`](-subs/index.md)`.discord: `[`TaskGroup`](-task-group/index.md)`<`[`Discord`](-discord/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [Discord](-discord/index.md) with the name `discord`. |
 | [ftp](ftp.md) | `val `[`Subs`](-subs/index.md)`.ftp: `[`TaskGroup`](-task-group/index.md)`<`[`FTP`](-f-t-p/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [FTP](-f-t-p/index.md) with the name `ftp`. |

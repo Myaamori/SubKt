@@ -9,6 +9,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 |---|---|
 | [myaa.subkt.tasks.AbstractTransferTask](../myaa.subkt.tasks/-abstract-transfer-task/index.md) |  |
 | [myaa.subkt.ass.AegisubProjectGarbageSection](../myaa.subkt.ass/-aegisub-project-garbage-section/index.md) | Represents an Aegisub project garbage section. |
+| [myaa.subkt.tasks.Anidex](../myaa.subkt.tasks/-anidex/index.md) | Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](../myaa.subkt.tasks/anidex.md). |
 | [myaa.subkt.ass.ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) | Represents an ASS file. If provided, will parse the given file. |
 | [myaa.subkt.tasks.ASSTask](../myaa.subkt.tasks/-a-s-s-task/index.md) | Represents a task that outputs an ASS file. |
 | [myaa.subkt.tasks.BaseContext](../myaa.subkt.tasks/-base-context/index.md) | Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |

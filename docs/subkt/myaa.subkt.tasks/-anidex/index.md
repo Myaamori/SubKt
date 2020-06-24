@@ -1,46 +1,77 @@
-[subkt](../../index.md) / [myaa.subkt.tasks](../index.md) / [PropertyTask](./index.md)
+[subkt](../../index.md) / [myaa.subkt.tasks](../index.md) / [Anidex](./index.md)
 
-# PropertyTask
+# Anidex
 
-`abstract class PropertyTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md)
+`open class Anidex : `[`PropertyTask`](../-property-task/index.md)
 
-Parent task type that automatically keeps track of and stores
-properties in JSON format.
+Task for uploading a torrent file to anidex.info.
+A predefined task instance can be accessed through [Subs.anidex](../anidex.md).
 
-Make use of by declaring a delegated property which delegates to
-a [TaskProperty](-task-property/index.md) instance.
+``` kotlin
+anidex {
+    from(torrent.item())
+    apiKey("your-key-goes-hre")
+    category(AnidexCategories.ANIME_SUB)
+    lang(AnidexLanguage.ENGLISH)
+    torrentName("[Group] My Show - 01.mkv")
+    torrentDescription("This is the *description*.")
+    hidden(true)
+}
+```
 
 ### Types
 
 | Name | Summary |
 |---|---|
-| [TaskProperty](-task-property/index.md) | `inner class TaskProperty<T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>`<br>Delegate for reading properties from a JSON file associated with this task. |
+| [AnidexCategories](-anidex-categories/index.md) | `enum class AnidexCategories`<br>Torrent categories on Nyaa. |
+| [AnidexLanguage](-anidex-language/index.md) | `enum class AnidexLanguage` |
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `PropertyTask()`<br>Parent task type that automatically keeps track of and stores properties in JSON format. |
+| [&lt;init&gt;](-init-.md) | `Anidex()`<br>Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](../anidex.md). |
 
 ### Properties
 
 | Name | Summary |
 |---|---|
-| [propertyFile](property-file.md) | `val propertyFile: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html) |
+| [anidexUrl](anidex-url.md) | `var anidexUrl: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>The URL of the uploaded torrent. Only available if the upload succeeded. |
+| [apiKey](api-key.md) | `val apiKey: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The API key for posting the torrent. |
+| [batch](batch.md) | `val batch: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, marks the torrent as a batch torrent. Defaults to `false`. |
+| [category](category.md) | `val category: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Anidex.AnidexCategories`](-anidex-categories/index.md)`>`<br>What category to post the torrent to. Defaults to [AnidexCategories.ANIME_SUB](-anidex-categories/-a-n-i-m-e_-s-u-b.md). |
+| [endpoint](endpoint.md) | `val endpoint: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The API endpoint. Don't change unless you know what you're doing. Defaults to `api`. |
+| [from](from.md) | `val from: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)`!`<br>The torrent file to upload. |
+| [group](group.md) | `val group: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`<br>The group to post the torrent as. Defaults to `0`, i.e. individual/no group. |
+| [hidden](hidden.md) | `val hidden: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, marks the torrent as hidden. Defaults to `true`. |
+| [host](host.md) | `val host: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The hostname. Don't change unless you know what you're doing. Defaults to `anidex.info`. |
+| [https](https.md) | `val https: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, uses HTTPS to connect; HTTP otherwise. Don't change unless you know what you're doing. Defaults to `true`. |
+| [lang](lang.md) | `val lang: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Anidex.AnidexLanguage`](-anidex-language/index.md)`>`<br>The language of the torrent. Defaults to [AnidexLanguage.ENGLISH](-anidex-language/-e-n-g-l-i-s-h.md). |
+| [out](out.md) | `val out: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html) |
+| [port](port.md) | `val port: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`<br>The port to connect to. Don't change unless you know what you're doing. Defaults to `443` if [https](https.md) is true; `80` otherwise. |
+| [r18](r18.md) | `val r18: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, marks the torrent as an R18+ torrent. Defaults to `false`. |
+| [remake](remake.md) | `val remake: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, marks the torrent as a remake. Defaults to `false`. |
+| [torrentDescription](torrent-description.md) | `val torrentDescription: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The torrent description. Defaults to empty. |
+| [torrentName](torrent-name.md) | `val torrentName: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The name (title) of the torrent. By default lets Anidex choose a title based on the torrent file. |
+| [ttApi](tt-api.md) | `val ttApi: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>If true, auto-submit torrent to TokyoToshokan. A TokyoToshokan API key must have been provided in the upload settings. Defaults to false. |
+
+### Inherited Properties
+
+| Name | Summary |
+|---|---|
+| [propertyFile](../-property-task/property-file.md) | `val propertyFile: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html) |
 
 ### Functions
 
 | Name | Summary |
 |---|---|
-| [doTask](do-task.md) | `fun doTask(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
-| [run](run.md) | `abstract fun run(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [run](run.md) | `open fun run(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Inherited Functions
 
 | Name | Summary |
 |---|---|
-| [item](../-sub-task/item.md) | `open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](../-sub-task/item.md#T)`>.item(): `[`T`](../-sub-task/item.md#T)<br>Gets the item from the given item group that corresponds to [entry](../org.gradle.api.-task/entry.md). |
-| [items](../-sub-task/items.md) | `open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](../-sub-task/items.md#T)`>.items(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`T`](../-sub-task/items.md#T)`>`<br>Gets the items from the given item group that correspond to [episodes](../org.gradle.api.-task/episodes.md). |
+| [doTask](../-property-task/do-task.md) | `fun doTask(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Extension Properties
 
@@ -70,14 +101,3 @@ a [TaskProperty](-task-property/index.md) instance.
 | [getRaw](../org.gradle.api.-task/get-raw.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.getRaw(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Searches for the given property in the [Subs](../-subs/index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string. Raises an error if not found. |
 | [getRawMaybe](../org.gradle.api.-task/get-raw-maybe.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.getRawMaybe(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>Searches for the given property in the [Subs](../-subs/index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string, possibly null. |
 | [outputFile](../org.gradle.api.-task/output-file.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.outputFile(extension: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>Returns a [ConfigurableFileCollection](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html) containing a single file `taskName.extension` located in the build directory. |
-
-### Inheritors
-
-| Name | Summary |
-|---|---|
-| [Anidex](../-anidex/index.md) | `open class Anidex : `[`PropertyTask`](./index.md)<br>Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](../anidex.md). |
-| [ASSTask](../-a-s-s-task/index.md) | `abstract class ASSTask : `[`PropertyTask`](./index.md)<br>Represents a task that outputs an ASS file. |
-| [Chapters](../-chapters/index.md) | `open class Chapters : `[`PropertyTask`](./index.md)<br>Generates a chapter file from an ASS file in the same way as Significance. The provided ASS file will be searched for lines where the field specified by [field](../-chapters/field.md) contains the value specified by [chapterMarker](../-chapters/chapter-marker.md), and for each such line a chapter will be generated using the start time as the time, and the value of the field specified by [chapterName](../-chapters/chapter-name.md) as the chapter name. A predefined task instance can be accessed through [Subs.chapters](../chapters.md). |
-| [HTTP](../-h-t-t-p/index.md) | `open class HTTP : `[`PropertyTask`](./index.md)`, `[`SubTask`](../-sub-task/index.md)<br>Task for sending general HTTP requests. Data should be sent using one of [json](../-h-t-t-p/json.md), [body](../-h-t-t-p/body.md) and [form](../-h-t-t-p/form.md). The response can be retrieved from [responseData](../-h-t-t-p/response-data.md) or [responseJson](../-h-t-t-p/response-json.md). |
-| [Mux](../-mux/index.md) | `open class Mux : `[`PropertyTask`](./index.md)<br>Task to mux a set of files into a single Matroska container using mkvmerge. |
-| [Nyaa](../-nyaa/index.md) | `open class Nyaa : `[`PropertyTask`](./index.md)<br>Task for uploading a torrent file to nyaa.si. A predefined task instance can be accessed through [Subs.nyaa](../nyaa.md). |

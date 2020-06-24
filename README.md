@@ -1039,7 +1039,7 @@ println(myMap["key1"])
 // Output: value1
 ```
 
-One not regarding the syntax for creating maps:
+One note regarding the syntax for creating maps:
 `mapOf` is a function that takes a list of `Pair` objects.
 The syntax `x to y` is equivalent to writing `Pair(x, y)`.
 Thus, the above map could equivalenty be written as

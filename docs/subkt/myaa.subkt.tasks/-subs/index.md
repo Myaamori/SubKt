@@ -126,6 +126,7 @@ subs {
 
 | Name | Summary |
 |---|---|
+| [anidex](../anidex.md) | `val `[`Subs`](./index.md)`.anidex: `[`TaskGroup`](../-task-group/index.md)`<`[`Anidex`](../-anidex/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](../-task-group/index.md) of type [Anidex](../-anidex/index.md) with the name `anidex`. |
 | [chapters](../chapters.md) | `val `[`Subs`](./index.md)`.chapters: `[`TaskGroup`](../-task-group/index.md)`<`[`Chapters`](../-chapters/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](../-task-group/index.md) of type [Chapters](../-chapters/index.md) with the name `chapters`. |
 | [discord](../discord.md) | `val `[`Subs`](./index.md)`.discord: `[`TaskGroup`](../-task-group/index.md)`<`[`Discord`](../-discord/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](../-task-group/index.md) of type [Discord](../-discord/index.md) with the name `discord`. |
 | [ftp](../ftp.md) | `val `[`Subs`](./index.md)`.ftp: `[`TaskGroup`](../-task-group/index.md)`<`[`FTP`](../-f-t-p/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](../-task-group/index.md) of type [FTP](../-f-t-p/index.md) with the name `ftp`. |
