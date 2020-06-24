@@ -864,6 +864,7 @@ open class Mux : PropertyTask() {
 
         val renamed = this.outFile.get()
         println("Output: ${renamed.name}")
+        renamed.delete()
         tempLocation.renameTo(renamed)
     }
 }

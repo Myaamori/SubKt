@@ -1,6 +1,9 @@
 package myaa.subkt.tasks.mkvmerge
 
 import com.google.gson.Gson
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.io.Serializable
 import java.lang.RuntimeException
@@ -138,17 +141,21 @@ data class MkvInfo(
  */
 fun getMkvInfo(file: File, mkvmerge: String = "mkvmerge"): MkvInfo {
     val filePath = file.absolutePath
-    val proc = ProcessBuilder(mkvmerge, "-J", filePath)
-            .redirectOutput(ProcessBuilder.Redirect.PIPE)
-            .redirectError(ProcessBuilder.Redirect.INHERIT)
-            .start()
+    val proc = ProcessBuilder(mkvmerge, "-J", filePath).start()
+
+    val deferred = GlobalScope.async {
+        proc.inputStream.reader().use {
+            Gson().fromJson(it, MkvInfo::class.java)
+        }
+    }
+
     if (!proc.waitFor(180, TimeUnit.SECONDS)) {
         proc.destroyForcibly()
         throw RuntimeException("mkvmerge -J command timed out for file $filePath")
     }
 
-    val parsed = proc.inputStream.reader().use {
-        Gson().fromJson(it, MkvInfo::class.java)
+    val parsed = runBlocking {
+        deferred.await()
     }
 
     if (proc.exitValue() != 0) {

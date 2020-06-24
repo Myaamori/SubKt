@@ -4,7 +4,6 @@ import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     kotlin("jvm") version "1.3.72"
-    kotlin("plugin.serialization") version "1.3.72"
     `java-gradle-plugin`
     id("org.jetbrains.dokka") version "0.9.18"
 }
@@ -44,6 +43,7 @@ sourceSets {
 dependencies {
     implementation(kotlin("stdlib-jdk8", "1.3.72"))
     implementation(kotlin("reflect", "1.3.72"))
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-core", "1.3.7")
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
     implementation("org.apache.velocity", "velocity-engine-core", "2.2")
