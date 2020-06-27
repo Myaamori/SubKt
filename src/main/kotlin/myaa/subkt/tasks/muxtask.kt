@@ -755,8 +755,8 @@ open class Mux : PropertyTask() {
         }
 
         _chapters.orNull?.let {
-            println("Attaching chapters:")
-            println(it.file.readText())
+            logger.lifecycle("Attaching chapters:")
+            logger.lifecycle(it.file.readText())
             getSetFields(_chapters.get()).forEach { (flag, value) ->
                 yield("--$flag")
                 yield("$value")
@@ -773,7 +773,7 @@ open class Mux : PropertyTask() {
 
         // per-track flags
         _files.get().forEach { file ->
-            println(file)
+            logger.lifecycle(file.toString())
 
             // options from included tracks
             file.tracks.filter { it.include.get() }.forEach { track ->
@@ -819,7 +819,7 @@ open class Mux : PropertyTask() {
         _attachments.get().forEach { a ->
             project.files(a).forEach {
                 val mime = mimeTypes[it.extension.toLowerCase()]
-                println("Attaching ${it.name} (content-type: ${mime ?: "autodetected"})")
+                logger.lifecycle("Attaching ${it.name} (content-type: ${mime ?: "autodetected"})")
                 mime?.let {
                     yield("--attachment-mime-type")
                     yield(it)
@@ -839,7 +839,7 @@ open class Mux : PropertyTask() {
         val tempLocation = outFile.resolveSibling(outFile.name + ".tmp")
         val command = buildCommand(tempLocation).toList()
 
-        println(command)
+        logger.lifecycle(command.toString())
         val proc = ProcessBuilder(command)
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .redirectError(ProcessBuilder.Redirect.INHERIT)
@@ -863,7 +863,7 @@ open class Mux : PropertyTask() {
         } ?: "%08X".format(oldcrc)
 
         val renamed = this.outFile.get()
-        println("Output: ${renamed.name}")
+        logger.quiet("Output: ${renamed.name}")
         renamed.delete()
         tempLocation.renameTo(renamed)
     }

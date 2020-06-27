@@ -603,7 +603,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
             try {
                 properties.parse(project.file(it))
             } catch (e: FileNotFoundException) {
-                println("Warning: could not find property file $it")
+                project.logger.warn("could not find property file $it")
             }
         }
     }

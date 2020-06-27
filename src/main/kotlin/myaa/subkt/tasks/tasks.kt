@@ -709,7 +709,7 @@ open class Torrent : AbstractArchiveTask(), SubTask {
         val files = mutableListOf<Pair<RelativePath, File>>()
         stream.process {
             if (!it.isDirectory) {
-                println("${it.path} [${it.file.absolutePath}]")
+                logger.lifecycle("${it.path} [${it.file.path}]")
                 files.add(it.relativePath to it.file)
             }
         }
@@ -1006,7 +1006,7 @@ open class Nyaa : PropertyTask() {
         nyaaHash = data.hash!!
         nyaaName = data.name!!
 
-        println("Uploaded torrent: $nyaaUrl [$nyaaName]")
+        logger.quiet("Uploaded torrent: $nyaaUrl [$nyaaName]")
     }
 }
 
@@ -1268,7 +1268,7 @@ open class Anidex : PropertyTask() {
 
         anidexUrl = data
 
-        println("Uploaded torrent: $anidexUrl")
+        logger.quiet("Uploaded torrent: $anidexUrl")
     }
 }
 

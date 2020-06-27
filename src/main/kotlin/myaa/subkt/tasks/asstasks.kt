@@ -65,13 +65,6 @@ enum class ErrorMode {
     FAIL
 }
 
-private fun warn(message: String, mode: ErrorMode) {
-    when (mode) {
-        ErrorMode.WARN -> println("Warning: $message")
-        ErrorMode.FAIL -> error(message)
-    }
-}
-
 /**
  * Task to merge multiple ASS files into one. A predefined task instance can be
  * accessed through [Subs.merge].
@@ -233,6 +226,13 @@ open class Merge : ASSTask() {
      */
     fun scriptInfo(action: ScriptInfoSection.() -> Unit) {
         scriptInfo.action()
+    }
+
+    private fun warn(message: String, mode: ErrorMode) {
+        when (mode) {
+            ErrorMode.WARN -> logger.warn(message)
+            ErrorMode.FAIL -> error(message)
+        }
     }
 
     override fun buildAss(): ASSFile {
