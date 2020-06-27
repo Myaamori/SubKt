@@ -34,6 +34,7 @@ import org.gradle.api.file.*
 import org.gradle.api.internal.file.copy.CopyAction
 import org.gradle.api.internal.file.copy.CopySpecInternal
 import org.gradle.api.internal.provider.DefaultProvider
+import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.HasMultipleValues
 import org.gradle.api.provider.MapProperty
 import org.gradle.api.provider.Property
@@ -47,6 +48,7 @@ import org.gradle.kotlin.dsl.*
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
+import java.io.OutputStream
 import java.lang.reflect.Method
 import java.net.Socket
 import java.time.Duration
@@ -1826,18 +1828,12 @@ abstract class FTP : AbstractTransferTask<FTPClient>() {
     }
 }
 
-/**
- * Task for uploading files via SFTP (SSH).
- * A predefined task instance can be accessed through [Subs.sftp].
- *
- * @sample myaa.subkt.tasks.samples.sftpSample
- */
-abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
+interface SSHTask {
     /**
      * The hostname or IP address of the SSH server.
      */
     @get:Input
-    val host = project.objects.property<String>()
+    val host: Property<String>
 
     /**
      * The port of the SSH server.
@@ -1845,7 +1841,7 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val port = project.objects.property<Int>()
+    val port: Property<Int>
 
     /**
      * The username for logging in to the SSH server.
@@ -1853,7 +1849,7 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val username = project.objects.property<String>()
+    val username: Property<String>
 
     /**
      * The password for logging in to the SSH server.
@@ -1861,7 +1857,7 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val password = project.objects.property<String>()
+    val password: Property<String>
 
     /**
      * The private identity key file for logging in to the SSH server.
@@ -1869,7 +1865,7 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val identity = project.objects.property<String>()
+    val identity: Property<String>
 
     /**
      * The SSH config file. Contains per-host settings such as
@@ -1878,10 +1874,7 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val config = project.objects.property<String>()
-
-    private val _config = "${System.getProperty("user.home")}/.ssh/config"
-            .takeIf { project.file(it).exists() }
+    val config: Property<String>
 
     /**
      * The known hosts file. SFTP will refuse to connect unless the host is
@@ -1900,16 +1893,44 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
      */
     @get:Input
     @get:Optional
-    val knownHosts = project.objects.property<String>()
+    val knownHosts: Property<String>
 
-    private val _knownHosts = "${System.getProperty("user.home")}/.ssh/known_hosts"
-            .takeIf { project.file(it).exists() }
+    /**
+     * The timeout in milliseconds after which to abort the connection.
+     * Defaults to 15000.
+     */
+    @get:Input
+    @get:Optional
+    val connectionTimeout: Property<Int>
 
-    override fun createClient(): ChannelSftp {
-        val destDir = rootSpec.resolveDestDir()
+    fun createSession(): Session
+}
+
+class SSHTaskImpl(objects: ObjectFactory) : SSHTask {
+    override val host = objects.property<String>()
+
+    override val port = objects.property<Int>()
+
+    override val username = objects.property<String>()
+
+    override val password = objects.property<String>()
+
+    override val identity = objects.property<String>()
+
+    override val config = objects.property<String>()
+            .convention("${System.getProperty("user.home")}/.ssh/config"
+                    .takeIf { File(it).exists() })
+
+    override val knownHosts = objects.property<String>()
+            .convention("${System.getProperty("user.home")}/.ssh/known_hosts"
+                    .takeIf { File(it).exists() })
+
+    override val connectionTimeout = objects.property<Int>().convention(15000)
+
+    override fun createSession(): Session {
         val jsch = JSch()
 
-        knownHosts.getOrElse(_knownHosts)?.let {
+        knownHosts.orNull?.let {
             jsch.setKnownHosts(it)
         }
 
@@ -1917,14 +1938,30 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
             jsch.addIdentity(it)
         }
 
-        config.getOrElse(_config)?.let {
+        config.orNull?.let {
             jsch.configRepository = OpenSSHConfig.parseFile(it)
         }
 
         val session = jsch.getSession(username.orNull, host.get(), port.getOrElse(22))
 
-        session.timeout = 15000
+        session.timeout = connectionTimeout.get()
         session.connect()
+
+        return session
+    }
+}
+
+/**
+ * Task for uploading files via SFTP (SSH).
+ * A predefined task instance can be accessed through [Subs.sftp].
+ *
+ * @sample myaa.subkt.tasks.samples.sftpSample
+ */
+abstract class SFTP @Inject constructor(objects: ObjectFactory) :
+        AbstractTransferTask<ChannelSftp>(), SSHTask by SSHTaskImpl(objects) {
+
+    override fun createClient(): ChannelSftp {
+        val session = createSession()
 
         val channel = session.openChannel("sftp") as ChannelSftp
         channel.connect()
@@ -1973,6 +2010,73 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
         return true
     }
 }
+
+/**
+ * Task for executing commands on a remote shell via SSH.
+ *
+ * @sample myaa.subkt.tasks.samples.sshExecSample
+ */
+open class SSHExec @Inject constructor(objects: ObjectFactory) :
+        DefaultSubTask(), SSHTask by SSHTaskImpl(objects) {
+    /**
+     * The command to execute on the remote server.
+     */
+    @get:Input
+    val command = project.objects.property<String>()
+
+    /**
+     * The environment variables to use for the process.
+     */
+    @get:Input
+    val environment = project.objects.mapProperty<String, String>()
+
+    /**
+     * The standard input stream for the process executing the command.
+     * Defaults to null (no input).
+     */
+    @get:Internal
+    var standardInput: InputStream? = null
+
+    /**
+     * The output stream to consume standard output from the process executing the command.
+     * Defaults to [System.out].
+     */
+    @get:Internal
+    var standardOutput: OutputStream = System.out
+
+    /**
+     * The output stream to consume standard error from the process executing the command.
+     * Defaults to [System.err].
+     */
+    @get:Internal
+    var errorOutput: OutputStream = System.err
+
+    @TaskAction
+    fun run() {
+        val session = createSession()
+        val channel = session.openChannel("exec") as ChannelExec
+
+        environment.get().forEach { (k, v) ->
+            channel.setEnv(k, v)
+        }
+
+        channel.inputStream = standardInput
+        channel.setErrStream(errorOutput)
+        channel.setCommand(command.get())
+
+        channel.connect()
+
+        channel.inputStream.use { stream ->
+            generateSequence { stream.readNBytes(1024).takeIf { it.isNotEmpty() } }
+                    .forEach { standardOutput.write(it) }
+        }
+
+        if (channel.exitStatus != 0) {
+            error("ssh command failed")
+        }
+    }
+}
+
 
 /**
  * Wrapper task for [DefaultTask] which implements [SubTask], giving access to

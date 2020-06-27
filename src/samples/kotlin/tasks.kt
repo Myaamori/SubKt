@@ -284,6 +284,20 @@ fun Subs.sftpSample(mux: TaskGroup<Mux>) {
     }
 }
 
+fun Subs.sshExecSample() {
+    "sshexec"<SSHExec> {
+        host("ssh.example.com")
+        // identity file, username and port specified in config file
+        // defaults to ~/.ssh/config
+        config("sshconfig")
+        // file with fingerprints for verifying the host
+        // defaults to ~/.ssh/known_hosts
+        knownHosts("known_hosts")
+
+        command("ls")
+    }
+}
+
 fun Subs.httpSample() {
     "http"<HTTP> {
         host("example.com")
