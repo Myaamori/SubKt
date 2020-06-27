@@ -46,7 +46,6 @@ import org.gradle.internal.logging.progress.ProgressLoggerFactory
 import org.gradle.kotlin.dsl.*
 import java.io.File
 import java.io.FileNotFoundException
-import java.io.IOException
 import java.io.InputStream
 import java.lang.reflect.Method
 import java.net.Socket
@@ -677,7 +676,7 @@ open class Torrent : AbstractArchiveTask(), SubTask {
         val f = out.elements.map { it.single().asFile }
         archiveFileName.set(f.map { it.name })
         destinationDirectory.set(project.layout.dir(f.map {
-            File(it.parent ?: ".")
+            project.file(it.parent ?: ".")
         }))
     }
 
@@ -1585,14 +1584,14 @@ abstract class AbstractTransferTask<T> : AbstractCopyTask(), SubTask {
         val destDir = rootSpec.resolveDestDir()
 
         val client = createClient()
-        makedirs(client, destDir.path)
+        makedirs(client, destDir)
         val condition = overwriteIf.get()
 
         val filesToWrite = mutableListOf<Pair<File, String>>()
         val logger = progressLoggerFactory.newOperation(this::class.java)
         logger.start("Uploading files", "Preparing directories...")
         stream.process { details ->
-            val destPath = destDir.resolve(details.path).path
+            val destPath = destDir + "/" + details.path
             if (details.isDirectory) {
                 makedirs(client, destPath)
             } else {
@@ -1652,11 +1651,10 @@ abstract class AbstractTransferTask<T> : AbstractCopyTask(), SubTask {
 
         fun resolveDestDir() = resolveDestDir(destDir)
 
-        private fun resolveDestDir(destDir: Any): File =
+        private fun resolveDestDir(destDir: Any): String =
                 when (destDir) {
-                    is String -> File(destDir)
+                    is String -> destDir
                     is Provider<*> -> resolveDestDir(destDir.get())
-                    is File -> destDir
                     else -> error("can't convert type to destination directory: ${destDir::class}")
                 }
     }
@@ -1668,32 +1666,26 @@ abstract class AbstractTransferTask<T> : AbstractCopyTask(), SubTask {
 
 private class SSLSessionReuseFTPSClient(implicit: Boolean) : FTPSClient(implicit) {
     // adapted from: https://trac.cyberduck.io/changeset/10760
-    @Throws(IOException::class)
+
     override fun _prepareDataSocket_(socket: Socket) {
         if (socket is SSLSocket) {
             // Control socket is SSL
             val session = (_socket_ as SSLSocket).session
             if (session.isValid) {
                 val context = session.sessionContext
-                try {
-                    val sessionHostPortCache = context.javaClass.getDeclaredField("sessionHostPortCache")
-                    sessionHostPortCache.isAccessible = true
-                    val cache = sessionHostPortCache.get(context)
-                    val method: Method = cache.javaClass.getDeclaredMethod("put", Any::class.java, Any::class.java)
-                    method.setAccessible(true)
-                    method.invoke(cache, String.format("%s:%s", socket.getInetAddress()
-                            .hostName, socket.getPort().toString())
-                            .toLowerCase(Locale.ROOT), session)
-                    method.invoke(cache, String.format("%s:%s", socket.getInetAddress()
-                            .hostAddress, socket.getPort().toString())
-                            .toLowerCase(Locale.ROOT), session)
-                } catch (e: NoSuchFieldException) {
-                    throw IOException(e)
-                } catch (e: Exception) {
-                    throw IOException(e)
-                }
+                val sessionHostPortCache = context.javaClass.getDeclaredField("sessionHostPortCache")
+                sessionHostPortCache.isAccessible = true
+                val cache = sessionHostPortCache.get(context)
+                val method: Method = cache.javaClass.getDeclaredMethod("put", Any::class.java, Any::class.java)
+                method.setAccessible(true)
+                method.invoke(cache, String.format("%s:%s", socket.getInetAddress()
+                        .hostName, socket.getPort().toString())
+                        .toLowerCase(Locale.ROOT), session)
+                method.invoke(cache, String.format("%s:%s", socket.getInetAddress()
+                        .hostAddress, socket.getPort().toString())
+                        .toLowerCase(Locale.ROOT), session)
             } else {
-                throw IOException("Invalid SSL Session")
+                throw error("Invalid SSL Session")
             }
         }
     }
@@ -1941,14 +1933,18 @@ abstract class SFTP : AbstractTransferTask<ChannelSftp>() {
     }
 
     override fun makedirs(client: ChannelSftp, path: String) {
-        fun mkdirs(dir: File?) {
-            if (dir != null && stat(client, dir.toString()) == null) {
-                mkdirs(dir.parentFile)
-                client.mkdir(dir.toString())
+        tailrec fun mkdirs(path: String, remaining: List<String>) {
+            if (stat(client, path) == null) {
+                client.mkdir(path)
+            }
+
+            if (remaining.isNotEmpty()) {
+                mkdirs(path + remaining[0], remaining.drop(1))
             }
         }
 
-        mkdirs(File(path))
+        val parts = path.split(Regex("(?<=/)(?!\$)"))
+        mkdirs(parts[0], parts.drop(1))
     }
 
     override fun stat(client: ChannelSftp, file: String): FileDetails? =

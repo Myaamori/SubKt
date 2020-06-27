@@ -5,9 +5,6 @@ import org.apache.velocity.context.AbstractContext
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
-import org.gradle.api.provider.ListProperty
-import org.gradle.api.provider.MapProperty
-import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.*
 import java.io.File
@@ -16,7 +13,6 @@ import java.io.StringWriter
 import java.lang.UnsupportedOperationException
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 import java.util.*
 import kotlin.math.max
 
@@ -123,12 +119,12 @@ private fun expandGroups(s: String): List<String> =
  *
  * Returns the original string if no matching path was found.
  */
-fun globPath(glob: String): List<Path> {
-    val p = Paths.get(glob.replace("*", "%"))
-    val globbed = globPath(p.root ?: Paths.get("."), p.subpath(0, p.nameCount))
+fun globPath(glob: String): List<String> {
+    val p = Path.of(glob.replace("*", "%"))
+    val globbed = globPath(p.root ?: Path.of("."), p.subpath(0, p.nameCount))
     return globbed.map {
-        if (p.isAbsolute) it else Paths.get(".").relativize(it)
-    }
+        if (p.isAbsolute) it else Path.of(".").relativize(it)
+    }.map { it.toString().replace("\\", "/") }
 }
 
 private fun globPath(head: Path, tail: Path): List<Path> {
@@ -165,9 +161,7 @@ fun glob(s: String) =
             when {
                 // don't glob unless item contains wildcard (kills repeated /)
                 group.find { it in "*%" } != null ->
-                    globPath(group)
-                            .map { it.toString() }
-                            .takeUnless { it.isEmpty() }
+                    globPath(group).takeUnless { it.isEmpty() }
                 else -> null
             } ?: listOf(group)
         }
