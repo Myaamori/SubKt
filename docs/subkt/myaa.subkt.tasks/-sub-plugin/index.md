@@ -2,7 +2,7 @@
 
 # SubPlugin
 
-`class SubPlugin : `[`Plugin`](https://docs.gradle.org/current/javadoc/org/gradle/api/Plugin.html)`<`[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L627)
+`class SubPlugin : `[`Plugin`](https://docs.gradle.org/current/javadoc/org/gradle/api/Plugin.html)`<`[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L621)
 
 Plugin that adds a [Subs](../-subs/index.md) instance as a DSL extension with the name "subs".
 

@@ -2,7 +2,7 @@
 
 # POLISH
 
-`POLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1044)
+`POLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1045)
 
 ### Inherited Properties
 

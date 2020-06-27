@@ -2,7 +2,7 @@
 
 # TURKISH
 
-`TURKISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1067)
+`TURKISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1068)
 
 ### Inherited Properties
 

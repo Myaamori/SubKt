@@ -2,7 +2,7 @@
 
 # FTP
 
-`abstract class FTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<FTPClient>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1708)
+`abstract class FTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<FTPClient>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1702)
 
 Task for uploading files via FTP.
 A predefined task instance can be accessed through [Subs.ftp](../ftp.md).

@@ -2,7 +2,7 @@
 
 # SWEDISH
 
-`SWEDISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1059)
+`SWEDISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1060)
 
 ### Inherited Properties
 

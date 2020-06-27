@@ -2,7 +2,7 @@
 
 # SPANISH_SPAIN
 
-`SPANISH_SPAIN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1056)
+`SPANISH_SPAIN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1057)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # fromMergeTemplate
 
-`fun fromMergeTemplate(file: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L207)
+`fun fromMergeTemplate(file: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L200)
 
 Merges files as defined in a template file following
 [Merge Scripts](https://github.com/TypesettingTools/Myaamori-Aegisub-Scripts/#merge-scripts)

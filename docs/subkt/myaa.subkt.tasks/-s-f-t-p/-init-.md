@@ -2,7 +2,7 @@
 
 # &lt;init&gt;
 
-`SFTP()`
+`SFTP(objects: `[`ObjectFactory`](https://docs.gradle.org/current/javadoc/org/gradle/api/model/ObjectFactory.html)`)`
 
 Task for uploading files via SFTP (SSH).
 A predefined task instance can be accessed through [Subs.sftp](../sftp.md).

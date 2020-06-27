@@ -2,7 +2,7 @@
 
 # ANIME_ENGLISH
 
-`ANIME_ENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L760)
+`ANIME_ENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L761)
 
 ### Inherited Properties
 

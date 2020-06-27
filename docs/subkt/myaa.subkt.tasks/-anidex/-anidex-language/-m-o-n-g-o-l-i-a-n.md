@@ -2,7 +2,7 @@
 
 # MONGOLIAN
 
-`MONGOLIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1066)
+`MONGOLIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1067)
 
 ### Inherited Properties
 

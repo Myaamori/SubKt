@@ -2,7 +2,7 @@
 
 # LITERATURE_RAW
 
-`LITERATURE_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L767)
+`LITERATURE_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L768)
 
 ### Inherited Properties
 

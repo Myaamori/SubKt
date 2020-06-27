@@ -2,7 +2,7 @@
 
 # ANIME_RAW
 
-`ANIME_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1024)
+`ANIME_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1025)
 
 ### Inherited Properties
 

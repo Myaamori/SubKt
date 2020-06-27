@@ -2,7 +2,7 @@
 
 # AbstractTransferTask
 
-`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1562)
+`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1563)
 
 ### Types
 
@@ -77,4 +77,4 @@
 | Name | Summary |
 |---|---|
 | [FTP](../-f-t-p/index.md) | `abstract class FTP : `[`AbstractTransferTask`](./index.md)`<FTPClient>`<br>Task for uploading files via FTP. A predefined task instance can be accessed through [Subs.ftp](../ftp.md). |
-| [SFTP](../-s-f-t-p/index.md) | `abstract class SFTP : `[`AbstractTransferTask`](./index.md)`<ChannelSftp>`<br>Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../sftp.md). |
+| [SFTP](../-s-f-t-p/index.md) | `abstract class SFTP : `[`AbstractTransferTask`](./index.md)`<ChannelSftp>, `[`SSHTask`](../-s-s-h-task/index.md)<br>Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../sftp.md). |

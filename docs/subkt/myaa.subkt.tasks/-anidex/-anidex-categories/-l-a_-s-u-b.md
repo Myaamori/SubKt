@@ -2,7 +2,7 @@
 
 # LA_SUB
 
-`LA_SUB` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1026)
+`LA_SUB` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1027)
 
 ### Inherited Properties
 

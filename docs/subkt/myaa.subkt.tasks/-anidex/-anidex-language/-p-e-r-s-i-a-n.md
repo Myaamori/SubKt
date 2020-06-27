@@ -2,7 +2,7 @@
 
 # PERSIAN
 
-`PERSIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1071)
+`PERSIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1072)
 
 ### Inherited Properties
 

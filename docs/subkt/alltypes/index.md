@@ -65,6 +65,8 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.ass.ScriptInfoSection](../myaa.subkt.ass/-script-info-section/index.md) | Represents a script info section. |
 | [myaa.subkt.ass.Section](../myaa.subkt.ass/-section/index.md) | Represents a section in an ASS file, textually represented as a section name in square brackets followed by zero or more lines in a `Type: Value` format. |
 | [myaa.subkt.tasks.SFTP](../myaa.subkt.tasks/-s-f-t-p/index.md) | Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../myaa.subkt.tasks/sftp.md). |
+| [myaa.subkt.tasks.SSHExec](../myaa.subkt.tasks/-s-s-h-exec/index.md) | Task for executing commands on a remote shell via SSH. |
+| [myaa.subkt.tasks.SSHTask](../myaa.subkt.tasks/-s-s-h-task/index.md) | Common interface for tasks that connect to SSH. |
 | [kotlin.String](../myaa.subkt.ass/kotlin.-string/index.md) (extensions in package myaa.subkt.ass) |  |
 | [kotlin.String](../myaa.subkt.tasks/kotlin.-string/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.ass.StyleLine](../myaa.subkt.ass/-style-line/index.md) | A line in a [StyleSection](../myaa.subkt.ass/-style-section/index.md). Its associated accessor is [StyleLineAccessor](../myaa.subkt.ass/-style-line-accessor/index.md). |

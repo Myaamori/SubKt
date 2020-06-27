@@ -2,7 +2,7 @@
 
 # nyaaMagnet
 
-`var nyaaMagnet: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L913)
+`var nyaaMagnet: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L914)
 
 The magnet link of the uploaded torrent.
 Only available if the upload succeeded.

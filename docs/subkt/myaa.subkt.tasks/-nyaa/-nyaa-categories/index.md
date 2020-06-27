@@ -2,7 +2,7 @@
 
 # NyaaCategories
 
-`enum class NyaaCategories` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L758)
+`enum class NyaaCategories` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L759)
 
 Torrent categories on Nyaa.
 

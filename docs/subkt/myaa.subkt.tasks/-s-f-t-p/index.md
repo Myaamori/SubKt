@@ -2,7 +2,7 @@
 
 # SFTP
 
-`abstract class SFTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<ChannelSftp>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1843)
+`abstract class SFTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<ChannelSftp>, `[`SSHTask`](../-s-s-h-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1963)
 
 Task for uploading files via SFTP (SSH).
 A predefined task instance can be accessed through [Subs.sftp](../sftp.md).
@@ -33,19 +33,7 @@ sftp {
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `SFTP()`<br>Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../sftp.md). |
-
-### Properties
-
-| Name | Summary |
-|---|---|
-| [config](config.md) | `val config: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The SSH config file. Contains per-host settings such as username, host address and identity file. Defaults to ~/.ssh/config. |
-| [host](host.md) | `val host: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The hostname or IP address of the SSH server. |
-| [identity](identity.md) | `val identity: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The private identity key file for logging in to the SSH server. May also be specified using `IdentityFile` in the SSH config file. |
-| [knownHosts](known-hosts.md) | `val knownHosts: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The known hosts file. SFTP will refuse to connect unless the host is present in this file. Defaults to ~/.ssh/known_hosts. |
-| [password](password.md) | `val password: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The password for logging in to the SSH server. Not recommended; prefer using an identity file instead. |
-| [port](port.md) | `val port: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`<br>The port of the SSH server. May also be specified using `Port` in the SSH config file. |
-| [username](username.md) | `val username: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The username for logging in to the SSH server. May also be specified using `User` in the SSH config file. |
+| [&lt;init&gt;](-init-.md) | `SFTP(objects: `[`ObjectFactory`](https://docs.gradle.org/current/javadoc/org/gradle/api/model/ObjectFactory.html)`)`<br>Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../sftp.md). |
 
 ### Inherited Properties
 

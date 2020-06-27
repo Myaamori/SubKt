@@ -2,4 +2,4 @@
 
 # createCopyAction
 
-`protected open fun createCopyAction(): CopyAction` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L684)
+`protected open fun createCopyAction(): CopyAction` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L685)

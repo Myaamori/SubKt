@@ -2,7 +2,7 @@
 
 # MUSIC_VIDEO
 
-`MUSIC_VIDEO` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1033)
+`MUSIC_VIDEO` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1034)
 
 ### Inherited Properties
 

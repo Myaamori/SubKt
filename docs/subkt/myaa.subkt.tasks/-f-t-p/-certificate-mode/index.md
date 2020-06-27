@@ -2,7 +2,7 @@
 
 # CertificateMode
 
-`enum class CertificateMode` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1712)
+`enum class CertificateMode` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1706)
 
 The strategy for verifying certificates when using FTPS.
 

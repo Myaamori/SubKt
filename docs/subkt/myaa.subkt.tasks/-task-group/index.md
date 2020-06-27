@@ -2,7 +2,7 @@
 
 # TaskGroup
 
-`class TaskGroup<T : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`> : `[`ItemGroup`](../-item-group/index.md)`<`[`TaskProvider`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskProvider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L316)
+`class TaskGroup<T : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`> : `[`ItemGroup`](../-item-group/index.md)`<`[`TaskProvider`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskProvider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L317)
 
 A group of tasks of the same type.
 

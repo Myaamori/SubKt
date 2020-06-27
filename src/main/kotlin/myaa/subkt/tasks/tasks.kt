@@ -1828,6 +1828,9 @@ abstract class FTP : AbstractTransferTask<FTPClient>() {
     }
 }
 
+/**
+ * Common interface for tasks that connect to SSH.
+ */
 interface SSHTask {
     /**
      * The hostname or IP address of the SSH server.
@@ -1906,7 +1909,7 @@ interface SSHTask {
     fun createSession(): Session
 }
 
-class SSHTaskImpl(objects: ObjectFactory) : SSHTask {
+private class SSHTaskImpl(objects: ObjectFactory) : SSHTask {
     override val host = objects.property<String>()
 
     override val port = objects.property<Int>()

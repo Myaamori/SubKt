@@ -2,7 +2,7 @@
 
 # FileDetails
 
-`protected data class FileDetails` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1563)
+`protected data class FileDetails` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1564)
 
 ### Constructors
 

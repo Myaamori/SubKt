@@ -2,7 +2,7 @@
 
 # AnidexLanguage
 
-`enum class AnidexLanguage` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1041)
+`enum class AnidexLanguage` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1042)
 
 ### Enum Values
 

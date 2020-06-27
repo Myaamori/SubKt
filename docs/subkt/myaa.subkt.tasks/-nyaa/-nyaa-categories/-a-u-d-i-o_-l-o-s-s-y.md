@@ -2,7 +2,7 @@
 
 # AUDIO_LOSSY
 
-`AUDIO_LOSSY` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L764)
+`AUDIO_LOSSY` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L765)
 
 ### Inherited Properties
 

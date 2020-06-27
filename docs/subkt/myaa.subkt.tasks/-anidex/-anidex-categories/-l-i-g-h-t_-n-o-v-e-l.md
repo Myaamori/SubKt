@@ -2,7 +2,7 @@
 
 # LIGHT_NOVEL
 
-`LIGHT_NOVEL` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1028)
+`LIGHT_NOVEL` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1029)
 
 ### Inherited Properties
 

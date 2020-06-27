@@ -2,7 +2,7 @@
 
 # S_ART_GAMES
 
-`S_ART_GAMES` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L779)
+`S_ART_GAMES` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L780)
 
 ### Inherited Properties
 

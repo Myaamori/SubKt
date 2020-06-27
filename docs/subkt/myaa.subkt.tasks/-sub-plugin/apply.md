@@ -2,4 +2,4 @@
 
 # apply
 
-`fun apply(project: `[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L628)
+`fun apply(project: `[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L622)

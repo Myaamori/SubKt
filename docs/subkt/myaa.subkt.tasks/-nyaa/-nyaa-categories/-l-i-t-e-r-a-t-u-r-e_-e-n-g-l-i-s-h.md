@@ -2,7 +2,7 @@
 
 # LITERATURE_ENGLISH
 
-`LITERATURE_ENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L765)
+`LITERATURE_ENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L766)
 
 ### Inherited Properties
 

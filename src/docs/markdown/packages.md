@@ -23,6 +23,7 @@ The package provides the following Gradle tasks:
 * [Mux] for muxing files using mkvmerge
 * [FTP] for uploading files to an FTP server
 * [SFTP] for uploading files to an SSH server
+* [SSHExec] for executing commands on an SSH server
 * [HTTP] for making HTTP(S) requests
 * [Torrent] for generating a torrent file
 * [Nyaa] for publishing to nyaa.si

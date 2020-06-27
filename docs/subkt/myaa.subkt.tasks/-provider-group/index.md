@@ -2,7 +2,7 @@
 
 # ProviderGroup
 
-`class ProviderGroup<T> : `[`ItemGroup`](../-item-group/index.md)`<`[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L542)
+`class ProviderGroup<T> : `[`ItemGroup`](../-item-group/index.md)`<`[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L543)
 
 [ItemGroup](../-item-group/index.md) that keeps track of providers for values of type [T](index.md#T).
 A [Provider](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html) is generated for each entry, and the given closure

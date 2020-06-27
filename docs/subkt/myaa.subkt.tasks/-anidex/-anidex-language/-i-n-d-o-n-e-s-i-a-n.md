@@ -2,7 +2,7 @@
 
 # INDONESIAN
 
-`INDONESIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1068)
+`INDONESIAN` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1069)
 
 ### Inherited Properties
 

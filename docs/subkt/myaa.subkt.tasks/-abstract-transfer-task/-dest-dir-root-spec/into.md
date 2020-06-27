@@ -2,4 +2,4 @@
 
 # into
 
-`fun into(destPath: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`): `[`CopySpec`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/CopySpec.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1648)
+`fun into(destPath: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`): `[`CopySpec`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/CopySpec.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1649)
