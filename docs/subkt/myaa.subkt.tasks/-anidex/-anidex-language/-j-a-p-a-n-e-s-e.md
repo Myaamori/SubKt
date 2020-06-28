@@ -2,7 +2,7 @@
 
 # JAPANESE
 
-`JAPANESE` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1044)
+`JAPANESE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1047)
 
 ### Inherited Properties
 

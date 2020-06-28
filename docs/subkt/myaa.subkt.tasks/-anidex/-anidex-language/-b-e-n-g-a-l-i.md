@@ -2,7 +2,7 @@
 
 # BENGALI
 
-`BENGALI` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1064)
+`BENGALI` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1067)
 
 ### Inherited Properties
 

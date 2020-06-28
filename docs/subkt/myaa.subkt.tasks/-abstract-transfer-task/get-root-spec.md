@@ -2,4 +2,4 @@
 
 # getRootSpec
 
-`open fun getRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](-dest-dir-root-spec/index.md)`<*>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1666)
+`open fun getRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](-dest-dir-root-spec/index.md)`<*>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1669)

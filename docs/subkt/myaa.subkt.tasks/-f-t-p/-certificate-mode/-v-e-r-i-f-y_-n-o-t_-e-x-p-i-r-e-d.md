@@ -2,7 +2,7 @@
 
 # VERIFY_NOT_EXPIRED
 
-`VERIFY_NOT_EXPIRED` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1715)
+`VERIFY_NOT_EXPIRED` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1718)
 
 Verify that the certificate has not expired, but do not perform any further checks.
 

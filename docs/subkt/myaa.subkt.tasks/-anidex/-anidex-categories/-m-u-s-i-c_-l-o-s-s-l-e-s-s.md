@@ -2,7 +2,7 @@
 
 # MUSIC_LOSSLESS
 
-`MUSIC_LOSSLESS` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1033)
+`MUSIC_LOSSLESS` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1036)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # Nyaa
 
-`open class Nyaa : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L755)
+`open class Nyaa : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L758)
 
 Task for uploading a torrent file to nyaa.si.
 A predefined task instance can be accessed through [Subs.nyaa](../nyaa.md).

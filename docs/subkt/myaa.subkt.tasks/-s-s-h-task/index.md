@@ -2,7 +2,7 @@
 
 # SSHTask
 
-`interface SSHTask` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1834)
+`interface SSHTask` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1837)
 
 Common interface for tasks that connect to SSH.
 

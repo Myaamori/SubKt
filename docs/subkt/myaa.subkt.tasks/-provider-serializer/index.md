@@ -2,7 +2,7 @@
 
 # ProviderSerializer
 
-`object ProviderSerializer : JsonSerializer<`[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<*>>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L27)
+`object ProviderSerializer : JsonSerializer<`[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<*>>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L27)
 
 ### Functions
 

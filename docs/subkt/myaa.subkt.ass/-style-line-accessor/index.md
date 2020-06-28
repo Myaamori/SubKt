@@ -2,7 +2,7 @@
 
 # StyleLineAccessor
 
-`sealed class StyleLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L496)
+`sealed class StyleLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L496)
 
 A type-safe accessor for [StyleLine](../-style-line/index.md).
 

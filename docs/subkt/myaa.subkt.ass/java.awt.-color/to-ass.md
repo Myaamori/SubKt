@@ -2,7 +2,7 @@
 
 # toAss
 
-`fun `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`.toAss(includeAlpha: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)` = true): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L797)
+`fun `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`.toAss(includeAlpha: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)` = true): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L797)
 
 Converts this color into a color as represented in ASS.
 See [String.assColor](../kotlin.-string/ass-color.md).

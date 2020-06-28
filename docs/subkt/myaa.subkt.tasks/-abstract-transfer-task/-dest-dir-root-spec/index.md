@@ -2,7 +2,7 @@
 
 # DestDirRootSpec
 
-`inner class DestDirRootSpec<T> : CopySpecInternal` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1646)
+`inner class DestDirRootSpec<T> : CopySpecInternal` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1649)
 
 [CopySpec](https://docs.gradle.org/current/javadoc/org/gradle/api/file/CopySpec.html) that captures the destination directory.
 

@@ -2,7 +2,7 @@
 
 # ASSFile
 
-`class ASSFile` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L81)
+`class ASSFile` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L81)
 
 Represents an ASS file. If provided, will parse the given file.
 

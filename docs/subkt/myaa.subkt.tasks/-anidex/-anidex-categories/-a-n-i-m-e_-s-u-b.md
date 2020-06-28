@@ -2,7 +2,7 @@
 
 # ANIME_SUB
 
-`ANIME_SUB` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1024)
+`ANIME_SUB` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1027)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # ScriptInfoSection
 
-`class ScriptInfoSection : `[`KeyValSection`](../-key-val-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/ass/parser.kt#L691)
+`class ScriptInfoSection : `[`KeyValSection`](../-key-val-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L691)
 
 Represents a script info section.
 

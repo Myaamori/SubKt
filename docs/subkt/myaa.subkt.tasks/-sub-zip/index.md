@@ -2,7 +2,7 @@
 
 # SubZip
 
-`open class SubZip : `[`Zip`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/Zip.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2112)
+`open class SubZip : `[`Zip`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/Zip.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2115)
 
 Wrapper task for [Zip](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/Zip.html) which implements [SubTask](../-sub-task/index.md), giving access to
 [SubTask.item](../-sub-task/item.md) and [SubTask.items](../-sub-task/items.md) for convenience.

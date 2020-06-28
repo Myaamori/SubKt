@@ -2,7 +2,7 @@
 
 # LIVEACTION_IDOL
 
-`LIVEACTION_IDOL` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L770)
+`LIVEACTION_IDOL` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L773)
 
 ### Inherited Properties
 

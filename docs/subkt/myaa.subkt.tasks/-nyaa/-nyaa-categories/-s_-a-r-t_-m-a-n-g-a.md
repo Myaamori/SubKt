@@ -2,7 +2,7 @@
 
 # S_ART_MANGA
 
-`S_ART_MANGA` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L781)
+`S_ART_MANGA` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L784)
 
 ### Inherited Properties
 

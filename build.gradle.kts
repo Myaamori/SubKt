@@ -18,7 +18,7 @@ gradlePlugin {
 }
 
 group = "myaa"
-version = "0.1.3"
+version = "0.1.4"
 
 repositories {
     mavenCentral()
@@ -99,7 +99,7 @@ tasks {
 
         linkMapping {
             dir = project.file("src/main/kotlin").absolutePath
-            url = "https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin"
+            url = "https://github.com/Myaamori/SubKt/blob/$version/src/main/kotlin"
             suffix = "#L"
         }
         // }

@@ -2,7 +2,7 @@
 
 # shiftBy
 
-`val shiftBy: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`!>` [(source)](https://github.com/Myaamori/SubKt/blob/master/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L89)
+`val shiftBy: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`!>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L89)
 
 Shifts the start and end times of all event lines by the specified [Duration](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html).
 
