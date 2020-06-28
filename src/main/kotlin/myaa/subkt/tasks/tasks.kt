@@ -684,7 +684,10 @@ open class Torrent : AbstractArchiveTask(), SubTask {
 
     override fun createCopyAction() = CopyAction { stream ->
         val builder = MetadataBuilder()
-                .addTrackers(trackers.get())
+
+        trackers.get().forEach { tracker ->
+            builder.newTier().addTracker(tracker)
+        }
 
         private.orNull?.let {
             if (it) {
