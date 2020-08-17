@@ -98,7 +98,8 @@ tasks {
         }
 
         linkMapping {
-            dir = project.file("src/main/kotlin").absolutePath
+            // replace \ with / since only unix paths are allowed
+            dir = project.file("src/main/kotlin").absolutePath.replace('\\', '/')
             url = "https://github.com/Myaamori/SubKt/blob/$version/src/main/kotlin"
             suffix = "#L"
         }
