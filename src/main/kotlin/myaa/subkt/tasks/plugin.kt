@@ -119,15 +119,16 @@ private fun expandGroups(s: String): List<String> =
  *
  * Returns the original string if no matching path was found.
  */
-fun globPath(glob: String): List<String> {
+fun Project.globPath(glob: String): List<String> {
     val p = Path.of(glob.replace("*", "%"))
-    val globbed = globPath(p.root ?: Path.of("."), p.subpath(0, p.nameCount))
+    val projectRoot = layout.projectDirectory.asFile.toPath()
+    val globbed = globPath(p.root ?: projectRoot, p.subpath(0, p.nameCount))
     return globbed.map {
-        if (p.isAbsolute) it else Path.of(".").relativize(it)
+        if (p.isAbsolute) it else projectRoot.relativize(it)
     }.map { it.toString().replace("\\", "/") }
 }
 
-private fun globPath(head: Path, tail: Path): List<Path> {
+private fun Project.globPath(head: Path, tail: Path): List<Path> {
     val glob = tail.getName(0).toString()
     if (glob.contains('%')) {
         val pattern = convertGlob(tail.getName(0).toString(), "%")
@@ -156,7 +157,7 @@ private fun globPath(head: Path, tail: Path): List<Path> {
  *
  * @sample myaa.subkt.tasks.samples.globSample
  */
-fun glob(s: String) =
+fun Project.glob(s: String) =
         expandGroups(expandRanges(s)).flatMap { group ->
             when {
                 // don't glob unless item contains wildcard (kills repeated /)
@@ -452,7 +453,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
                     val evaluated = evaluateTemplate(
                             expression, entry = entry, context = context).get()
                     evaluated.split("|").flatMap {
-                        glob(it)
+                        project.glob(it)
                     }
                 }
             }
