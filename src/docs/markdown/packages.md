@@ -20,6 +20,7 @@ The package provides the following Gradle tasks:
 * [Merge] for merging ASS files
 * [Chapters] for generating chapter files
 * [Swap] for swapping honorifics and the like
+* [ASS] for modifying ASS files
 * [Mux] for muxing files using mkvmerge
 * [FTP] for uploading files to an FTP server
 * [SFTP] for uploading files to an SSH server

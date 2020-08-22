@@ -545,7 +545,8 @@ release.entry.property=value
 
 where `release` is set using the `subs.release` property (defaults to "default"), `entry` is the episode or batch name for the task the property is being accessed from, and `property` is the name used to access the property.
 You can use a wildcard `*` to match parts of releases, entries or property names.
-You may also leave out the release or both the release and the entry; missing parts will be interpreted as `*`, matching all values for the respective parts.
+The group syntax `{a,b,c}` and range syntax `{01..06}` is also available.
+You may leave out the release or both the release and the entry; missing parts will be interpreted as `*`, matching all values for the respective parts.
 
 ```
 # equivalent to *.*.group=PAS
@@ -561,6 +562,14 @@ vol*.torrentFile=My Show - $name.torrent
 # empty version by default, override for episode 02 TV
 version=
 TV.02.version=v2
+
+# define properties using groups
+{01,03,05}.OP=OP1.ass
+{02,04,06}.OP=OP2.ass
+
+# define properties using ranges
+{01..03}.ED=ED1.ass
+{04..06}.ED=ED2.ass
 ```
 
 You can use the following syntax for property values:
