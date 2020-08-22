@@ -7,6 +7,7 @@ import java.lang.Exception
 import java.lang.UnsupportedOperationException
 import java.nio.charset.StandardCharsets
 import java.time.Duration
+import java.time.temporal.ChronoUnit
 import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.reflect.KClass
@@ -772,7 +773,7 @@ fun Duration.toAss() =
                 toHoursPart(), toMinutesPart(), toSecondsPart(), toMillisPart() / 10
         )
 
-private val timePattern = Regex("""(\d+):(\d{2}):(\d{2})\.(\d{2})""")
+private val timePattern = Regex("""(\d+):(\d{2}):(\d{2})\.(\d{1,6})""")
 
 /**
  * Gets this string as a [Duration], parsing it as an ASS time.
@@ -783,11 +784,11 @@ private val timePattern = Regex("""(\d+):(\d{2}):(\d{2})\.(\d{2})""")
  */
 val String.assTime
     get() = timePattern.matchEntire(this)?.let { match ->
-            val (h, m, sec, cs) = match.groupValues
-                    .drop(1).map { it.toLong() }
-            val ms = (((h * 60 + m) * 60 + sec) * 100 + cs) * 10
-            Duration.ofMillis(ms)
-        } ?: throw IllegalArgumentException("not a valid time: $this")
+        val (h, m, sec, dec) = match.groupValues.drop(1)
+        val us = "%-6s".format(dec).replace(' ', '0')
+        val ms = ((h.toLong() * 60 + m.toLong()) * 60 + sec.toLong()) * 1000000 + us.toLong()
+        Duration.of(ms, ChronoUnit.MICROS)
+    } ?: throw IllegalArgumentException("not a valid time: $this")
 
 
 /**
