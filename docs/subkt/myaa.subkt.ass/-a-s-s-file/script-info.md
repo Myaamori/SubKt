@@ -2,7 +2,7 @@
 
 # scriptInfo
 
-`val scriptInfo: `[`ScriptInfoSection`](../-script-info-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L107)
+`val scriptInfo: `[`ScriptInfoSection`](../-script-info-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L108)
 
 The [ScriptInfoSection](../-script-info-section/index.md) of the file.
 

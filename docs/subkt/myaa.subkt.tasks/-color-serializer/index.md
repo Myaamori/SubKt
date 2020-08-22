@@ -2,7 +2,7 @@
 
 # ColorSerializer
 
-`object ColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L33)
+`object ColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L33)
 
 ### Functions
 

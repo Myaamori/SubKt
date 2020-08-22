@@ -2,4 +2,4 @@
 
 # SECONDARY_COLOR
 
-`object SECONDARY_COLOR : `[`StyleLineAccessor`](index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L500)
+`object SECONDARY_COLOR : `[`StyleLineAccessor`](index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L501)

@@ -2,7 +2,7 @@
 
 # chapterName
 
-`val chapterName: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`EventLineAccessor`](../../myaa.subkt.ass/-event-line-accessor/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L349)
+`val chapterName: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`EventLineAccessor`](../../myaa.subkt.ass/-event-line-accessor/index.md)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L349)
 
 The field defining the name of the chapter. Defaults to the text field.
 If set to the text field, and the line consists of a comment, the chapter name

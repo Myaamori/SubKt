@@ -2,7 +2,7 @@
 
 # MapLine
 
-`abstract class MapLine<L : `[`MapLine`](./index.md)`<`[`L`](index.md#L)`>> : `[`Line`](../-line/index.md)`, `[`MutableMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/ass/parser.kt#L301)
+`abstract class MapLine<L : `[`MapLine`](./index.md)`<`[`L`](index.md#L)`>> : `[`Line`](../-line/index.md)`, `[`MutableMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L302)
 
 A line in a [FormatSection](../-format-section/index.md). The fields contained in this object can be
 accessed in three ways:

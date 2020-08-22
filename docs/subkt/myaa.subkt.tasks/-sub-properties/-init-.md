@@ -10,6 +10,7 @@ later be looked up using the [match](match.md) method.
 Properties may contain wildcards, which will match any sequence of characters.
 For instance, a property defined as `TV.episode*.name=value` will be found
 with a `match("name", entry="episode01", release="TV")` call.
+Groups (e.g. `{01,03,04}.op=OP1.ass`) and ranges (e.g. `{01..12}.cour=1`) are also supported.
 
 Unspecified release and entry components are equivalent to wildcards.
 In other words, `name=value` is equivalent to `*.*.name=value`, while

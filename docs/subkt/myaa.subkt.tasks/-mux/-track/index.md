@@ -2,7 +2,7 @@
 
 # Track
 
-`inner class Track : `[`Filterable`](../../-filterable/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L154)
+`inner class Track : `[`Filterable`](../../-filterable/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L154)
 
 Represents a single track read from the source file.
 
@@ -37,6 +37,7 @@ Represents a single track read from the source file.
 | [stretch](stretch.md) | `val stretch: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>`<br>Value to multiply the timestamps by. E.g. a value of 2 makes the track twice as long. |
 | [sync](sync.md) | `val sync: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>` |
 | [track](track.md) | `val track: `[`Mux.Track.TrackInfo`](-track-info/index.md)<br>A [TrackInfo](-track-info/index.md) instance providing information about the source track. |
+| [trackOrder](track-order.md) | `val trackOrder: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>`<br>The order of this track in the muxed file. Tracks will be sorted by the values specified for this property. |
 
 ### Functions
 

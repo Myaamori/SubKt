@@ -2,7 +2,7 @@
 
 # inputFiles
 
-`val inputFiles: `[`FileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L621)
+`val inputFiles: `[`FileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L675)
 
 All files added via [from](from.md), [attach](attach.md) or [chapters](chapters.md).
 

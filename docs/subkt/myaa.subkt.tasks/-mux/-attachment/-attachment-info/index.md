@@ -2,7 +2,7 @@
 
 # AttachmentInfo
 
-`inner class AttachmentInfo` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L62)
+`inner class AttachmentInfo` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L62)
 
 Stores information extracted from the attachment.
 

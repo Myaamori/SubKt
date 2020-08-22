@@ -2,4 +2,4 @@
 
 # stat
 
-`protected abstract fun stat(client: `[`T`](-dest-dir-root-spec/index.md#T)`, file: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`AbstractTransferTask.FileDetails`](-file-details/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1586)
+`protected abstract fun stat(client: `[`T`](-dest-dir-root-spec/index.md#T)`, file: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`AbstractTransferTask.FileDetails`](-file-details/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1587)

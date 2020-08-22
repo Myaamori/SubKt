@@ -2,4 +2,4 @@
 
 # serialize
 
-`fun serialize(src: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<*>, typeOfSrc: `[`Type`](https://docs.oracle.com/javase/9/docs/api/java/lang/reflect/Type.html)`, context: JsonSerializationContext): JsonElement` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L28)
+`fun serialize(src: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<*>, typeOfSrc: `[`Type`](https://docs.oracle.com/javase/9/docs/api/java/lang/reflect/Type.html)`, context: JsonSerializationContext): JsonElement` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L28)

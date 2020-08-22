@@ -22,6 +22,8 @@ $dokka.location:myaa.subkt.tasks$getList(org.gradle.api.Task, kotlin.String)mya
 $dokka.location:myaa.subkt.tasks$getListAs(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-list-as.md
 $dokka.location:myaa.subkt.tasks$getRaw(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-raw.md
 $dokka.location:myaa.subkt.tasks$getRawMaybe(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-raw-maybe.md
+$dokka.location:myaa.subkt.tasks$glob(org.gradle.api.Project, kotlin.String)myaa.subkt.tasks/org.gradle.api.-project/glob.md
+$dokka.location:myaa.subkt.tasks$globPath(org.gradle.api.Project, kotlin.String)myaa.subkt.tasks/org.gradle.api.-project/glob-path.md
 $dokka.location:myaa.subkt.tasks$invoke(org.gradle.api.file.ConfigurableFileCollection, kotlin.Any)myaa.subkt.tasks/org.gradle.api.file.-configurable-file-collection/invoke.md
 $dokka.location:myaa.subkt.tasks$invoke(org.gradle.api.file.FileSystemLocationProperty((myaa.subkt.tasks.invoke.T)), java.io.File)myaa.subkt.tasks/org.gradle.api.file.-file-system-location-property/invoke.md
 $dokka.location:myaa.subkt.tasks$invoke(org.gradle.api.file.FileSystemLocationProperty((myaa.subkt.tasks.invoke.T)), org.gradle.api.tasks.TaskProvider((org.gradle.api.Task)))myaa.subkt.tasks/org.gradle.api.file.-file-system-location-property/invoke.md

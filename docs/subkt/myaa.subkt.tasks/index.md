@@ -7,7 +7,7 @@ This package contains facilities for defining fansubbing-related tasks using Gra
 Of particular interest are:
 
 * [Subs](-subs/index.md) - central extension tracking episodes, batches and tasks, and providing access to properties
-* [glob](glob.md) - basic brace expansion and globbing
+* [glob](org.gradle.api.-project/glob.md) - basic brace expansion and globbing
 * [ItemGroupContext](-item-group-context/index.md) - facilities for creating groups of items (e.g. tasks) for multiple entries
 * [ItemGroup](-item-group/index.md) - represents a group of items (e.g. tasks) which can be accessed on an entry basis
 * The extension functions to [org.gradle.api.Task](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)
@@ -17,6 +17,7 @@ The package provides the following Gradle tasks:
 * [Merge](-merge/index.md) for merging ASS files
 * [Chapters](-chapters/index.md) for generating chapter files
 * [Swap](-swap/index.md) for swapping honorifics and the like
+* [ASS](-a-s-s/index.md) for modifying ASS files
 * [Mux](-mux/index.md) for muxing files using mkvmerge
 * [FTP](-f-t-p/index.md) for uploading files to an FTP server
 * [SFTP](-s-f-t-p/index.md) for uploading files to an SSH server
@@ -40,6 +41,7 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 |---|---|
 | [AbstractTransferTask](-abstract-transfer-task/index.md) | `abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](-sub-task/index.md) |
 | [Anidex](-anidex/index.md) | `open class Anidex : `[`PropertyTask`](-property-task/index.md)<br>Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](anidex.md). |
+| [ASS](-a-s-s/index.md) | `open class ASS : `[`ASSTask`](-a-s-s-task/index.md)<br>Generic task for modifying ASS files. See [ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) and related classes for more information. The modified file is written to a new file. |
 | [ASSTask](-a-s-s-task/index.md) | `abstract class ASSTask : `[`PropertyTask`](-property-task/index.md)<br>Represents a task that outputs an ASS file. |
 | [BaseContext](-base-context/index.md) | `abstract class BaseContext : `[`AbstractContext`](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html)<br>Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |
 | [Chapters](-chapters/index.md) | `open class Chapters : `[`PropertyTask`](-property-task/index.md)<br>Generates a chapter file from an ASS file in the same way as Significance. The provided ASS file will be searched for lines where the field specified by [field](-chapters/field.md) contains the value specified by [chapterMarker](-chapters/chapter-marker.md), and for each such line a chapter will be generated using the start time as the time, and the value of the field specified by [chapterName](-chapters/chapter-name.md) as the chapter name. A predefined task instance can be accessed through [Subs.chapters](chapters.md). |
@@ -92,6 +94,7 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 | [kotlin.String](kotlin.-string/index.md) |  |
 | [org.gradle.api.file.ConfigurableFileCollection](org.gradle.api.file.-configurable-file-collection/index.md) |  |
 | [org.gradle.api.file.FileSystemLocationProperty](org.gradle.api.file.-file-system-location-property/index.md) |  |
+| [org.gradle.api.Project](org.gradle.api.-project/index.md) |  |
 | [org.gradle.api.provider.HasMultipleValues](org.gradle.api.provider.-has-multiple-values/index.md) |  |
 | [org.gradle.api.provider.MapProperty](org.gradle.api.provider.-map-property/index.md) |  |
 | [org.gradle.api.provider.Property](org.gradle.api.provider.-property/index.md) |  |
@@ -112,10 +115,3 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 | [swap](swap.md) | `val `[`Subs`](-subs/index.md)`.swap: `[`TaskGroup`](-task-group/index.md)`<`[`Swap`](-swap/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [Swap](-swap/index.md) with the name `swap`. |
 | [taskGroup](task-group.md) | `val <T : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`> `[`T`](task-group.md#T)`.taskGroup: `[`TaskGroup`](-task-group/index.md)`<`[`T`](task-group.md#T)`>`<br>The [TaskGroup](-task-group/index.md) instance this task belongs to. |
 | [torrent](torrent.md) | `val `[`Subs`](-subs/index.md)`.torrent: `[`TaskGroup`](-task-group/index.md)`<`[`Torrent`](-torrent/index.md)`>`<br>Convenience property that upon use automatically instantiates and returns a [TaskGroup](-task-group/index.md) of type [Torrent](-torrent/index.md) with the name `torrent`. |
-
-### Functions
-
-| Name | Summary |
-|---|---|
-| [glob](glob.md) | `fun glob(s: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Simple subset of Bash globs. Supports basic brace expansion using expressions like `{01..10}` and `{a,b,c}`, as well as wildcards. |
-| [globPath](glob-path.md) | `fun globPath(glob: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Finds paths matching the given string. `%` and `*` are interpreted as wildcards. |

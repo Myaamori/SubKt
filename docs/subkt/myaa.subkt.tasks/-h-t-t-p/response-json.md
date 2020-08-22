@@ -2,7 +2,7 @@
 
 # responseJson
 
-`val responseJson: JsonElement` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.4/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1451)
+`val responseJson: JsonElement` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1452)
 
 The response as JSON.
 

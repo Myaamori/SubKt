@@ -10,6 +10,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.AbstractTransferTask](../myaa.subkt.tasks/-abstract-transfer-task/index.md) |  |
 | [myaa.subkt.ass.AegisubProjectGarbageSection](../myaa.subkt.ass/-aegisub-project-garbage-section/index.md) | Represents an Aegisub project garbage section. |
 | [myaa.subkt.tasks.Anidex](../myaa.subkt.tasks/-anidex/index.md) | Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](../myaa.subkt.tasks/anidex.md). |
+| [myaa.subkt.tasks.ASS](../myaa.subkt.tasks/-a-s-s/index.md) | Generic task for modifying ASS files. See [ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) and related classes for more information. The modified file is written to a new file. |
 | [myaa.subkt.ass.ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) | Represents an ASS file. If provided, will parse the given file. |
 | [myaa.subkt.tasks.ASSTask](../myaa.subkt.tasks/-a-s-s-task/index.md) | Represents a task that outputs an ASS file. |
 | [myaa.subkt.tasks.BaseContext](../myaa.subkt.tasks/-base-context/index.md) | Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |
@@ -58,6 +59,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.MuxFlag](../myaa.subkt.tasks/-mux-flag/index.md) | Marks a property with its corresponding mkvmerge flag. |
 | [myaa.subkt.tasks.Nyaa](../myaa.subkt.tasks/-nyaa/index.md) | Task for uploading a torrent file to nyaa.si. A predefined task instance can be accessed through [Subs.nyaa](../myaa.subkt.tasks/nyaa.md). |
 | [myaa.subkt.tasks.OverwriteStrategy](../myaa.subkt.tasks/-overwrite-strategy/index.md) | The strategy for overwriting existing files. |
+| [org.gradle.api.Project](../myaa.subkt.tasks/org.gradle.api.-project/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [org.gradle.api.provider.Property](../myaa.subkt.tasks/org.gradle.api.provider.-property/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.tasks.PropertyTask](../myaa.subkt.tasks/-property-task/index.md) | Parent task type that automatically keeps track of and stores properties in JSON format. |
 | [myaa.subkt.tasks.ProviderGroup](../myaa.subkt.tasks/-provider-group/index.md) | [ItemGroup](../myaa.subkt.tasks/-item-group/index.md) that keeps track of providers for values of type [T](../myaa.subkt.tasks/-provider-group/index.md#T). A [Provider](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html) is generated for each entry, and the given closure is evaluated when the provider's value is requested. |
