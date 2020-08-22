@@ -11,10 +11,13 @@ import myaa.subkt.tasks.Anidex.*
 import myaa.subkt.tasks.Mux.*
 import myaa.subkt.tasks.Nyaa.*
 import org.gradle.api.NamedDomainObjectProvider
+import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.kotlin.dsl.invoke
 import java.awt.Color
 import java.time.Duration
+
+fun Subs.glob(s: String) = project.glob(s)
 
 fun Subs.mergeSample() {
     merge {
@@ -91,17 +94,25 @@ fun Mux.muxFileTracksSample() {
     from("video.mkv") {
         tracks {
             include(track.type == TrackType.VIDEO || track.type == TrackType.AUDIO)
+        }
+
+        video {
+            name("Video")
+        }
+
+        audio(0) {
+            name("English Audio")
+            lang("eng")
+        }
+
+        audio(1) {
+            name("Japanese Audio")
             lang("jpn")
-            if (track.type == TrackType.VIDEO) {
-                name("Video")
-            } else {
-                name("Audio")
-            }
         }
     }
 
     from("subtitles.ass") {
-        tracks {
+        subtitles {
             lang("eng")
             default(true)
             name("English")
@@ -179,6 +190,19 @@ fun Subs.chapterSample() {
         from("dialogue.ass")
         styles(listOf("Default", "Default-Alt"))
     }
+}
+
+fun Subs.assSample() {
+    "removeLines"<ASS> {
+         from("dialogue.ass")
+
+         ass {
+             // remove lines with a start time of greater than five minutes
+             events.lines.removeIf { line ->
+                 line.start > Duration.ofMinutes(5)
+             }
+         }
+     }
 }
 
 fun Subs.discordSample() {
@@ -320,7 +344,7 @@ fun Subs.httpSample() {
     }
 }
 
-fun globSample() {
+fun Project.globSample() {
     glob("{a,b,c}")
     // Output: [a, b, c]
 
