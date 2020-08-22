@@ -382,9 +382,52 @@ open class Mux : PropertyTask() {
          * Configures the tracks in this file.
          *
          * @sample myaa.subkt.tasks.samples.muxFileTracksSample
+         * @param trackIds The IDs of the tracks to run [action] against, starting at 0.
+         * If [trackType] is specified, 0 will refer to the first track of that type.
+         * @param trackType The type of the tracks to run [action] against.
          * @param action A closure operating on a [Track] instance.
          */
-        fun tracks(action: Track.() -> Unit) = tracks.forEach(action)
+        fun tracks(vararg trackIds: Int, trackType: TrackType? = null,
+                   action: Track.() -> Unit) {
+            val tracksOfType = trackType
+                    ?.let { type -> tracks.filter { it.track.type == type } } ?: tracks
+            val tracksOfId = tracksOfType.takeIf { trackIds.isEmpty() }
+                    ?: tracksOfType.slice(trackIds.asIterable())
+            tracksOfId.forEach(action)
+        }
+
+        /**
+         * Configures the video tracks in this file.
+         *
+         * @sample myaa.subkt.tasks.samples.muxFileTracksSample
+         * @param trackIds The video tracks to run [action] against.
+         * 0 refers to the first video track, 1 to the second video track, and so on.
+         * @param action A closure operating on a [Track] instance.
+         */
+        fun video(vararg trackIds: Int, action: Track.() -> Unit) =
+                tracks(*trackIds, trackType = TrackType.VIDEO, action = action)
+
+        /**
+         * Configures the audio tracks in this file.
+         *
+         * @sample myaa.subkt.tasks.samples.muxFileTracksSample
+         * @param trackIds The audio tracks to run [action] against.
+         * 0 refers to the first audio track, 1 to the second audio track, and so on.
+         * @param action A closure operating on a [Track] instance.
+         */
+        fun audio(vararg trackIds: Int, action: Track.() -> Unit) =
+                tracks(*trackIds, trackType = TrackType.AUDIO, action = action)
+
+        /**
+         * Configures the subtitle tracks in this file.
+         *
+         * @sample myaa.subkt.tasks.samples.muxFileTracksSample
+         * @param trackIds The subtitle tracks to run [action] against.
+         * 0 refers to the first subtitle track, 1 to the second subtitle track, and so on.
+         * @param action A closure operating on a [Track] instance.
+         */
+        fun subtitles(vararg trackIds: Int, action: Track.() -> Unit) =
+                tracks(*trackIds, trackType = TrackType.SUBTITLES, action = action)
 
         /**
          * Configures the attachments in this file.
