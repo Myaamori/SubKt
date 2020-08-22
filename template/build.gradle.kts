@@ -1,4 +1,5 @@
 
+import myaa.subkt.ass.*
 import myaa.subkt.tasks.*
 import myaa.subkt.tasks.Mux.*
 import myaa.subkt.tasks.Nyaa.*
@@ -45,7 +46,17 @@ subs {
     mux {
         title(get("title"))
 
-        from(get("premux"))
+        from(get("premux")) {
+            audio {
+                if (track.lang == "eng") {
+                    name("English")
+                    trackOrder(1)
+                } else {
+                    name("Japanese")
+                    trackOrder(2)
+                }
+            }
+        }
 
         from(merge.item()) {
             tracks {
