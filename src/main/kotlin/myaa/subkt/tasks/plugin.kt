@@ -192,7 +192,8 @@ fun Project.glob(s: String) =
 class TaskContext(val task: Task) : BaseContext() {
     override fun doGet(key: String) =
             task.extra.properties[key] ?:
-                    task.getList(key).orNull?.singleOrNull() ?:
+                    try { task.getList(key).orNull } catch (e: NoSuchElementException) { null }
+                            ?.singleOrNull() ?:
                     task.takeIf { it.taskGroup.name == key } ?:
                     task.taskDependencies.getDependencies(task).find {
                         (it.extra.has("taskGroup") && it.taskGroup.name == key) ||
@@ -412,8 +413,10 @@ open class Subs(val project: Project) : ItemGroupContext() {
         )
 
         override fun doGet(key: String) =
-                extraProperties[key] ?: this@Subs.getList(key, entry = entry)
-                        .orNull?.singleOrNull()
+                extraProperties[key] ?:
+                        try { this@Subs.getList(key, entry = entry).orNull }
+                        catch (e: NoSuchElementException) { null }
+                                ?.singleOrNull()
     }
 
     /**
@@ -497,7 +500,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
      */
     fun getRaw(propertyName: String, entry: String = "") =
             getRawMaybe(propertyName, entry = entry)
-                    ?: error("no match for ${release.get()}.$entry.$propertyName")
+                    ?: throw NoSuchElementException("no match for property name ${release.get()}.$entry.$propertyName")
 
     /**
      * Searches for the given property in the [Subs] object's [SubProperties] instance,
@@ -513,7 +516,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
     fun getList(propertyName: String, entry: String = "",
                 context: AbstractContext? = null): Provider<List<String>> =
             project.provider<String> {
-                getRawMaybe(propertyName, entry = entry)
+                getRaw(propertyName, entry = entry)
             }.flatMap { evaluate(it, entry = entry, context = context) }
 
     /**

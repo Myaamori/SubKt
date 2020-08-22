@@ -463,7 +463,8 @@ class ValueClosure<T>(
 
         override fun doGet(key: String) =
                 findProp(key) ?:
-                        getList(key).orNull?.singleOrNull() ?:
+                        try { getList(key).orNull } catch (e: NoSuchElementException) { null }
+                                ?.singleOrNull() ?:
                         taskGroup.subs.project.tasks.findByName(
                                 "$key.$entry.${taskGroup.subs.release.get()}")
     }
