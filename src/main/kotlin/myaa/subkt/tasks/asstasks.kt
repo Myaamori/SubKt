@@ -377,9 +377,18 @@ open class Chapters : PropertyTask() {
 
     override fun run() {
         val ass = ASSFile(from.singleFile)
+        val _field = field.get()
+        val _marker = chapterMarker.get()
         val chapterLines = ass.events.lines
-                .filter { getMaybeComment(it, field.get()) == chapterMarker.get() }
+                .filter { getMaybeComment(it, _field) == _marker }
                 .map { getMaybeComment(it, chapterName.get()) to it.start }
+
+        if (chapterLines.isEmpty()) {
+            error("no chapter definitions found; " +
+                    "are you using the right chapter marker ($_marker) " +
+                    "and field (${_field.field})?")
+        }
+
         val withIntro = chapterLines.takeIf {
             !generateIntro.get() || it.find { (_, start) -> start.isZero } != null
         } ?: listOf(Pair(introChapter.get(), Duration.ZERO)) + chapterLines
