@@ -495,6 +495,39 @@ open class Swap : ASSTask() {
     }
 }
 
+/**
+ * Generic task for modifying ASS files. See [ASSFile] and related classes
+ * for more information. The modified file is written to a new file.
+ *
+ * @sample myaa.subkt.tasks.samples.assSample
+ */
+open class ASS : ASSTask() {
+    /**
+     * Specifies the source ASS file.
+     */
+    @get:InputFiles
+    val from = project.objects.fileCollection()
+
+    private var _ass: (ASSFile.() -> Unit)? = null
+
+    /**
+     * Modify the ASS file specified using [from].
+     *
+     * @param f A closure operating on an [ASSFile] instance.
+     */
+    fun ass(f: ASSFile.() -> Unit) {
+        _ass = f
+    }
+
+    override fun buildAss(): ASSFile {
+        val ass = ASSFile(from.singleFile)
+        _ass?.let { f ->
+            ass.f()
+        }
+        return ass
+    }
+}
+
 
 /**
  * Convenience property that upon use automatically instantiates and returns a
