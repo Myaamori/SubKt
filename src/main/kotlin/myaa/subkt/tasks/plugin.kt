@@ -19,6 +19,23 @@ import kotlin.math.max
 private fun convertGlob(glob: String, wildcard: String = "*") =
         Regex(Regex.escape(glob).replace(wildcard, "\\E.*\\Q"))
 
+private fun convertPattern(pattern: String): Regex {
+    val expanded = expandRanges(pattern)
+    val groups = expanded.replace(Regex("""\{([^\}]*)\}""")) {
+        val content = it.groupValues[1].replace(",", "\\E|\\Q")
+        "\\E(\\Q$content\\E)\\Q"
+    }
+
+    val padded = when (groups.count { it == '.' }) {
+        2 -> groups
+        1 -> "*.$groups"
+        0 -> "*.*.$groups"
+        else -> error("malformed property: $pattern")
+    }
+
+    return Regex("\\Q" + padded.replace("*", "\\E.*\\Q") + "\\E")
+}
+
 /**
  * Reads a list of properties of the form `release.entry.property=value`, which can
  * later be looked up using the [match] method.
@@ -26,6 +43,7 @@ private fun convertGlob(glob: String, wildcard: String = "*") =
  * Properties may contain wildcards, which will match any sequence of characters.
  * For instance, a property defined as `TV.episode*.name=value` will be found
  * with a `match("name", entry="episode01", release="TV")` call.
+ * Groups (e.g. `{01,03,04}.op=OP1.ass`) and ranges (e.g. `{01..12}.cour=1`) are also supported.
  *
  * Unspecified release and entry components are equivalent to wildcards.
  * In other words, `name=value` is equivalent to `*.*.name=value`, while
@@ -44,13 +62,7 @@ class SubProperties {
                 .filterNot { it.isEmpty() || it.startsWith('#') }
                 .map { line ->
                     val (prop, value) = line.split('=', limit = 2)
-                    val padded = when (prop.count { it == '.' }) {
-                        2 -> prop
-                        1 -> "*.$prop"
-                        0 -> "*.*.$prop"
-                        else -> error("malformed property in $f: $prop")
-                    }
-                    convertGlob(padded) to value
+                    convertPattern(prop) to value
                 }
         patterns.addAll(ptrns)
     }
