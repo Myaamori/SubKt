@@ -308,6 +308,17 @@ open class Mux : PropertyTask() {
         @MuxFlag("default-duration")
         val defaultDuration = project.objects.property<TrackDuration>()
 
+        /**
+         * The order of this track in the muxed file. Tracks will be sorted
+         * by the values specified for this property.
+         *
+         * The track order values specified do not need to be consecutive.
+         * Tracks with the same [trackOrder] will keep their original relative ordering.
+         */
+        @get:Input
+        @get:Optional
+        val trackOrder = project.objects.property<Int>()
+
         override fun toString() = ("Track ${track.typeString} " +
                 "(${(name.orNull ?: track.name)?.let { "$it, " } ?: ""}" +
                 "${track.codec}, " +
@@ -772,7 +783,8 @@ open class Mux : PropertyTask() {
         yield(outFile.absolutePath)
 
         // per-track flags
-        _files.get().forEach { file ->
+        val files = _files.get()
+        files.forEach { file ->
             logger.lifecycle(file.toString())
 
             // options from included tracks
@@ -813,6 +825,17 @@ open class Mux : PropertyTask() {
 
             // output file
             yield(file.file.absolutePath)
+        }
+
+        val trackOrder = files.withIndex().flatMap { (i, file) ->
+            file.tracks.mapNotNull { track ->
+                track.trackOrder.orNull?.let { "$i:${track.id}" to it }
+            }
+        }.sortedBy { (_, priority) -> priority }.map { (track, _) -> track }
+
+        if (trackOrder.isNotEmpty()) {
+            yield("--track-order")
+            yield(trackOrder.joinToString(","))
         }
 
         // attachments
