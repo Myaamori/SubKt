@@ -393,10 +393,20 @@ open class Subs(val project: Project) : ItemGroupContext() {
     /**
      * Creates a context for generating tasks for the specified entries.
      *
+     * @param entries A list of entries to generate tasks for.
      * @param action A closure operating on a [ItemGroupContext] entry.
      */
-    fun tasks(episodes: Iterable<String>, action: ItemGroupContext.() -> Unit) =
-            InnerContext(episodes).action()
+    fun tasks(entries: Iterable<String>, action: ItemGroupContext.() -> Unit) =
+            InnerContext(entries).action()
+
+    /**
+     * Creates a context for generating tasks for the specified entries.
+     *
+     * @param entries A provider for a list of entries to generate tasks for.
+     * @param action A closure operating on a [ItemGroupContext] entry.
+     */
+    fun tasks(entries: Provider<out Iterable<String>>, action: ItemGroupContext.() -> Unit) =
+            InnerContext(entries).action()
 
     private val engine = VelocityEngine().also {
         val p = Properties()

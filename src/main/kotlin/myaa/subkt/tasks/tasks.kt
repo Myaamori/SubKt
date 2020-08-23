@@ -274,9 +274,19 @@ abstract class ItemGroup<T>(
     /**
      * Get all items corresponding to the specified entries.
      *
+     * @param entries A list of entries to get the items for.
      * @sample myaa.subkt.tasks.samples.itemGroupItemsSample1
      */
     fun batchItems(entries: Iterable<String>) = entries.map { items.getValue(it) }
+
+    /**
+     * Get all items corresponding to the specified entries.
+     *
+     * @param entries A provider for a list of entries to get the items for.
+     * @sample myaa.subkt.tasks.samples.itemGroupItemsSample1
+     */
+    fun batchItems(entries: Provider<out Iterable<String>>) =
+            entries.get().map { items.getValue(it) }
 
     /**
      * Get all items corresponding to the episodes of the given task.
