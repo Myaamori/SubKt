@@ -2,7 +2,7 @@
 
 # ROMANIAN
 
-`ROMANIAN` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1069)
+`ROMANIAN` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1086)
 
 ### Inherited Properties
 

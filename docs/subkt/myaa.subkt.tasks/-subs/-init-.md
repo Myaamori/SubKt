@@ -47,7 +47,7 @@ subs {
     // per-batch torrents
     batchtasks {
         torrent {
-            from(mux.items())
+            from(mux.batchItems())
             into("My Show - $batch")
             out("$batch/$batch.torrent")
         }
@@ -56,7 +56,7 @@ subs {
     // alternatively, configure all tasks in one go
     alltasks {
         torrent {
-            from(mux.items())
+            from(mux.batchItems())
             if (isBatch) {
                 into("My Show - $batch")
             }

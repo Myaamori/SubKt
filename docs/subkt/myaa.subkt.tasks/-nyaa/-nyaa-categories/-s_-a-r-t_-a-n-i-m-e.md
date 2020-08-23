@@ -2,7 +2,7 @@
 
 # S_ART_ANIME
 
-`S_ART_ANIME` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L782)
+`S_ART_ANIME` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L799)
 
 ### Inherited Properties
 

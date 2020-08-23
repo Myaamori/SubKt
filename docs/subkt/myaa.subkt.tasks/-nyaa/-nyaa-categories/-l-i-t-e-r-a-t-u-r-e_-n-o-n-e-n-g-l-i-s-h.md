@@ -2,7 +2,7 @@
 
 # LITERATURE_NONENGLISH
 
-`LITERATURE_NONENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L771)
+`LITERATURE_NONENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L788)
 
 ### Inherited Properties
 

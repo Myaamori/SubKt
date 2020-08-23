@@ -2,7 +2,7 @@
 
 # toAss
 
-`fun `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`.toAss(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L771)
+`fun `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`.toAss(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L771)
 
 Converts this [Duration](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html) into a time as represented in ASS.
 See [String.assTime](../kotlin.-string/ass-time.md).

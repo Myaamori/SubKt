@@ -2,7 +2,7 @@
 
 # MergeSpecification
 
-`inner class MergeSpecification` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L78)
+`inner class MergeSpecification` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L78)
 
 Defines how the files associated with this specification should be merged.
 

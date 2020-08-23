@@ -9,7 +9,7 @@ A predefined task instance can be accessed through [Subs.ftp](../ftp.md).
 
 ``` kotlin
 ftp {
-    from(mux.items())
+    from(mux.batchItems())
     // copy mkv files in the 01/extra directory into a "bonus" directory
     from("01/extra") {
         include("*.mkv")

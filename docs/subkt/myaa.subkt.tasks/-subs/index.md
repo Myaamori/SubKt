@@ -2,7 +2,7 @@
 
 # Subs
 
-`open class Subs : `[`ItemGroupContext`](../-item-group-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L325)
+`open class Subs : `[`ItemGroupContext`](../-item-group-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L340)
 
 Central object that keeps track of episodes, batches, tasks and user-loaded properties.
 For tasks to be generated correctly, [episodes](episodes.md) and optionally [batches](batches.md) should be set.
@@ -47,7 +47,7 @@ subs {
     // per-batch torrents
     batchtasks {
         torrent {
-            from(mux.items())
+            from(mux.batchItems())
             into("My Show - $batch")
             out("$batch/$batch.torrent")
         }
@@ -56,7 +56,7 @@ subs {
     // alternatively, configure all tasks in one go
     alltasks {
         torrent {
-            from(mux.items())
+            from(mux.batchItems())
             if (isBatch) {
                 into("My Show - $batch")
             }
@@ -110,8 +110,9 @@ subs {
 | [getRaw](get-raw.md) | `fun getRaw(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, entry: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = ""): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Searches for the given property in the [Subs](./index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string. Raises an error if not found. |
 | [getRawMaybe](get-raw-maybe.md) | `fun getRawMaybe(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, entry: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = ""): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>Searches for the given property in the [Subs](./index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string, possibly null. |
 | [isBatch](is-batch.md) | `open fun isBatch(entry: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>True if [entry](../-item-group-context/is-batch.md#myaa.subkt.tasks.ItemGroupContext$isBatch(kotlin.String)/entry) corresponds to a batch entry. |
+| [propertyExists](property-exists.md) | `fun propertyExists(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, entry: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = ""): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns true if the given property exists in the [Subs](./index.md) object's [SubProperties](../-sub-properties/index.md) instance for the given context. |
 | [readProperties](read-properties.md) | `fun readProperties(vararg file: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Reads properties from one or more files as described in [SubProperties](../-sub-properties/index.md). |
-| [tasks](tasks.md) | `fun tasks(episodes: `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>, action: `[`ItemGroupContext`](../-item-group-context/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Creates a context for generating tasks for the specified entries. |
+| [tasks](tasks.md) | `fun tasks(entries: `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>, action: `[`ItemGroupContext`](../-item-group-context/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>`fun tasks(entries: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<out `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>>, action: `[`ItemGroupContext`](../-item-group-context/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)<br>Creates a context for generating tasks for the specified entries. |
 
 ### Inherited Functions
 

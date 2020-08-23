@@ -2,7 +2,7 @@
 
 # MuxFlag
 
-`annotation class MuxFlag` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L25)
+`annotation class MuxFlag` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L25)
 
 Marks a property with its corresponding mkvmerge flag.
 

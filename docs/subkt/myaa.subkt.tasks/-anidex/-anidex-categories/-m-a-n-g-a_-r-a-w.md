@@ -2,7 +2,7 @@
 
 # MANGA_RAW
 
-`MANGA_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1035)
+`MANGA_RAW` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1052)
 
 ### Inherited Properties
 

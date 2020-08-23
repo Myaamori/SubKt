@@ -2,7 +2,7 @@
 
 # MuxFile
 
-`inner class MuxFile` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L331)
+`inner class MuxFile` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L331)
 
 Represents a file to mux, added using [from](../from.md).
 

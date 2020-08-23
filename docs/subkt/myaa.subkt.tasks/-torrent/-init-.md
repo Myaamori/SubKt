@@ -14,7 +14,7 @@ a root directory must be specified using the [into](https://docs.gradle.org/curr
 torrent {
     trackers("http://tracker.example.com:7777/announce",
              "udp://tracker.example.info:1337/announce")
-    from(mux.items())
+    from(mux.batchItems())
     // copy mkv files in the 01/extra directory into a "bonus" directory
     from("01/extra") {
         include("*.mkv")

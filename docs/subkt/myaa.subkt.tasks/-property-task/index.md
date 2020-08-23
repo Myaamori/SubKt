@@ -2,7 +2,7 @@
 
 # PropertyTask
 
-`abstract class PropertyTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L588)
+`abstract class PropertyTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L605)
 
 Parent task type that automatically keeps track of and stores
 properties in JSON format.
@@ -39,8 +39,8 @@ a [TaskProperty](-task-property/index.md) instance.
 
 | Name | Summary |
 |---|---|
+| [batchItems](../-sub-task/batch-items.md) | `open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](../-sub-task/batch-items.md#T)`>.batchItems(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`T`](../-sub-task/batch-items.md#T)`>`<br>Gets the items from the given item group that correspond to [episodes](../org.gradle.api.-task/episodes.md). |
 | [item](../-sub-task/item.md) | `open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](../-sub-task/item.md#T)`>.item(): `[`T`](../-sub-task/item.md#T)<br>Gets the item from the given item group that corresponds to [entry](../org.gradle.api.-task/entry.md). |
-| [items](../-sub-task/items.md) | `open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](../-sub-task/items.md#T)`>.items(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`T`](../-sub-task/items.md#T)`>`<br>Gets the items from the given item group that correspond to [episodes](../org.gradle.api.-task/episodes.md). |
 
 ### Extension Properties
 
@@ -70,6 +70,7 @@ a [TaskProperty](-task-property/index.md) instance.
 | [getRaw](../org.gradle.api.-task/get-raw.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.getRaw(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Searches for the given property in the [Subs](../-subs/index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string. Raises an error if not found. |
 | [getRawMaybe](../org.gradle.api.-task/get-raw-maybe.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.getRawMaybe(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>Searches for the given property in the [Subs](../-subs/index.md) object's [SubProperties](../-sub-properties/index.md) instance, and returns the raw string, possibly null. |
 | [outputFile](../org.gradle.api.-task/output-file.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.outputFile(extension: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>Returns a [ConfigurableFileCollection](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html) containing a single file `taskName.extension` located in the build directory. |
+| [propertyExists](../org.gradle.api.-task/property-exists.md) | `fun `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`.propertyExists(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns true if the given property exists in the [Subs](../-subs/index.md) object's [SubProperties](../-sub-properties/index.md) instance for the given context. |
 
 ### Inheritors
 

@@ -2,7 +2,7 @@
 
 # EventLineAccessor
 
-`sealed class EventLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L430)
+`sealed class EventLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L430)
 
 A type-safe accessor for [EventLine](../-event-line/index.md).
 

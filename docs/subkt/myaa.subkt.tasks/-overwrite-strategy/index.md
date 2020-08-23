@@ -2,7 +2,7 @@
 
 # OverwriteStrategy
 
-`enum class OverwriteStrategy` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1540)
+`enum class OverwriteStrategy` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1557)
 
 The strategy for overwriting existing files.
 

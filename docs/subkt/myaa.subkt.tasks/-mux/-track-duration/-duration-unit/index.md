@@ -2,7 +2,7 @@
 
 # DurationUnit
 
-`enum class DurationUnit` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L138)
+`enum class DurationUnit` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L138)
 
 ### Enum Values
 

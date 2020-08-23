@@ -2,7 +2,7 @@
 
 # SOFTWARE_GAMES
 
-`SOFTWARE_GAMES` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L780)
+`SOFTWARE_GAMES` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L797)
 
 ### Inherited Properties
 

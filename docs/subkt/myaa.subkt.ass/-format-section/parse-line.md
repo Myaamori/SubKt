@@ -2,7 +2,7 @@
 
 # parseLine
 
-`fun parseLine(line: `[`KeyValLine`](../-key-val-line/index.md)`, extraData: `[`ExtraData`](../-extra-data.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/ass/parser.kt#L934)
+`fun parseLine(line: `[`KeyValLine`](../-key-val-line/index.md)`, extraData: `[`ExtraData`](../-extra-data.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L934)
 
 Parses a single line from a [KeyValLine](../-key-val-line/index.md) and adds it to this section.
 

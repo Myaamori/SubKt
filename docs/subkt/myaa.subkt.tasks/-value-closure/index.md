@@ -2,7 +2,7 @@
 
 # ValueClosure
 
-`class ValueClosure<T>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L408)
+`class ValueClosure<T>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L418)
 
 ### Types
 
@@ -32,6 +32,7 @@
 
 | Name | Summary |
 |---|---|
+| [batchItems](batch-items.md) | `fun <U> `[`ItemGroup`](../-item-group/index.md)`<`[`U`](batch-items.md#U)`>.batchItems(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`U`](batch-items.md#U)`>`<br>Gets the items from the given item group that correspond to [episodes](episodes.md). |
 | [evaluate](evaluate.md) | `fun evaluate(expression: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>!>!`<br>Evaluates a string. See [Task.evaluate](../org.gradle.api.-task/evaluate.md). |
 | [evaluateTemplate](evaluate-template.md) | `fun evaluateTemplate(expression: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!>!`<br>Evaluates a string. See [Task.evaluateTemplate](../org.gradle.api.-task/evaluate-template.md). |
 | [get](get.md) | `fun get(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`!>!`<br>Searches for the given property and returns it as a single element. See [Task.get](../org.gradle.api.-task/get.md). |
@@ -42,4 +43,4 @@
 | [getRaw](get-raw.md) | `fun getRaw(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Searches for the given property. See [Task.getRaw](../org.gradle.api.-task/get-raw.md). |
 | [getRawMaybe](get-raw-maybe.md) | `fun getRawMaybe(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?`<br>Searches for the given property. Can return null. See [Task.getRawMaybe](../org.gradle.api.-task/get-raw-maybe.md). |
 | [item](item.md) | `fun <U> `[`ItemGroup`](../-item-group/index.md)`<`[`U`](item.md#U)`>.item(): `[`U`](item.md#U)<br>Gets the item from the given item group that corresponds to [entry](entry.md). |
-| [items](items.md) | `fun <U> `[`ItemGroup`](../-item-group/index.md)`<`[`U`](items.md#U)`>.items(): `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`U`](items.md#U)`>`<br>Gets the items from the given item group that correspond to [episodes](episodes.md). |
+| [propertyExists](property-exists.md) | `fun propertyExists(propertyName: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Returns true if the given property exists. See [Task.propertyExists](../org.gradle.api.-task/property-exists.md). |

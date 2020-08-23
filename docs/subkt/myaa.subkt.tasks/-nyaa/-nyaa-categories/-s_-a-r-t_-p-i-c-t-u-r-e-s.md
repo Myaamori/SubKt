@@ -2,7 +2,7 @@
 
 # S_ART_PICTURES
 
-`S_ART_PICTURES` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.7/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L786)
+`S_ART_PICTURES` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L803)
 
 ### Inherited Properties
 
