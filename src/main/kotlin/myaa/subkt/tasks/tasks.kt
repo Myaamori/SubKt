@@ -276,14 +276,14 @@ abstract class ItemGroup<T>(
      *
      * @sample myaa.subkt.tasks.samples.itemGroupItemsSample1
      */
-    fun items(entries: Iterable<String>) = entries.map { items.getValue(it) }
+    fun batchItems(entries: Iterable<String>) = entries.map { items.getValue(it) }
 
     /**
      * Get all items corresponding to the episodes of the given task.
      *
      * @sample myaa.subkt.tasks.samples.itemGroupItemsSample2
      */
-    fun items(task: Task) = items(task.episodes)
+    fun batchItems(task: Task) = batchItems(task.episodes)
 
     /**
      * Get the item corresponding to the specified entry.
@@ -441,7 +441,7 @@ class ValueClosure<T>(
     /**
      * Gets the items from the given item group that correspond to [episodes].
      */
-    fun <U> ItemGroup<U>.items() = items(episodes)
+    fun <U> ItemGroup<U>.batchItems() = batchItems(episodes)
 
     /**
      * Gets the item from the given item group that corresponds to [entry].
@@ -570,7 +570,7 @@ interface SubTask : Task {
     /**
      * Gets the items from the given item group that correspond to [episodes].
      */
-    fun <T> ItemGroup<T>.items() = items(this@SubTask.episodes)
+    fun <T> ItemGroup<T>.batchItems() = batchItems(this@SubTask.episodes)
 
     /**
      * Gets the item from the given item group that corresponds to [entry].
@@ -2087,31 +2087,31 @@ open class SSHExec @Inject constructor(objects: ObjectFactory) :
 
 /**
  * Wrapper task for [DefaultTask] which implements [SubTask], giving access to
- * [SubTask.item] and [SubTask.items] for convenience.
+ * [SubTask.item] and [SubTask.batchItems] for convenience.
  */
 open class DefaultSubTask : DefaultTask(), SubTask
 
 /**
  * Wrapper task for [Copy] which implements [SubTask], giving access to
- * [SubTask.item] and [SubTask.items] for convenience.
+ * [SubTask.item] and [SubTask.batchItems] for convenience.
  */
 open class SubCopy : Copy(), SubTask
 
 /**
  * Wrapper task for [Exec] which implements [SubTask], giving access to
- * [SubTask.item] and [SubTask.items] for convenience.
+ * [SubTask.item] and [SubTask.batchItems] for convenience.
  */
 open class SubExec : Exec(), SubTask
 
 /**
  * Wrapper task for [Sync] which implements [SubTask], giving access to
- * [SubTask.item] and [SubTask.items] for convenience.
+ * [SubTask.item] and [SubTask.batchItems] for convenience.
  */
 open class SubSync : Sync(), SubTask
 
 /**
  * Wrapper task for [Zip] which implements [SubTask], giving access to
- * [SubTask.item] and [SubTask.items] for convenience.
+ * [SubTask.item] and [SubTask.batchItems] for convenience.
  */
 open class SubZip : Zip(), SubTask
 

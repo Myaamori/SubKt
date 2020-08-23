@@ -229,7 +229,7 @@ fun Subs.torrentSample(mux: TaskGroup<Mux>) {
     torrent {
         trackers("http://tracker.example.com:7777/announce",
                  "udp://tracker.example.info:1337/announce")
-        from(mux.items())
+        from(mux.batchItems())
         // copy mkv files in the 01/extra directory into a "bonus" directory
         from("01/extra") {
             include("*.mkv")
@@ -268,7 +268,7 @@ fun Subs.anidexSample(torrent: TaskGroup<Torrent>) {
 
 fun Subs.ftpSample(mux: TaskGroup<Mux>) {
     ftp {
-        from(mux.items())
+        from(mux.batchItems())
         // copy mkv files in the 01/extra directory into a "bonus" directory
         from("01/extra") {
             include("*.mkv")
@@ -288,7 +288,7 @@ fun Subs.ftpSample(mux: TaskGroup<Mux>) {
 
 fun Subs.sftpSample(mux: TaskGroup<Mux>) {
     sftp {
-        from(mux.items())
+        from(mux.batchItems())
         // copy mkv files in the 01/extra directory into a "bonus" directory
         from("01/extra") {
             include("*.mkv")
@@ -480,7 +480,7 @@ fun subsSample(subs: NamedDomainObjectProvider<Subs>) {
         // per-batch torrents
         batchtasks {
             torrent {
-                from(mux.items())
+                from(mux.batchItems())
                 into("My Show - $batch")
                 out("$batch/$batch.torrent")
             }
@@ -489,7 +489,7 @@ fun subsSample(subs: NamedDomainObjectProvider<Subs>) {
         // alternatively, configure all tasks in one go
         alltasks {
             torrent {
-                from(mux.items())
+                from(mux.batchItems())
                 if (isBatch) {
                     into("My Show - $batch")
                 }
@@ -555,14 +555,14 @@ fun Subs.itemGroupItemSample2(mux: TaskGroup<Mux>, merge: TaskGroup<Merge>) {
 }
 
 fun Subs.itemGroupItemsSample1(mux: TaskGroup<Mux>) {
-    mux.items(listOf("01", "02", "03", "04")) // returns the mux.01, mux.02, mux.03, mux.04 tasks
+    mux.batchItems(listOf("01", "02", "03", "04")) // returns the mux.01, mux.02, mux.03, mux.04 tasks
 }
 
 fun Subs.itemGroupItemsSample2(mux: TaskGroup<Mux>, merge: TaskGroup<Merge>) {
     // assume batch vol1 contains episodes 01, 02, 03, and 04
     tasks(listOf("vol1")) { // configure tasks for vol1 only
         mux {
-            merge.items(this) // returns merge.01, merge.02, merge.03, merge.04
+            merge.batchItems(this) // returns merge.01, merge.02, merge.03, merge.04
         }
     }
 }

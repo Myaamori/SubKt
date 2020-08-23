@@ -92,7 +92,7 @@ subs {
         torrent {
             trackers(getList("trackers"))
 
-            from(mux.items()) {
+            from(mux.batchItems()) {
                 if (isBatch) {
                     into(get("batchdir"))
                 }
@@ -113,7 +113,7 @@ subs {
 
         // upload with SFTP (configuration read from ~/.ssh/config)
         val uploadFiles by task<SFTP> {
-            from(mux.items()) {
+            from(mux.batchItems()) {
                 if (isBatch) {
                     into(get("batchdir"))
                 }
