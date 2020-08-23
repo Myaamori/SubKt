@@ -414,6 +414,17 @@ fun Subs.subsEvaluateSample() {
     // Output: TV - $episode - $merge.out.get()
 }
 
+fun Subs.subsPropertyExistsSample() {
+    merge {
+        from(get("dialogue"))
+
+        // only include OP if defined for the current episode
+        if (propertyExists("op")) {
+            from(get("op"))
+        }
+    }
+}
+
 fun Subs.subsGetRawSample() {
     // property file: TV.*.value=hello{1..3}|test|$episode
     getRaw("value")

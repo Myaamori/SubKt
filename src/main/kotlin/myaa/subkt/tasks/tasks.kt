@@ -497,6 +497,13 @@ class ValueClosure<T>(
     fun getRawMaybe(propertyName: String) =
             taskGroup.subs.getRawMaybe(propertyName, entry = entry)
 
+
+    /**
+     * Returns true if the given property exists. See [Task.propertyExists].
+     */
+    fun propertyExists(propertyName: String) =
+            taskGroup.subs.propertyExists(propertyName, entry = entry)
+
     /**
      * Searches for the given property. See [Task.getRaw].
      */

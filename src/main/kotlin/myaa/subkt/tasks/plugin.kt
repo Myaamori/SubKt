@@ -236,6 +236,17 @@ fun Task.getRawMaybe(propertyName: String) =
         taskGroup.subs.getRawMaybe(propertyName, entry = entry)
 
 /**
+ * Returns true if the given property exists in the [Subs] object's [SubProperties] instance
+ * for the given context.
+ *
+ * This function is run in a task context, using the [entry] and [release] values for this task.
+ *
+ * @param propertyName The property to find.
+ */
+fun Task.propertyExists(propertyName: String) =
+        taskGroup.subs.propertyExists(propertyName, entry = entry)
+
+/**
  * Searches for the given property in the [Subs] object's [SubProperties] instance,
  * and returns the raw string.
  * Raises an error if not found.
@@ -499,6 +510,20 @@ open class Subs(val project: Project) : ItemGroupContext() {
      */
     fun getRawMaybe(propertyName: String, entry: String = "") =
             properties.match(propertyName, entry = entry, release = release.get())
+
+    /**
+     * Returns true if the given property exists in the [Subs] object's [SubProperties] instance
+     * for the given context.
+     *
+     * This function is run outside of a task context, using only [release] for lookup
+     * unless an entry is manually specified.
+     *
+     * @sample myaa.subkt.tasks.samples.subsPropertyExistsSample
+     * @param propertyName The property to find.
+     * @param entry Optional manually specified entry for property lookup.
+     */
+    fun propertyExists(propertyName: String, entry: String = "") =
+            getRawMaybe(propertyName, entry = entry) != null
 
     /**
      * Searches for the given property in the [Subs] object's [SubProperties] instance,
