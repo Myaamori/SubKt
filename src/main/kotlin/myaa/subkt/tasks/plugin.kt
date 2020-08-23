@@ -58,10 +58,14 @@ class SubProperties {
     private val patterns = mutableListOf<Pair<Regex, String>>()
 
     fun parse(f: File) {
-        val ptrns = f.readLines().map { it.trimStart() }
-                .filterNot { it.isEmpty() || it.startsWith('#') }
-                .map { line ->
-                    val (prop, value) = line.split('=', limit = 2)
+        val ptrns = f.readLines().map { it.trimStart() }.withIndex()
+                .filterNot { (_, line) -> line.isEmpty() || line.startsWith('#') }
+                .map { (i, line) ->
+                    val (prop, value) = line.split('=', limit = 2).also {
+                        if (it.size != 2) {
+                            error("malformed line in ${f.name}, line ${i + 1}: $line")
+                        }
+                    }
                     convertPattern(prop) to value
                 }
         patterns.addAll(ptrns)
