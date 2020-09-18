@@ -61,6 +61,7 @@ private fun getMaybeComment(line: EventLine, accessor: EventLineAccessor<String>
  * Used in some tasks to specify the failure mode.
  */
 enum class ErrorMode {
+    IGNORE,
     WARN,
     FAIL
 }
@@ -232,6 +233,7 @@ open class Merge : ASSTask() {
         when (mode) {
             ErrorMode.WARN -> logger.warn(message)
             ErrorMode.FAIL -> error(message)
+            ErrorMode.IGNORE -> {}
         }
     }
 

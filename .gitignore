@@ -4,6 +4,7 @@ site
 *.zip
 
 mocha/
+misc/
 
 # Ignore Gradle project-specific cache directory
 .gradle

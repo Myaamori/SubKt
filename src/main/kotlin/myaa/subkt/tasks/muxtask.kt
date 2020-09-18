@@ -1,8 +1,10 @@
 package myaa.subkt.tasks
 
+import myaa.subkt.ass.ASSFile
 import myaa.subkt.tasks.utils.MkvAttachment
 import myaa.subkt.tasks.utils.MkvTrack
 import myaa.subkt.tasks.utils.getMkvInfo
+import myaa.subkt.tasks.utils.verifyFonts
 import org.gradle.api.file.ConfigurableFileTree
 import org.gradle.api.file.FileCollection
 import org.gradle.api.provider.Property
@@ -642,6 +644,45 @@ open class Mux : PropertyTask() {
     val globalOptions = project.objects.listProperty<String>()
 
     /**
+     * If true, will warn about font issues in included subtitle tracks.
+     * You can configure the error reporting using [onFaux], [onStyleMismatch],
+     * [onMissingGlyphs] and [onMissingFonts].
+     * Defaults to true.
+     */
+    @get:Internal
+    val verifyFonts = defaultProperty(true)
+
+    /**
+     * If [verifyFonts] is true, controls what to do if an instance of
+     * faux bold or faux italic is encountered.
+     * Defaults to [ErrorMode.WARN].
+     */
+    @get:Internal
+    val onFaux = defaultProperty(ErrorMode.WARN)
+
+    /**
+     * If [verifyFonts] is true, controls what to do if the matched font
+     * differs from the requested style (e.g. non-italic was requested, but only italic found).
+     * Defaults to [ErrorMode.WARN].
+     */
+    @get:Internal
+    val onStyleMismatch = defaultProperty(ErrorMode.WARN)
+
+    /**
+     * If [verifyFonts] is true, controls what to do if missing glyphs are encountered.
+     * Defaults to [ErrorMode.FAIL].
+     */
+    @get:Internal
+    val onMissingGlyphs = defaultProperty(ErrorMode.FAIL)
+
+    /**
+     * If [verifyFonts] is true, controls what to do if a missing font is encountered.
+     * Defaults to [ErrorMode.FAIL].
+     */
+    @get:Internal
+    val onMissingFonts = defaultProperty(ErrorMode.FAIL)
+
+    /**
      * The CRC32 hash of the output file. Only available after the task has finished.
      */
     @get:Internal
@@ -827,8 +868,15 @@ open class Mux : PropertyTask() {
 
         // per-track flags
         val files = _files.get()
+        val attachments = _attachments.get().flatMap { project.files(it) }
         files.forEach { file ->
             logger.lifecycle(file.toString())
+
+            if (verifyFonts.get() && file.info.container?.type == "SSA/ASS subtitles") {
+                verifyFonts(ASSFile(file.file), attachments)
+                        .printReport(onMissingFonts.get(), onFaux.get(),
+                                onStyleMismatch.get(), onMissingGlyphs.get())
+            }
 
             // options from included tracks
             file.tracks.filter { it.include.get() }.forEach { track ->
@@ -882,18 +930,16 @@ open class Mux : PropertyTask() {
         }
 
         // attachments
-        _attachments.get().forEach { a ->
-            project.files(a).forEach {
-                val mime = mimeTypes[it.extension.toLowerCase()]
-                logger.lifecycle("Attaching ${it.name} (content-type: ${mime ?: "autodetected"})")
-                mime?.let {
-                    yield("--attachment-mime-type")
-                    yield(it)
-                }
-
-                yield("--attach-file")
-                yield(it.absolutePath)
+        attachments.forEach {
+            val mime = mimeTypes[it.extension.toLowerCase()]
+            logger.lifecycle("Attaching ${it.name} (content-type: ${mime ?: "autodetected"})")
+            mime?.let {
+                yield("--attachment-mime-type")
+                yield(it)
             }
+
+            yield("--attach-file")
+            yield(it.absolutePath)
         }
     }
 

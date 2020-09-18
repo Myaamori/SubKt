@@ -47,6 +47,8 @@ dependencies {
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
     implementation("org.apache.velocity", "velocity-engine-core", "2.2")
+    implementation("org.apache.pdfbox", "fontbox", "2.0.21")
+
     implementation("com.google.code.gson", "gson", "2.8.6")
     implementation("io.ktor", "ktor-client-cio", "1.3.2")
     implementation("io.ktor", "ktor-client-gson", "1.3.2")
