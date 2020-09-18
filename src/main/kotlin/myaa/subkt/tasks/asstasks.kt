@@ -242,9 +242,9 @@ open class Merge : ASSTask() {
                             syncTargetTime(line.start)
                         }
                     }
-                    val merged = template.resolveSibling(line.text)
+                    val merged = (template.parent + "/" + line.text).replace('\\', '/')
 
-                    FileSpecPair(merged, spec)
+                    FileSpecPair(project.globPath(merged), spec)
                 } else {
                     null
                 }
