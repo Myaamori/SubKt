@@ -1,12 +1,9 @@
 package myaa.subkt.tasks.samples
 
 import io.ktor.http.ContentType
-import io.ktor.http.HttpMethod
-import myaa.subkt.ass.*
 import myaa.subkt.tasks.*
 import myaa.subkt.ass.EventLineAccessor
 import myaa.subkt.ass.assTime
-import myaa.subkt.tasks.*
 import myaa.subkt.tasks.Anidex.*
 import myaa.subkt.tasks.Mux.*
 import myaa.subkt.tasks.Nyaa.*
@@ -25,8 +22,8 @@ fun Subs.mergeSample() {
             incrementLayer(10)
         }
         from("OP.ass") {
-            syncField(EventLineAccessor.ACTOR)
-            syncTo("0:10:24.66".assTime)
+            syncSourceLine("sync", EventLineAccessor.ACTOR)
+            syncTargetTime("0:10:24.66".assTime)
         }
         from(glob("typesetting-*.ass"))
         onScriptInfoConflict(ErrorMode.FAIL)

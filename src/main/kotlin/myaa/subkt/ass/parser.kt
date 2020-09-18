@@ -438,6 +438,8 @@ sealed class EventLineAccessor<T>(field: String) : LineAccessor<T, EventLine>(fi
     object MARGIN_V : EventLineAccessor<Int>("MarginV")
     object EFFECT : EventLineAccessor<String>("Effect")
     object TEXT : EventLineAccessor<String>("Text")
+
+    override fun toString() = field
 }
 
 /**

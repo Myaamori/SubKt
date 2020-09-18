@@ -73,6 +73,11 @@ enum class ErrorMode {
  * @sample myaa.subkt.tasks.samples.mergeSample
  */
 open class Merge : ASSTask() {
+    data class LineSpecification(
+            @get:Input val field: EventLineAccessor<String>,
+            @get:Input val value: String
+    )
+
     /**
      * Defines how the files associated with this specification should be merged.
      */
@@ -89,29 +94,57 @@ open class Merge : ASSTask() {
         @get:Input
         val shiftBy = defaultProperty(Duration.ZERO)
 
+        private val _syncSourceLine =
+                defaultProperty(LineSpecification(EventLineAccessor.EFFECT, "sync"))
+
+        @get:Nested
+        @get:Optional
+        val syncSourceLine: Provider<LineSpecification> = _syncSourceLine
+
         /**
-         * Shifts the lines of the source file so that the start time of the sync line,
-         * as specified by [syncLine] and [syncField], lines up with the specified [Duration].
+         * Specifies a line in the included file (e.g. a song file) to serve as
+         * a reference for shifting all lines in this file. All lines
+         * will be shifted so that the start time of the specified source line
+         * matches the time specified by [syncTargetTime] or the start time
+         * of the line specified by [syncTargetLine].
+         *
+         * @param fieldValue The value which identifies the source sync line
+         * @param fieldName The field in which to look for [fieldValue]
+         */
+        fun syncSourceLine(
+                fieldValue: String,
+                fieldName: EventLineAccessor<String> = EventLineAccessor.EFFECT
+        ) {
+            _syncSourceLine.set(LineSpecification(fieldName, fieldValue))
+        }
+
+        private val _syncTargetLine = project.objects.property<LineSpecification>()
+
+        @get:Nested
+        @get:Optional
+        val syncTargetLine: Provider<LineSpecification> = _syncTargetLine
+
+        /**
+         * Specifies a target line which the line specified by [syncSourceLine]
+         * should be shifted to. The target line may be present anywhere in the merged file.
+         *
+         * @param fieldValue The value which identifies the target sync line
+         * @param fieldName The field in which to look for [fieldValue]
+         */
+        fun syncTargetLine(
+                fieldValue: String,
+                fieldName: EventLineAccessor<String> = EventLineAccessor.EFFECT
+        ) {
+            _syncTargetLine.set(LineSpecification(fieldName, fieldValue))
+        }
+
+        /**
+         * Specifies a target time which the line specified by [syncSourceLine]
+         * should be shifted to.
          */
         @get:Input
         @get:Optional
-        val syncTo = project.objects.property<Duration>()
-
-        /**
-         * An [EventLineAccessor] specifying what field to match the value specified by
-         * [syncLine] to in order to identify the sync line.
-         * Defaults to the effect field.
-         */
-        @get:Input
-        val syncField = defaultProperty<EventLineAccessor<String>>(EventLineAccessor.EFFECT)
-
-        /**
-         * The value that identifies the sync line used by [syncTo]. The sync line
-         * must have the specified value in the field specified by [syncField].
-         * Defaults to `sync`.
-         */
-        @get:Input
-        val syncLine = defaultProperty("sync")
+        val syncTargetTime = project.objects.property<Duration>()
     }
 
     /**
@@ -206,7 +239,7 @@ open class Merge : ASSTask() {
                     val spec = MergeSpecification().apply {
                         incrementLayer(line.layer)
                         if (line.effect == "import-shifted") {
-                            syncTo(line.start)
+                            syncTargetTime(line.start)
                         }
                     }
                     val merged = template.resolveSibling(line.text)
@@ -238,31 +271,65 @@ open class Merge : ASSTask() {
     }
 
     override fun buildAss(): ASSFile {
+        val targetLineSpecs = mutableListOf<LineSpecification>()
+
+        // read ass files, preliminary processing, collect target sync line specifications
         val files = _sources.get().flatMap { (files, spec) ->
-            project.files(files).map { file -> ASSFile(file).also { ass ->
+            project.files(files).map { file ->
+                val ass = ASSFile(file)
+
                 ass.events.lines.forEach { line ->
                     line.layer += spec.incrementLayer.get()
                     line.start += spec.shiftBy.get()
                     line.end += spec.shiftBy.get()
                 }
 
-                spec.syncTo.orNull?.let { syncTo ->
-                    val referenceLine = ass.events.lines.find {
-                        getMaybeComment(it, spec.syncField.get()) == spec.syncLine.get()
-                    } ?: error("Could not find sync line in ${file.name}")
-
-                    val delta = syncTo - referenceLine.start
-
-                    ass.events.lines.forEach {
-                        it.start += delta
-                        it.end += delta
-                    }
+                spec.syncTargetLine.orNull?.let {
+                    targetLineSpecs.add(it)
                 }
-            } }
+
+                ass to spec
+            }
+        }
+
+        // find lines corresponding to target sync line specifications
+        val targetLines = files.flatMap { (ass, _) -> ass.events.lines }.mapNotNull { line ->
+            targetLineSpecs.find { getMaybeComment(line, it.field) == it.value }?.let { it to line }
+        }.groupBy({ it.first }, { it.second }).mapValues { (spec, lines) ->
+            when {
+                lines.size > 1 -> error("duplicate target sync lines with value ${spec.value} " +
+                        "in field ${spec.field}")
+                else -> lines[0]
+            }
+        }
+
+        // shift lines based on start time of target lines or explicit target times
+        files.forEach { (ass, spec) ->
+            val targetTime = spec.syncTargetTime.orNull
+                    ?: spec.syncTargetLine.orNull?.let { targetSpec ->
+                        targetLines[targetSpec]?.start ?: error(
+                            "could not find target sync line with value ${targetSpec.value} " +
+                                    "in field ${targetSpec.field} in merged file")
+                    }
+
+            if (targetTime != null) {
+                val sourceSpec = spec.syncSourceLine.get()
+                val sourceLine = ass.events.lines.find {
+                    getMaybeComment(it, sourceSpec.field) == sourceSpec.value
+                } ?: error("could not find source sync line with value ${sourceSpec.value}" +
+                        "in field ${sourceSpec.field} in file ${ass.file?.name}")
+                val sourceTime = sourceLine.start
+
+                val delta = targetTime - sourceTime
+                ass.events.lines.forEach {
+                    it.start += delta
+                    it.end += delta
+                }
+            }
         }
 
         val conflictingInfoSet = conflictingScriptInfo.get().toSet()
-        val outAss = files.foldIndexed(ASSFile()) { i, acc, assFile ->
+        val outAss = files.map { (ass, _) -> ass }.foldIndexed(ASSFile()) { i, acc, assFile ->
             val existingStyles = acc.styles.lines.associate {
                 it.name to acc.styles.serializeLine(it)
             }

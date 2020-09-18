@@ -70,11 +70,11 @@ subs {
         from(glob("$episode/eizouken$episode-ts*.ass"))
 
         from("songs/eizouken_OP.ass") {
-            syncTo(getAs<Duration>("opshift"))
+            syncTargetTime(getAs<Duration>("opshift"))
         }
 
         from("songs/eizouken_ED.ass") {
-            syncTo(getAs<Duration>("edshift"))
+            syncTargetTime(getAs<Duration>("edshift"))
         }
     }
 
@@ -668,11 +668,11 @@ subs {
         from(getList("typesetting"))
 
         from(get("OP")) {
-            syncTo(getAs<Duration>("opsync"))
+            syncTargetTime(getAs<Duration>("opsync"))
         }
 
         from(get("ED")) {
-            syncTo(getAs<Duration>("edsync"))
+            syncTargetTime(getAs<Duration>("edsync"))
         }
     }
 
