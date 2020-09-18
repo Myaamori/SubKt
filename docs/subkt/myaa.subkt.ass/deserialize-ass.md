@@ -2,7 +2,7 @@
 
 # deserializeAss
 
-`fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> deserializeAss(s: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, klass: `[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<`[`T`](deserialize-ass.md#T)`>): `[`T`](deserialize-ass.md#T)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L847)
+`fun <T : `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`> deserializeAss(s: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, klass: `[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)`<`[`T`](deserialize-ass.md#T)`>): `[`T`](deserialize-ass.md#T)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L849)
 
 Return the given ASS string deserialized to the given type [T](deserialize-ass.md#T), or `null`
 if the string could not be deserialized.

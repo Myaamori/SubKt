@@ -2,4 +2,4 @@
 
 # PRIMARY_COLOR
 
-`object PRIMARY_COLOR : `[`StyleLineAccessor`](index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L500)
+`object PRIMARY_COLOR : `[`StyleLineAccessor`](index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L502)

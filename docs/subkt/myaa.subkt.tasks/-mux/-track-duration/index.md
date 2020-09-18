@@ -2,7 +2,7 @@
 
 # TrackDuration
 
-`data class TrackDuration : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L137)
+`data class TrackDuration : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L139)
 
 Represents a duration for use with [Track.defaultDuration](../-track/default-duration.md).
 

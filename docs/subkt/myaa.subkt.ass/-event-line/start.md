@@ -2,4 +2,4 @@
 
 # start
 
-`var start: `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L453)
+`var start: `[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L455)

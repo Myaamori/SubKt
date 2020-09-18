@@ -2,7 +2,7 @@
 
 # VIETNAMESE
 
-`VIETNAMESE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1075)
+`VIETNAMESE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1075)
 
 ### Inherited Properties
 

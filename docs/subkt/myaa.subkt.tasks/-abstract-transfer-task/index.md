@@ -2,7 +2,7 @@
 
 # AbstractTransferTask
 
-`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1584)
+`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1584)
 
 ### Types
 

@@ -2,7 +2,7 @@
 
 # AnidexCategories
 
-`enum class AnidexCategories` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1044)
+`enum class AnidexCategories` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1044)
 
 Torrent categories on Nyaa.
 

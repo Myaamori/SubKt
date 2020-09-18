@@ -2,7 +2,7 @@
 
 # scriptInfo
 
-`val scriptInfo: `[`ScriptInfoSection`](../../myaa.subkt.ass/-script-info-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L145)
+`val scriptInfo: `[`ScriptInfoSection`](../../myaa.subkt.ass/-script-info-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L179)
 
 A [ScriptInfoSection](../../myaa.subkt.ass/-script-info-section/index.md) instance for overriding the script info read from the
 merged files. A [scriptInfo](./script-info.md) method is available for easier modification.
@@ -12,7 +12,7 @@ merged files. A [scriptInfo](./script-info.md) method is available for easier mo
 A [ScriptInfoSection](../../myaa.subkt.ass/-script-info-section/index.md) instance for overriding the script info read from the
 merged files. A [scriptInfo](./script-info.md) method is available for easier modification.
 
-`fun scriptInfo(action: `[`ScriptInfoSection`](../../myaa.subkt.ass/-script-info-section/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L227)
+`fun scriptInfo(action: `[`ScriptInfoSection`](../../myaa.subkt.ass/-script-info-section/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L261)
 
 Allows you to override values in the Script Info section as needed.
 

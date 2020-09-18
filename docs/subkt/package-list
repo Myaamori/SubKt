@@ -44,4 +44,4 @@ $dokka.location:myaa.subkt.tasks$propertyExists(org.gradle.api.Task, kotlin.Stri
 $dokka.location:myaa.subkt.tasks$release#org.gradle.api.Taskmyaa.subkt.tasks/org.gradle.api.-task/release.md
 myaa.subkt.ass
 myaa.subkt.tasks
-myaa.subkt.tasks.mkvmerge
+myaa.subkt.tasks.utils

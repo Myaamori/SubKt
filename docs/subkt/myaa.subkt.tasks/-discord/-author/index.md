@@ -2,7 +2,7 @@
 
 # Author
 
-`inner class Author` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L190)
+`inner class Author` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L190)
 
 ### Constructors
 

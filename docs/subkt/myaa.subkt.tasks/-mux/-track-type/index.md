@@ -2,7 +2,7 @@
 
 # TrackType
 
-`enum class TrackType` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L97)
+`enum class TrackType` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L99)
 
 The type of a track, available through [Track.TrackInfo.type](../-track/-track-info/type.md).
 
@@ -20,6 +20,7 @@ The type of a track, available through [Track.TrackInfo.type](../-track/-track-i
 
 | Name | Summary |
 |---|---|
+| [flag](flag.md) | `val flag: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [type](type.md) | `val type: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 
 ### Companion Object Functions

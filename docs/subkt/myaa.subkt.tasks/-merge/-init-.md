@@ -13,8 +13,8 @@ merge {
         incrementLayer(10)
     }
     from("OP.ass") {
-        syncField(EventLineAccessor.ACTOR)
-        syncTo("0:10:24.66".assTime)
+        syncSourceLine("sync", EventLineAccessor.ACTOR)
+        syncTargetTime("0:10:24.66".assTime)
     }
     from(glob("typesetting-*.ass"))
     onScriptInfoConflict(ErrorMode.FAIL)

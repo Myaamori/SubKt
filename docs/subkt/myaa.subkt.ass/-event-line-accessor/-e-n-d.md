@@ -2,4 +2,10 @@
 
 # END
 
-`object END : `[`EventLineAccessor`](index.md)`<`[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L433)
+`object END : `[`EventLineAccessor`](index.md)`<`[`Duration`](https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L433)
+
+### Inherited Functions
+
+| Name | Summary |
+|---|---|
+| [toString](to-string.md) | `open fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |

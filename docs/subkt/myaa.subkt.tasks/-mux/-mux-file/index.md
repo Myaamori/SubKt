@@ -2,7 +2,7 @@
 
 # MuxFile
 
-`inner class MuxFile` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L331)
+`inner class MuxFile` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L333)
 
 Represents a file to mux, added using [from](../from.md).
 
@@ -21,7 +21,7 @@ Represents a file to mux, added using [from](../from.md).
 | [file](file.md) | `val file: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)<br>The source file. |
 | [fileOptions](file-options.md) | `val fileOptions: `[`ListProperty`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/ListProperty.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Any additional file-specific mkvmerge options you wish to include. |
 | [includeChapters](include-chapters.md) | `val includeChapters: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>`<br>Whether to keep the chapters present in this file, if any. Defaults to true. |
-| [info](info.md) | `val info: `[`MkvInfo`](../../../myaa.subkt.tasks.mkvmerge/-mkv-info/index.md)<br>Raw file info from mkvmerge. |
+| [info](info.md) | `val info: `[`MkvInfo`](../../../myaa.subkt.tasks.utils/-mkv-info/index.md)<br>Raw file info from mkvmerge. |
 | [tracks](tracks.md) | `val tracks: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Mux.Track`](../-track/index.md)`>`<br>The tracks present in this file. |
 
 ### Functions

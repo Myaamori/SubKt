@@ -2,7 +2,7 @@
 
 # Merge
 
-`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L74)
+`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L75)
 
 Task to merge multiple ASS files into one. A predefined task instance can be
 accessed through [Subs.merge](../merge.md).
@@ -13,8 +13,8 @@ merge {
         incrementLayer(10)
     }
     from("OP.ass") {
-        syncField(EventLineAccessor.ACTOR)
-        syncTo("0:10:24.66".assTime)
+        syncSourceLine("sync", EventLineAccessor.ACTOR)
+        syncTargetTime("0:10:24.66".assTime)
     }
     from(glob("typesetting-*.ass"))
     onScriptInfoConflict(ErrorMode.FAIL)
@@ -27,6 +27,7 @@ merge {
 | Name | Summary |
 |---|---|
 | [FileSpecPair](-file-spec-pair/index.md) | `data class FileSpecPair`<br>Represents a pair of files and corresponding merge specification. |
+| [LineSpecification](-line-specification/index.md) | `data class LineSpecification` |
 | [MergeSpecification](-merge-specification/index.md) | `inner class MergeSpecification`<br>Defines how the files associated with this specification should be merged. |
 
 ### Constructors

@@ -1,5 +1,0 @@
-[subkt](../../index.md) / [myaa.subkt.tasks.mkvmerge](../index.md) / [MkvAttachment](index.md) / [&lt;init&gt;](./-init-.md)
-
-# &lt;init&gt;
-
-`MkvAttachment(file_name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, id: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`, properties: `[`MkvAttachmentProperty`](../-mkv-attachment-property/index.md)`, size: `[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`, content_type: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, description: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, type: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null)`

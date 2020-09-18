@@ -2,7 +2,7 @@
 
 # EventLineAccessor
 
-`sealed class EventLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/ass/parser.kt#L430)
+`sealed class EventLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L430)
 
 A type-safe accessor for [EventLine](../-event-line/index.md).
 
@@ -28,6 +28,12 @@ See [MapLine](../-map-line/index.md) for a more in-depth description.
 | Name | Summary |
 |---|---|
 | [field](../-line-accessor/field.md) | `val field: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+
+### Functions
+
+| Name | Summary |
+|---|---|
+| [toString](to-string.md) | `open fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
 ### Inheritors
 

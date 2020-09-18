@@ -2,7 +2,7 @@
 
 # SubSync
 
-`open class SubSync : `[`Sync`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Sync.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.8/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2127)
+`open class SubSync : `[`Sync`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Sync.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2127)
 
 Wrapper task for [Sync](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Sync.html) which implements [SubTask](../-sub-task/index.md), giving access to
 [SubTask.item](../-sub-task/item.md) and [SubTask.batchItems](../-sub-task/batch-items.md) for convenience.

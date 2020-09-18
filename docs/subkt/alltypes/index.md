@@ -29,6 +29,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.ass.ExtraData](../myaa.subkt.ass/-extra-data.md) |  |
 | [org.gradle.api.file.FileSystemLocationProperty](../myaa.subkt.tasks/org.gradle.api.file.-file-system-location-property/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.tasks.Filterable](../myaa.subkt.tasks/-filterable/index.md) | Represents an item that can be optionally discarded. |
+| [myaa.subkt.tasks.utils.FontReport](../myaa.subkt.tasks.utils/-font-report/index.md) |  |
 | [myaa.subkt.ass.FormatSection](../myaa.subkt.ass/-format-section/index.md) | Represents a section containing a sequence of lines, starting with a `Format` line specifying the order of the fields on each line. |
 | [myaa.subkt.tasks.FTP](../myaa.subkt.tasks/-f-t-p/index.md) | Task for uploading files via FTP. A predefined task instance can be accessed through [Subs.ftp](../myaa.subkt.tasks/ftp.md). |
 | [org.gradle.api.provider.HasMultipleValues](../myaa.subkt.tasks/org.gradle.api.provider.-has-multiple-values/index.md) (extensions in package myaa.subkt.tasks) |  |
@@ -44,17 +45,17 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.ass.MapLine](../myaa.subkt.ass/-map-line/index.md) | A line in a [FormatSection](../myaa.subkt.ass/-format-section/index.md). The fields contained in this object can be accessed in three ways: |
 | [org.gradle.api.provider.MapProperty](../myaa.subkt.tasks/org.gradle.api.provider.-map-property/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.tasks.Merge](../myaa.subkt.tasks/-merge/index.md) | Task to merge multiple ASS files into one. A predefined task instance can be accessed through [Subs.merge](../myaa.subkt.tasks/merge.md). |
-| [myaa.subkt.tasks.mkvmerge.MkvAttachment](../myaa.subkt.tasks.mkvmerge/-mkv-attachment/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvAttachmentProperty](../myaa.subkt.tasks.mkvmerge/-mkv-attachment-property/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvChapter](../myaa.subkt.tasks.mkvmerge/-mkv-chapter/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvContainer](../myaa.subkt.tasks.mkvmerge/-mkv-container/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvContainerProperties](../myaa.subkt.tasks.mkvmerge/-mkv-container-properties/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvContainerPropertiesProgram](../myaa.subkt.tasks.mkvmerge/-mkv-container-properties-program/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvGlobalTag](../myaa.subkt.tasks.mkvmerge/-mkv-global-tag/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvInfo](../myaa.subkt.tasks.mkvmerge/-mkv-info/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvTrack](../myaa.subkt.tasks.mkvmerge/-mkv-track/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvTrackProperties](../myaa.subkt.tasks.mkvmerge/-mkv-track-properties/index.md) |  |
-| [myaa.subkt.tasks.mkvmerge.MkvTrackTag](../myaa.subkt.tasks.mkvmerge/-mkv-track-tag/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvAttachment](../myaa.subkt.tasks.utils/-mkv-attachment/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvAttachmentProperty](../myaa.subkt.tasks.utils/-mkv-attachment-property/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvChapter](../myaa.subkt.tasks.utils/-mkv-chapter/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvContainer](../myaa.subkt.tasks.utils/-mkv-container/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvContainerProperties](../myaa.subkt.tasks.utils/-mkv-container-properties/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvContainerPropertiesProgram](../myaa.subkt.tasks.utils/-mkv-container-properties-program/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvGlobalTag](../myaa.subkt.tasks.utils/-mkv-global-tag/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvInfo](../myaa.subkt.tasks.utils/-mkv-info/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvTrack](../myaa.subkt.tasks.utils/-mkv-track/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvTrackProperties](../myaa.subkt.tasks.utils/-mkv-track-properties/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvTrackTag](../myaa.subkt.tasks.utils/-mkv-track-tag/index.md) |  |
 | [myaa.subkt.tasks.Mux](../myaa.subkt.tasks/-mux/index.md) | Task to mux a set of files into a single Matroska container using mkvmerge. |
 | [myaa.subkt.tasks.MuxFlag](../myaa.subkt.tasks/-mux-flag/index.md) | Marks a property with its corresponding mkvmerge flag. |
 | [myaa.subkt.tasks.Nyaa](../myaa.subkt.tasks/-nyaa/index.md) | Task for uploading a torrent file to nyaa.si. A predefined task instance can be accessed through [Subs.nyaa](../myaa.subkt.tasks/nyaa.md). |
