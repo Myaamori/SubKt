@@ -413,6 +413,15 @@ open class Subs(val project: Project) : ItemGroupContext() {
     /**
      * Creates a context for generating tasks for the specified entries.
      *
+     * @param entries Entries to generate tasks for.
+     * @param action A closure operating on a [ItemGroupContext] entry.
+     */
+    fun tasks(vararg entries: String, action: ItemGroupContext.() -> Unit) =
+            InnerContext(entries.toList()).action()
+
+    /**
+     * Creates a context for generating tasks for the specified entries.
+     *
      * @param entries A provider for a list of entries to generate tasks for.
      * @param action A closure operating on a [ItemGroupContext] entry.
      */
