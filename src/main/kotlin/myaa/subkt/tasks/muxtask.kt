@@ -96,12 +96,12 @@ open class Mux : PropertyTask() {
     /**
      * The type of a track, available through [Track.TrackInfo.type].
      */
-    enum class TrackType(val type: String?) {
-        AUDIO("audio"),
-        VIDEO("video"),
-        SUBTITLES("subtitles"),
-        BUTTONS("buttons"),
-        OTHER(null);
+    enum class TrackType(val type: String?, val flag: String?) {
+        AUDIO("audio", "audio"),
+        VIDEO("video", "video"),
+        SUBTITLES("subtitles", "subtitle"),
+        BUTTONS("buttons", "button"),
+        OTHER(null, null);
 
         companion object {
             private val lookup = values().associateBy { it.type }
@@ -888,14 +888,14 @@ open class Mux : PropertyTask() {
 
             // include/disable tracks
             listOf(
-                    TrackType.AUDIO to "audio",
-                    TrackType.VIDEO to "video",
-                    TrackType.SUBTITLES to "subtitle",
-                    TrackType.BUTTONS to "button"
-            ).forEach { (trackType, flag) ->
+                    TrackType.AUDIO,
+                    TrackType.VIDEO,
+                    TrackType.SUBTITLES,
+                    TrackType.BUTTONS
+            ).forEach { trackType ->
                 yieldAll(filterTracks(
                         file.tracks.filter { it.track.type == trackType },
-                        "--${flag}-tracks",
+                        "--${trackType.flag}-tracks",
                         "--no-${trackType.type}"
                 ))
             }
