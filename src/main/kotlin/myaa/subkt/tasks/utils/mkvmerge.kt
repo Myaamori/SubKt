@@ -1,4 +1,4 @@
-package myaa.subkt.tasks.mkvmerge
+package myaa.subkt.tasks.utils
 
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope

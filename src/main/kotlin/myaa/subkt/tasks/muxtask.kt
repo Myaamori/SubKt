@@ -1,8 +1,8 @@
 package myaa.subkt.tasks
 
-import myaa.subkt.tasks.mkvmerge.MkvAttachment
-import myaa.subkt.tasks.mkvmerge.MkvTrack
-import myaa.subkt.tasks.mkvmerge.getMkvInfo
+import myaa.subkt.tasks.utils.MkvAttachment
+import myaa.subkt.tasks.utils.MkvTrack
+import myaa.subkt.tasks.utils.getMkvInfo
 import org.gradle.api.file.ConfigurableFileTree
 import org.gradle.api.file.FileCollection
 import org.gradle.api.provider.Property
