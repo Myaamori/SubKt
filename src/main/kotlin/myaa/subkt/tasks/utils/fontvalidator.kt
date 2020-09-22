@@ -2,7 +2,6 @@ package myaa.subkt.tasks.utils
 
 import io.ktor.utils.io.charsets.*
 import myaa.subkt.ass.ASSFile
-import myaa.subkt.ass.StyleLine
 import myaa.subkt.tasks.ErrorMode
 import org.apache.fontbox.ttf.*
 import java.io.File
@@ -19,7 +18,7 @@ private val linePattern = Regex("""(?:\{(?<tags>[^}]*)\}?)?(?<text>[^{]*)""")
 
 private fun parseIntArg(s: String) = intPattern.find(s)?.value?.toInt() ?: 0
 
-private fun parseTags(s: String, initState: State, style: State): State =
+private fun parseTags(s: String, initState: State, lineStyle: State, styles: Map<String, State>): State =
         tagPattern.findAll(s).fold(initState) { state, m ->
             val value = m.groups[1]!!.value
             fun getTag(tag: String, vararg exclude: String): Arg? =
@@ -33,7 +32,7 @@ private fun parseTags(s: String, initState: State, style: State): State =
 
             getTag("fn")?.let { (arg) ->
                 state.copy(font = when {
-                    arg == null -> style.font
+                    arg == null -> lineStyle.font
                     arg.startsWith("@") -> arg.substring(1)
                     else -> arg
                 })
@@ -47,31 +46,40 @@ private fun parseTags(s: String, initState: State, style: State): State =
                 }
 
                 state.copy(weight = when (transformed) {
-                    null -> style.weight
+                    null -> lineStyle.weight
                     else -> transformed
                 })
             } ?: getTag("i", "iclip")?.let { (arg) ->
                 val slant = arg?.let { parseIntArg(it).takeIf { i -> i == 0 || i == 1 } }
                 state.copy(italic = when (slant) {
-                    null -> style.italic
+                    null -> lineStyle.italic
                     else -> slant == 1
                 })
             } ?: getTag("p", "pos", "pbo")?.let { (arg) ->
                 val scale = arg?.let { parseIntArg(it) } ?: 0
                 state.copy(drawing = scale != 0)
+            } ?: getTag("r")?.let { (arg) ->
+                val style = when (arg) {
+                    null -> lineStyle
+                    else -> styles[arg] ?: run {
+                        println("Warning: Unknown style $arg as argument to \\r; " +
+                                "defaulting to line style")
+                        lineStyle
+                    }
+                }
+                state.copy(font = style.font, italic = style.italic, weight = style.weight)
             } ?: getTag("t")?.let { (arg) ->
                 arg?.let {
-                    parseTags(it, state, style)
+                    parseTags(it, state, lineStyle, styles)
                 }
             } ?: state
         }
 
 @OptIn(ExperimentalStdlibApi::class)
-private fun parseLine(line: String, style: StyleLine): Sequence<Pair<State, String>> {
-    val initialState = State(style.font, style.italic, if (style.bold) 700 else 400, false)
-    return linePattern.findAll(line).scan(initialState to "") { (state, _), m ->
+private fun parseLine(line: String, lineStyle: State, styles: Map<String, State>): Sequence<Pair<State, String>> {
+    return linePattern.findAll(line).scan(lineStyle to "") { (state, _), m ->
         val newState = m.groups["tags"]?.let { (value) ->
-            parseTags(value, state, initialState)
+            parseTags(value, state, lineStyle, styles)
         } ?: state
 
         newState to (m.groups["text"]?.value ?: "")
@@ -307,19 +315,19 @@ class FontReport {
 }
 
 fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
-    val styles = assFile.styles.lines.associateBy { it.name }
+    val styles = assFile.styles.lines.associate { it.name to State(it.font, it.italic, if (it.bold) 700 else 400, false) }
     val fonts = FontCollection(fontFiles)
     val report = FontReport()
 
 
     assFile.events.lines.withIndex().filter { (_, line) -> !line.comment }.forEach { (i, line) ->
         val lineNum = i + 1
-        val style = styles[line.style] ?: run {
+        val lineStyle = styles[line.style] ?: run {
             println("Warning: Unknown style ${line.style} on line $lineNum; assuming default style")
-            StyleLine()
+            State("Arial", false, 400, false)
         }
 
-        parseLine(line.text, style).forEach { (state, text) ->
+        parseLine(line.text, lineStyle, styles).forEach { (state, text) ->
             when (val font = fonts.match(state)) {
                 null -> report.missingFont(lineNum, state.font)
                 else -> {
