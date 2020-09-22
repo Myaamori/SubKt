@@ -35,12 +35,22 @@ abstract class ASSTask : PropertyTask() {
     val includeProjectGarbage = project.objects.property<Boolean>().convention(true)
 
     /**
+     * Whether to remove comments from the output file.
+     */
+    @get:Input
+    val removeComments = project.objects.property<Boolean>().convention(false)
+
+    /**
      * Constructs the ASS file to save. Must be implemented by subtypes.
      */
     protected abstract fun buildAss(): ASSFile
 
     override fun run() {
         val ass = buildAss()
+
+        if (removeComments.get()) {
+            ass.events.lines.removeAll { it.comment }
+        }
 
         out.singleFile.bufferedWriter(StandardCharsets.UTF_8).use { writer ->
             ass.serialize(includeProjectGarbage = includeProjectGarbage.get(),
