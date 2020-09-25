@@ -936,8 +936,7 @@ abstract class FormatSection<T : MapLine<T>>(name: String, val lineClass: KClass
     fun parseLine(line: KeyValLine, extraData: ExtraData) {
         val fields = line.value.split(",", limit=format.size)
         if (fields.size != format.size) {
-            println("Warning: too few fields in section $name: $line")
-            return
+            error("too few fields in section $name: $line")
         }
 
         val constructor = lineClass.primaryConstructor!!
@@ -949,8 +948,7 @@ abstract class FormatSection<T : MapLine<T>>(name: String, val lineClass: KClass
             fieldToType[fieldName]?.let { (param, paramType) ->
                 val klass = paramType.classifier!! as KClass<*>
                 val parsedValue = deserializeAss(value, klass) ?: run {
-                    println("Warning: could not parse as $paramType: $value")
-                    return@parseLine
+                    error("could not parse $value as $paramType: $line")
                 }
 
                 param to parsedValue
