@@ -229,6 +229,10 @@ class FontReport {
         missingGlyphs.computeIfAbsent(font) { mutableSetOf() }.addAll(glyphs.toList())
     }
 
+    fun limitLines(lines: Collection<Int>, limit: Int = 10) =
+            if (lines.size <= limit) lines.joinToString(" ")
+            else lines.asSequence().take(limit).joinToString(" ") + " [...]"
+
     fun printReport(
             onMissingFonts: ErrorMode, onFaux: ErrorMode,
             onStyleMismatch: ErrorMode, onMissingGlyphs: ErrorMode
@@ -238,7 +242,7 @@ class FontReport {
         if (onMissingFonts != ErrorMode.IGNORE) {
             missingFonts.forEach { (font, lines) ->
                 println("warning: font '$font' not found on line(s): " +
-                        lines.joinToString(" "))
+                        limitLines(lines))
 
                 if (onMissingFonts == ErrorMode.FAIL) {
                     fail = true
@@ -251,7 +255,7 @@ class FontReport {
                 weightMap.forEach { (weight, lines) ->
                     val (requested, actual) = weight
                     println("warning: faux bold used for font $font (requested weight $requested, got $actual) " +
-                            "on line(s): ${lines.joinToString(" ")}")
+                            "on line(s): ${limitLines(lines)}")
                 }
 
                 if (onFaux == ErrorMode.FAIL) {
@@ -260,7 +264,7 @@ class FontReport {
             }
 
             fauxItalic.forEach { (font, lines) ->
-                println("warning: faux italic used for font $font on line(s): ${lines.joinToString(" ")}")
+                println("warning: faux italic used for font $font on line(s): ${limitLines(lines)}")
 
                 if (onFaux == ErrorMode.FAIL) {
                     fail = true
@@ -273,7 +277,7 @@ class FontReport {
                 weightMap.forEach { (weight, lines) ->
                     val (requested, actual) = weight
                     println("warning: requested weight $requested but got $actual for font $font " +
-                            "on line(s): ${lines.joinToString(" ")}")
+                            "on line(s): ${limitLines(lines)}")
                 }
 
                 if (onStyleMismatch == ErrorMode.FAIL) {
@@ -283,7 +287,7 @@ class FontReport {
 
             italicMismatch.forEach { (font, lines) ->
                 println("requested non-italic but got italic for font $font " +
-                        "on line(s): ${lines.joinToString(" ")}")
+                        "on line(s): ${limitLines(lines)}")
 
                 if (onStyleMismatch == ErrorMode.FAIL) {
                     fail = true
@@ -295,7 +299,7 @@ class FontReport {
             missingGlyphLines.forEach { (font, lines) ->
                 val glyphs = missingGlyphs[font]?.joinToString("")
                 println("warning: font $font missing glyphs $glyphs " +
-                        "on line(s): ${lines.joinToString(" ")}")
+                        "on line(s): ${limitLines(lines)}")
 
                 if (onMissingGlyphs == ErrorMode.FAIL) {
                     fail = true
