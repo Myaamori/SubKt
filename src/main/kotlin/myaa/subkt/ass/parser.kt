@@ -507,10 +507,10 @@ sealed class StyleLineAccessor<T>(field: String) : LineAccessor<T, StyleLine>(fi
     object ITALIC : StyleLineAccessor<Boolean>("Italic")
     object UNDERLINE : StyleLineAccessor<Boolean>("Underline")
     object STRIKEOUT : StyleLineAccessor<Boolean>("StrikeOut")
-    object SCALE_X : StyleLineAccessor<Int>("ScaleX")
-    object SCALE_Y : StyleLineAccessor<Int>("ScaleY")
+    object SCALE_X : StyleLineAccessor<Double>("ScaleX")
+    object SCALE_Y : StyleLineAccessor<Double>("ScaleY")
     object SPACING : StyleLineAccessor<Double>("Spacing")
-    object ROTATION : StyleLineAccessor<Int>("Angle")
+    object ROTATION : StyleLineAccessor<Double>("Angle")
     object BORDER_STYLE : StyleLineAccessor<Int>("BorderStyle")
     object OUTLINE : StyleLineAccessor<Double>("Outline")
     object SHADOW : StyleLineAccessor<Double>("Shadow")
@@ -551,13 +551,13 @@ class StyleLine(
         @LineField("StrikeOut")
         var strikeout: Boolean = false,
         @LineField("ScaleX")
-        var scaleX: Int = 100,
+        var scaleX: Double = 100.0,
         @LineField("ScaleY")
-        var scaleY: Int = 100,
+        var scaleY: Double = 100.0,
         @LineField("Spacing")
         var spacing: Double = 0.0,
         @LineField("Angle")
-        var rotation: Int = 0,
+        var rotation: Double = 0.0,
         @LineField("BorderStyle")
         var borderStyle: Int = 1,
         @LineField("Outline")
