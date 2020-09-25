@@ -144,10 +144,7 @@ private class Font(val fontFile: File) {
             "$postScriptName(weight=$weight, italic=$italic)"
 }
 
-private sealed class FontMatch {
-    object NoFont : FontMatch()
-    class HasFont(val font: Font) : FontMatch()
-}
+private data class FontMatch(val font: Font?, val exactMatch: Boolean)
 
 private class FontCollection(fontFiles: List<File>) {
     val fonts = fontFiles.mapNotNull { file ->
@@ -171,27 +168,25 @@ private class FontCollection(fontFiles: List<File>) {
 
     private fun matchFont(state: State) =
             when (val exactMatch = byFullName[state.font]) {
-                is Font -> exactMatch
+                is Font -> FontMatch(exactMatch, true)
                 else -> when (val family = byFamilyName[state.font]) {
-                    null -> null
-                    else -> family.minBy { similarity(state, it) }
+                    null -> FontMatch(null, false)
+                    else -> family.minBy { similarity(state, it) }?.let {
+                        FontMatch(it, false)
+                    } ?: FontMatch(null, false)
                 }
             }
 
-    fun match(state: State): Font? {
+    fun match(state: State): FontMatch {
         val s = state.copy(font = state.font.toLowerCase(), drawing = false)
 
         return when (val f = cache[s]) {
-            is FontMatch.HasFont -> f.font
-            FontMatch.NoFont -> null
             null -> {
                 val font = matchFont(s)
-                cache[s] = when (font) {
-                    null -> FontMatch.NoFont
-                    else -> FontMatch.HasFont(font)
-                }
+                cache[s] = font
                 font
             }
+            else -> f
         }
     }
 }
@@ -328,7 +323,8 @@ fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
         }
 
         parseLine(line.text, lineStyle, styles).forEach { (state, text) ->
-            when (val font = fonts.match(state)) {
+            val (font, exactMatch) = fonts.match(state)
+            when (font) {
                 null -> report.missingFont(lineNum, state.font)
                 else -> {
                     if (state.italic && !font.italic) {
@@ -339,11 +335,11 @@ fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
                         report.fauxBold(lineNum, state.weight, font.weight, state.font)
                     }
 
-                    if (!state.italic && font.italic) {
+                    if (!state.italic && font.italic && !exactMatch) {
                         report.italicMismatch(lineNum, state.font)
                     }
 
-                    if (state.weight <= font.weight - 150) {
+                    if (state.weight <= font.weight - 150 && !exactMatch) {
                         report.weightMismatch(lineNum, state.weight, font.weight, state.font)
                     }
 
