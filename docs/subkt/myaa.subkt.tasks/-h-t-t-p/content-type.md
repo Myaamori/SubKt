@@ -2,7 +2,7 @@
 
 # contentType
 
-`val contentType: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<ContentType>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1412)
+`val contentType: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<ContentType>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1412)
 
 The content type. Only used if sending data using [body](body.md).
 

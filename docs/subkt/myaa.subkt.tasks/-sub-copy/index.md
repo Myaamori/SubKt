@@ -2,7 +2,7 @@
 
 # SubCopy
 
-`open class SubCopy : `[`Copy`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Copy.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2115)
+`open class SubCopy : `[`Copy`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Copy.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2115)
 
 Wrapper task for [Copy](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Copy.html) which implements [SubTask](../-sub-task/index.md), giving access to
 [SubTask.item](../-sub-task/item.md) and [SubTask.batchItems](../-sub-task/batch-items.md) for convenience.

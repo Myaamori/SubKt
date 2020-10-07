@@ -2,7 +2,7 @@
 
 # ASS
 
-`open class ASS : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L573)
+`open class ASS : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L583)
 
 Generic task for modifying ASS files. See [ASSFile](../../myaa.subkt.ass/-a-s-s-file/index.md) and related classes
 for more information. The modified file is written to a new file.
@@ -39,6 +39,7 @@ for more information. The modified file is written to a new file.
 | [includeExtraData](../-a-s-s-task/include-extra-data.md) | `val includeExtraData: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Extradata section. |
 | [includeProjectGarbage](../-a-s-s-task/include-project-garbage.md) | `val includeProjectGarbage: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Project Garbage section. |
 | [out](../-a-s-s-task/out.md) | `val out: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>The location to save the ASS file. Defaults to an automatically generated file in the build directory. |
+| [removeComments](../-a-s-s-task/remove-comments.md) | `val removeComments: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to remove comments from the output file. |
 
 ### Functions
 

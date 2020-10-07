@@ -2,7 +2,7 @@
 
 # TrackInfo
 
-`inner class TrackInfo` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L165)
+`inner class TrackInfo` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L165)
 
 Stores information extracted from the source track.
 

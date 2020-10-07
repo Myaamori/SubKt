@@ -2,4 +2,4 @@
 
 # project
 
-`val project: `[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L340)
+`val project: `[`Project`](https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L340)

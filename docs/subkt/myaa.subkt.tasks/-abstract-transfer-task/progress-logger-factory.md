@@ -2,4 +2,4 @@
 
 # progressLoggerFactory
 
-`protected abstract val progressLoggerFactory: ProgressLoggerFactory` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1595)
+`protected abstract val progressLoggerFactory: ProgressLoggerFactory` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1595)

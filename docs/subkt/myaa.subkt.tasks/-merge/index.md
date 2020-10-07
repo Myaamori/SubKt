@@ -2,7 +2,7 @@
 
 # Merge
 
-`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L75)
+`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L85)
 
 Task to merge multiple ASS files into one. A predefined task instance can be
 accessed through [Subs.merge](../merge.md).
@@ -54,6 +54,7 @@ merge {
 | [includeExtraData](../-a-s-s-task/include-extra-data.md) | `val includeExtraData: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Extradata section. |
 | [includeProjectGarbage](../-a-s-s-task/include-project-garbage.md) | `val includeProjectGarbage: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Project Garbage section. |
 | [out](../-a-s-s-task/out.md) | `val out: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>The location to save the ASS file. Defaults to an automatically generated file in the build directory. |
+| [removeComments](../-a-s-s-task/remove-comments.md) | `val removeComments: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to remove comments from the output file. |
 
 ### Functions
 

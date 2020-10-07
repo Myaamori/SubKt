@@ -2,7 +2,7 @@
 
 # PORTUGUESE_BRAZIL
 
-`PORTUGUESE_BRAZIL` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1079)
+`PORTUGUESE_BRAZIL` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1079)
 
 ### Inherited Properties
 

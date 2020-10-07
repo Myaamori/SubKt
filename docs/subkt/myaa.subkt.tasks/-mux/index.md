@@ -2,7 +2,7 @@
 
 # Mux
 
-`open class Mux : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L51)
+`open class Mux : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L51)
 
 Task to mux a set of files into a single Matroska container using mkvmerge.
 

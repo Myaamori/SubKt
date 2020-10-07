@@ -2,7 +2,7 @@
 
 # StyleLineAccessor
 
-`sealed class StyleLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L499)
+`sealed class StyleLineAccessor<T> : `[`LineAccessor`](../-line-accessor/index.md)`<`[`T`](index.md#T)`, `[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/ass/parser.kt#L499)
 
 A type-safe accessor for [StyleLine](../-style-line/index.md).
 
@@ -25,9 +25,9 @@ See [MapLine](../-map-line/index.md) for a more in-depth description.
 | [OUTLINE](-o-u-t-l-i-n-e.md) | `object OUTLINE : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [OUTLINE_COLOR](-o-u-t-l-i-n-e_-c-o-l-o-r.md) | `object OUTLINE_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
 | [PRIMARY_COLOR](-p-r-i-m-a-r-y_-c-o-l-o-r.md) | `object PRIMARY_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
-| [ROTATION](-r-o-t-a-t-i-o-n.md) | `object ROTATION : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
-| [SCALE_X](-s-c-a-l-e_-x.md) | `object SCALE_X : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
-| [SCALE_Y](-s-c-a-l-e_-y.md) | `object SCALE_Y : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
+| [ROTATION](-r-o-t-a-t-i-o-n.md) | `object ROTATION : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
+| [SCALE_X](-s-c-a-l-e_-x.md) | `object SCALE_X : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
+| [SCALE_Y](-s-c-a-l-e_-y.md) | `object SCALE_Y : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [SECONDARY_COLOR](-s-e-c-o-n-d-a-r-y_-c-o-l-o-r.md) | `object SECONDARY_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
 | [SHADOW](-s-h-a-d-o-w.md) | `object SHADOW : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [SHADOW_COLOR](-s-h-a-d-o-w_-c-o-l-o-r.md) | `object SHADOW_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
@@ -58,9 +58,9 @@ See [MapLine](../-map-line/index.md) for a more in-depth description.
 | [OUTLINE](-o-u-t-l-i-n-e.md) | `object OUTLINE : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [OUTLINE_COLOR](-o-u-t-l-i-n-e_-c-o-l-o-r.md) | `object OUTLINE_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
 | [PRIMARY_COLOR](-p-r-i-m-a-r-y_-c-o-l-o-r.md) | `object PRIMARY_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
-| [ROTATION](-r-o-t-a-t-i-o-n.md) | `object ROTATION : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
-| [SCALE_X](-s-c-a-l-e_-x.md) | `object SCALE_X : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
-| [SCALE_Y](-s-c-a-l-e_-y.md) | `object SCALE_Y : `[`StyleLineAccessor`](./index.md)`<`[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`>` |
+| [ROTATION](-r-o-t-a-t-i-o-n.md) | `object ROTATION : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
+| [SCALE_X](-s-c-a-l-e_-x.md) | `object SCALE_X : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
+| [SCALE_Y](-s-c-a-l-e_-y.md) | `object SCALE_Y : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [SECONDARY_COLOR](-s-e-c-o-n-d-a-r-y_-c-o-l-o-r.md) | `object SECONDARY_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
 | [SHADOW](-s-h-a-d-o-w.md) | `object SHADOW : `[`StyleLineAccessor`](./index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
 | [SHADOW_COLOR](-s-h-a-d-o-w_-c-o-l-o-r.md) | `object SHADOW_COLOR : `[`StyleLineAccessor`](./index.md)`<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |

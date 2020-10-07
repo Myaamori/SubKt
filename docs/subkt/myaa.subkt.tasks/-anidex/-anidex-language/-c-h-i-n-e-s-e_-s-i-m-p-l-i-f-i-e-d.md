@@ -2,7 +2,7 @@
 
 # CHINESE_SIMPLIFIED
 
-`CHINESE_SIMPLIFIED` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1084)
+`CHINESE_SIMPLIFIED` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1084)
 
 ### Inherited Properties
 

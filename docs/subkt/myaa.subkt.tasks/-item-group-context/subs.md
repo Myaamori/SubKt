@@ -2,7 +2,7 @@
 
 # subs
 
-`protected abstract val subs: `[`Subs`](../-subs/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L73)
+`protected abstract val subs: `[`Subs`](../-subs/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L73)
 
 The [Subs](../-subs/index.md) instance all tasks created in this context should be associated with.
 

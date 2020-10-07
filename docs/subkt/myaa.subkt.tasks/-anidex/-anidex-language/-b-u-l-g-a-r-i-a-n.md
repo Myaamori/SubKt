@@ -2,7 +2,7 @@
 
 # BULGARIAN
 
-`BULGARIAN` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1077)
+`BULGARIAN` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1077)
 
 ### Inherited Properties
 

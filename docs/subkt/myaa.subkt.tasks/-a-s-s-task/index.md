@@ -2,7 +2,7 @@
 
 # ASSTask
 
-`abstract class ASSTask : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L17)
+`abstract class ASSTask : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L17)
 
 Represents a task that outputs an ASS file.
 
@@ -19,6 +19,7 @@ Represents a task that outputs an ASS file.
 | [includeExtraData](include-extra-data.md) | `val includeExtraData: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Extradata section. |
 | [includeProjectGarbage](include-project-garbage.md) | `val includeProjectGarbage: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to include the Aegisub Project Garbage section. |
 | [out](out.md) | `val out: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>The location to save the ASS file. Defaults to an automatically generated file in the build directory. |
+| [removeComments](remove-comments.md) | `val removeComments: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`!>!`<br>Whether to remove comments from the output file. |
 
 ### Inherited Properties
 

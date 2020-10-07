@@ -2,7 +2,7 @@
 
 # LIVEACTION_NONENGLISH
 
-`LIVEACTION_NONENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L792)
+`LIVEACTION_NONENGLISH` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L792)
 
 ### Inherited Properties
 

@@ -2,7 +2,7 @@
 
 # asType
 
-`inline fun <reified T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.asType(): `[`T`](as-type.md#T) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2230)
+`inline fun <reified T> `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.asType(): `[`T`](as-type.md#T) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2230)
 
 Converts a string to the specified type.
 

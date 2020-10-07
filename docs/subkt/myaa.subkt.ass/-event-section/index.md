@@ -2,7 +2,7 @@
 
 # EventSection
 
-`class EventSection : `[`FormatSection`](../-format-section/index.md)`<`[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L1017)
+`class EventSection : `[`FormatSection`](../-format-section/index.md)`<`[`EventLine`](../-event-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/ass/parser.kt#L1015)
 
 Represents an events section, containing a list of [EventLine](../-event-line/index.md) lines.
 

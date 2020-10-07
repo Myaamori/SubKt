@@ -2,7 +2,7 @@
 
 # StyleSection
 
-`class StyleSection : `[`FormatSection`](../-format-section/index.md)`<`[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.9/src/main/kotlin/myaa/subkt/ass/parser.kt#L1059)
+`class StyleSection : `[`FormatSection`](../-format-section/index.md)`<`[`StyleLine`](../-style-line/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/ass/parser.kt#L1057)
 
 Represents a styles section, containing a list of [StyleLine](../-style-line/index.md) lines.
 
