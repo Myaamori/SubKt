@@ -24,11 +24,11 @@ subs {
         from(getList("typesetting"))
 
         from(get("OP")) {
-            syncTo(getAs<Duration>("opsync"))
+            syncTargetTime(getAs<Duration>("opsync"))
         }
 
         from(get("ED")) {
-            syncTo(getAs<Duration>("edsync"))
+            syncTargetTime(getAs<Duration>("edsync"))
         }
 
         // alternatively, using a merge scripts template:
