@@ -92,7 +92,7 @@ subs {
 
         from("$episode/eizouken${episode}_premux.mkv") {
             tracks {
-                include(track.type == AUDIO || track.type == VIDEO)
+                include(track.type == TrackType.AUDIO || track.type == TrackType.VIDEO)
                 lang("jpn")
             }
 
