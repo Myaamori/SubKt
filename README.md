@@ -34,6 +34,7 @@ Features include:
 * Easy batching
 * Preprocessing of ASS files such as shifting song files, automatically incrementing the layer of dialogue lines, removing comments, and more
 * Generating chapters from an ASS file using Significance-style syntax
+* Automatic font validation
 * Support for [Merge Scripts](https://github.com/TypesettingTools/Myaamori-Aegisub-Scripts#merge-scripts) template files
 * Support for [Autoswapper](https://github.com/Daiz/AegisubMacros#autoswapperlua---autoswapper) syntax for generating e.g. secondary honorifics tracks
 * Generating torrent files
