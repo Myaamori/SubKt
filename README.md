@@ -26,7 +26,23 @@
 
 # What is SubKt?
 
-SubKt is a highly configurable framework for fansubbing that enables automation of tasks such as merging ASS files, muxing media files into a Matroska container, creating torrents, and even uploading files to seedboxes and posting Discord notifications.
+SubKt is a highly configurable framework for fansubbing that enables automation of a wide array of fansubbing-related tasks.
+Features include:
+
+* Merging multiple ASS files
+* Muxing files into a Matroska (MKV) container
+* Easy batching
+* Preprocessing of ASS files such as shifting song files, automatically incrementing the layer of dialogue lines, removing comments, and more
+* Generating chapters from an ASS file using Significance-style syntax
+* Support for [Merge Scripts](https://github.com/TypesettingTools/Myaamori-Aegisub-Scripts#merge-scripts) template files
+* Support for [Autoswapper](https://github.com/Daiz/AegisubMacros#autoswapperlua---autoswapper) syntax for generating e.g. secondary honorifics tracks
+* Generating torrent files
+* Uploading files via (S)FTP
+* Publishing to Nyaa/Anidex
+* Discord notifications
+* A clean Kotlin-based domain-specific language (DSL) which makes it easy to combine files and outputs of different tasks
+* A powerful property system for easy configuration and reusability
+* ??? (feature requests welcome -- open an issue and describe the feature you need and your use case!)
 
 SubKt makes no assumptions on the structure of your project or what steps are required to release it, while also making it as simple as possible to configure the toolchain according to your needs.
 
