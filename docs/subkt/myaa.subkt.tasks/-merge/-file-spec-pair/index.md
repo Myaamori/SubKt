@@ -2,7 +2,7 @@
 
 # FileSpecPair
 
-`data class FileSpecPair` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L163)
+`data class FileSpecPair` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L168)
 
 Represents a pair of files and corresponding merge specification.
 

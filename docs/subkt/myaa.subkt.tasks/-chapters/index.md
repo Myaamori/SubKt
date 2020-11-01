@@ -2,7 +2,7 @@
 
 # Chapters
 
-`open class Chapters : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L409)
+`open class Chapters : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L414)
 
 Generates a chapter file from an ASS file in the same way as Significance.
 The provided ASS file will be searched for lines where the field

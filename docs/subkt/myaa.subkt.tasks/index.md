@@ -18,6 +18,7 @@ The package provides the following Gradle tasks:
 * [Chapters](-chapters/index.md) for generating chapter files
 * [Swap](-swap/index.md) for swapping honorifics and the like
 * [ASS](-a-s-s/index.md) for modifying ASS files
+* [Automation](-automation/index.md) for running Aegisub automations
 * [Mux](-mux/index.md) for muxing files using mkvmerge
 * [FTP](-f-t-p/index.md) for uploading files to an FTP server
 * [SFTP](-s-f-t-p/index.md) for uploading files to an SSH server
@@ -42,7 +43,9 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 | [AbstractTransferTask](-abstract-transfer-task/index.md) | `abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](-sub-task/index.md) |
 | [Anidex](-anidex/index.md) | `open class Anidex : `[`PropertyTask`](-property-task/index.md)<br>Task for uploading a torrent file to anidex.info. A predefined task instance can be accessed through [Subs.anidex](anidex.md). |
 | [ASS](-a-s-s/index.md) | `open class ASS : `[`ASSTask`](-a-s-s-task/index.md)<br>Generic task for modifying ASS files. See [ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) and related classes for more information. The modified file is written to a new file. |
+| [ASSColorSerializer](-a-s-s-color-serializer/index.md) | `object ASSColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |
 | [ASSTask](-a-s-s-task/index.md) | `abstract class ASSTask : `[`PropertyTask`](-property-task/index.md)<br>Represents a task that outputs an ASS file. |
+| [Automation](-automation/index.md) | `open class Automation : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](-sub-task/index.md)<br>Task for running Aegisub automations on a script using [Aegisub CLI](https://github.com/Myaamori/aegisub-cli). |
 | [BaseContext](-base-context/index.md) | `abstract class BaseContext : `[`AbstractContext`](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html)<br>Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |
 | [Chapters](-chapters/index.md) | `open class Chapters : `[`PropertyTask`](-property-task/index.md)<br>Generates a chapter file from an ASS file in the same way as Significance. The provided ASS file will be searched for lines where the field specified by [field](-chapters/field.md) contains the value specified by [chapterMarker](-chapters/chapter-marker.md), and for each such line a chapter will be generated using the start time as the time, and the value of the field specified by [chapterName](-chapters/chapter-name.md) as the chapter name. A predefined task instance can be accessed through [Subs.chapters](chapters.md). |
 | [ColorSerializer](-color-serializer/index.md) | `object ColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` |

@@ -2,7 +2,7 @@
 
 # ValueGroup
 
-`class ValueGroup<T> : `[`ItemGroup`](../-item-group/index.md)`<`[`T`](index.md#T)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L550)
+`class ValueGroup<T> : `[`ItemGroup`](../-item-group/index.md)`<`[`T`](index.md#T)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L550)
 
 [ItemGroup](../-item-group/index.md) that keeps track of simple values of type [T](index.md#T).
 The closure is evaluated immediately for each entry.

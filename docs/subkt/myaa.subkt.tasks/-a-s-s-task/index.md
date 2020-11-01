@@ -2,7 +2,7 @@
 
 # ASSTask
 
-`abstract class ASSTask : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L17)
+`abstract class ASSTask : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L22)
 
 Represents a task that outputs an ASS file.
 

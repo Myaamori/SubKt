@@ -2,7 +2,7 @@
 
 # SubContext
 
-`inner class SubContext : `[`BaseContext`](../../-base-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L444)
+`inner class SubContext : `[`BaseContext`](../../-base-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L444)
 
 [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html) implementation for getting properties in a [Subs](../index.md) context.
 

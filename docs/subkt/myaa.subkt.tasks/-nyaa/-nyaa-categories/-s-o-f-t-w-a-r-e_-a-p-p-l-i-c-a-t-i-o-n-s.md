@@ -2,7 +2,7 @@
 
 # SOFTWARE_APPLICATIONS
 
-`SOFTWARE_APPLICATIONS` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L796)
+`SOFTWARE_APPLICATIONS` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L796)
 
 ### Inherited Properties
 

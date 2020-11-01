@@ -2,7 +2,7 @@
 
 # ConfigurableAttachment
 
-`inner class ConfigurableAttachment : `[`PatternFilterable`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/util/PatternFilterable.html)`, `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L508)
+`inner class ConfigurableAttachment : `[`PatternFilterable`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/util/PatternFilterable.html)`, `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L508)
 
 Represents a set of files to attach, added using [attach](../attach.md).
 

@@ -2,7 +2,7 @@
 
 # subs
 
-`protected open val subs: `[`Subs`](index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L341)
+`protected open val subs: `[`Subs`](index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L341)
 
 Overrides [ItemGroupContext.subs](../-item-group-context/subs.md)
 

@@ -2,7 +2,7 @@
 
 # Chapter
 
-`inner class Chapter` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L454)
+`inner class Chapter` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L454)
 
 Represents a chapter file to mux, added using [chaptersProperty](../chapters-property.md).
 

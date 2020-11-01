@@ -2,7 +2,7 @@
 
 # Anidex
 
-`open class Anidex : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1040)
+`open class Anidex : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1040)
 
 Task for uploading a torrent file to anidex.info.
 A predefined task instance can be accessed through [Subs.anidex](../anidex.md).

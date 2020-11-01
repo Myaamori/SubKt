@@ -2,7 +2,7 @@
 
 # SubTask
 
-`interface SubTask : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L586)
+`interface SubTask : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L586)
 
 Mixin task interface providing convenience functions for accessing [ItemGroup](../-item-group/index.md) instances.
 
@@ -48,6 +48,7 @@ Mixin task interface providing convenience functions for accessing [ItemGroup](.
 | Name | Summary |
 |---|---|
 | [AbstractTransferTask](../-abstract-transfer-task/index.md) | `abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](./index.md) |
+| [Automation](../-automation/index.md) | `open class Automation : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](./index.md)<br>Task for running Aegisub automations on a script using [Aegisub CLI](https://github.com/Myaamori/aegisub-cli). |
 | [DefaultSubTask](../-default-sub-task/index.md) | `open class DefaultSubTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](./index.md)<br>Wrapper task for [DefaultTask](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html) which implements [SubTask](./index.md), giving access to [SubTask.item](item.md) and [SubTask.batchItems](batch-items.md) for convenience. |
 | [Discord](../-discord/index.md) | `open class Discord : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](./index.md)<br>Task for posting to a Discord webhook. Supports normal messages, embeds, and uploading files. A predefined task instance can be accessed through [Subs.discord](../discord.md). |
 | [HTTP](../-h-t-t-p/index.md) | `open class HTTP : `[`PropertyTask`](../-property-task/index.md)`, `[`SubTask`](./index.md)<br>Task for sending general HTTP requests. Data should be sent using one of [json](../-h-t-t-p/json.md), [body](../-h-t-t-p/body.md) and [form](../-h-t-t-p/form.md). The response can be retrieved from [responseData](../-h-t-t-p/response-data.md) or [responseJson](../-h-t-t-p/response-json.md). |

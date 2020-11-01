@@ -2,7 +2,7 @@
 
 # onStyleMismatch
 
-`val onStyleMismatch: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`ErrorMode`](../-error-mode/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L669)
+`val onStyleMismatch: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`ErrorMode`](../-error-mode/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L669)
 
 If [verifyFonts](../../myaa.subkt.tasks.utils/verify-fonts.md) is true, controls what to do if the matched font
 differs from the requested style (e.g. non-italic was requested, but only italic found).

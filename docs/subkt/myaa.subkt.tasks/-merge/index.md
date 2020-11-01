@@ -2,7 +2,7 @@
 
 # Merge
 
-`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L85)
+`open class Merge : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L90)
 
 Task to merge multiple ASS files into one. A predefined task instance can be
 accessed through [Subs.merge](../merge.md).

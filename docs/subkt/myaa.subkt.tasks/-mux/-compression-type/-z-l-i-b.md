@@ -2,7 +2,7 @@
 
 # ZLIB
 
-`ZLIB` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L117)
+`ZLIB` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L117)
 
 ### Inherited Properties
 

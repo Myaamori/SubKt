@@ -2,7 +2,7 @@
 
 # taskGroup
 
-`val taskGroup: `[`ItemGroup`](../-item-group/index.md)`<`[`T`](-closure-context/index.md#T)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L434)
+`val taskGroup: `[`ItemGroup`](../-item-group/index.md)`<`[`T`](-closure-context/index.md#T)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L434)
 
 The item group this value belongs to.
 

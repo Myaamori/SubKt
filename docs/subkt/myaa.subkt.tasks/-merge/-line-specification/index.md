@@ -2,7 +2,7 @@
 
 # LineSpecification
 
-`data class LineSpecification` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.10/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L86)
+`data class LineSpecification` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L91)
 
 ### Constructors
 
