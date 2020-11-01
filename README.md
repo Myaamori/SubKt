@@ -216,7 +216,7 @@ Ensure that both `java` and `mkvmerge` are available on the PATH.
 Instructions for setting the PATH for JDK 14 on Windows can be found [here](https://docs.oracle.com/en/java/javase/14/install/installation-jdk-microsoft-windows-platforms.html#GUID-96EB3876-8C7A-4A25-9F3A-A2983FEC016A).
 The same procedure can be used to add `mkvmerge` to the PATH; take note of where you installed/extracted it.
 
-Download the [project template](https://github.com/Myaamori/SubKt/releases/download/0.1.10/subkt-template-0.1.10-2.zip) and place the files in the directory where you keep your project files.
+Download the [project template](https://github.com/Myaamori/SubKt/releases/download/0.1.11/subkt-template-0.1.11.zip) and place the files in the directory where you keep your project files.
 After you have modified `build.gradle.kts` and `sub.properties` as needed, you can run tasks using `gradlew`.
 For instance, to run the `mux` task for episode `03`, navigate to the same directory as the `build.gradle.kts` file in a terminal, and run `./gradlew mux.03`.
 On Windows, simply run `gradlew mux.03` from `cmd.exe`.
