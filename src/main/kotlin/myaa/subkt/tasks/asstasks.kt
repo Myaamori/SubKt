@@ -1,15 +1,20 @@
 package myaa.subkt.tasks
 
+import com.google.gson.*
 import myaa.subkt.ass.ASSFile
 import myaa.subkt.ass.EventLine
 import myaa.subkt.ass.EventLineAccessor
 import myaa.subkt.ass.ScriptInfoSection
+import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.listProperty
 import org.gradle.kotlin.dsl.property
+import java.awt.Color
+import java.lang.reflect.Type
 import java.nio.charset.StandardCharsets
 import java.time.Duration
+import java.time.ZonedDateTime
 
 /**
  * Represents a task that outputs an ASS file.
@@ -604,6 +609,271 @@ open class ASS : ASSTask() {
             ass.f()
         }
         return ass
+    }
+}
+
+
+
+object ASSColorSerializer : JsonSerializer<Color> {
+    override fun serialize(src: Color, typeOfSrc: Type,
+                           context: JsonSerializationContext): JsonElement =
+            context.serialize(listOf(src.red, src.green, src.blue, src.alpha))
+}
+
+
+/**
+ * Task for running Aegisub automations on a script using
+ * [Aegisub CLI](https://github.com/Myaamori/aegisub-cli).
+ *
+ * The `aegisub-cli` binary needs to be in your PATH,
+ * or specified using [aegisubCli].
+ *
+ * @sample myaa.subkt.tasks.samples.automationSample
+ */
+open class Automation : DefaultTask(), SubTask {
+    /**
+     * Name of Aegisub CLI binary, or path to it if it is not in your PATH.
+     */
+    @get:Input
+    val aegisubCli = defaultProperty("aegisub-cli")
+
+    /**
+     * Specifies the source ASS file.
+     */
+    @get:InputFiles
+    val from = project.objects.fileCollection()
+
+    /**
+     * Filename of script to run.
+     *
+     * May be a relative path, absolute path, or a simple filename.
+     * If a simple filename is provided, Aegisub CLI will search
+     * for the script in the usual autoload locations.
+     */
+    @get:Input
+    val script = project.objects.property<String>()
+
+    /**
+     * Name of macro to run, as defined by the script specified with [script].
+     */
+    @get:Input
+    val macro = project.objects.property<String>()
+
+    /**
+     * Video file to load.
+     *
+     * Required for e.g. `aegisub.frame_from_ms` if [timecodes] is not specified.
+     */
+    @get:InputFiles
+    val video = project.objects.fileCollection()
+
+    /**
+     * Keyframes file to load.
+     */
+    @get:InputFiles
+    val keyframes = project.objects.fileCollection()
+
+    /**
+     * Timecodes file to load.
+     *
+     * Required for e.g. `aegisub.frame_from_ms` if [video] is not specified.
+     */
+    @get:InputFiles
+    val timecodes = project.objects.fileCollection()
+
+    enum class LogLevel {
+        EXCEPTION,
+        ASSERT,
+        WARNING,
+        INFO,
+        DEBUG
+    }
+
+    /**
+     * What Aegisub CLI should print to standard out.
+     *
+     * By default Aegisub CLI will print all output.
+     */
+    @get:Internal
+    val loglevel = project.objects.property<LogLevel>()
+
+    data class Dialog(
+            @get:Input
+            val button: Int,
+            @get:Input
+            val values: Map<String, Any>
+    )
+
+    private val _dialog = project.objects.listProperty<Dialog>()
+
+    @get:Nested
+    val dialog: Provider<List<Dialog>> = _dialog
+
+    /**
+     * Values to supply to an `aegisub.dialog.display` call.
+     *
+     * @param values Field name/value pairs
+     * @param button The index of the button to push
+     */
+    fun dialog(vararg values: Pair<String, Any>, button: Int) {
+        _dialog.add(Dialog(button, values.toMap()))
+    }
+
+    /**
+     * File names to provide to an `aegisub.dialog.open` or `aegisub.dialog.save` call.
+     */
+    @get:Input
+    val fileDialog = project.objects.listProperty<String>()
+
+    data class Selection(
+            @get:Input
+            val selected: List<Int>?,
+            @get:Input
+            @get:Optional
+            val active: Int?
+    )
+
+    private val _selection = project.objects.property<Selection>()
+
+    @get:Nested
+    @get:Optional
+    val selection: Provider<Selection> = _selection
+
+    inner class Selector {
+        internal var _select: Iterable<EventLine>? = null
+            private set
+        internal var _active: EventLine? = null
+            private set
+        fun select(lines: Iterable<EventLine>) {
+            _select = lines
+        }
+        fun active(line: EventLine) {
+            _active = line
+        }
+    }
+
+    /**
+     * Specify what lines to mark as selected and active.
+     *
+     * The supplied function should call the [Selector.select] and [Selector.active]
+     * functions to mark lines as selected/active.
+     *
+     * @param f A function operating on a [Selector] object that takes an [ASSFile] object.
+     */
+    fun selectLines(f: Selector.(ASSFile) -> Unit) {
+        _selection.set(project.provider {
+            val ass = ASSFile(from.singleFile)
+            ass.events.lines.withIndex().forEach { (i, line) ->
+                line.extraData["__index"] = i.toString()
+            }
+            val sel = Selector().apply { f(ass) }
+            val selectedIndices = sel._select?.mapNotNull {
+                it.extraData["__index"]?.toInt()
+            }
+            val activeIndex = sel._active?.let { it.extraData["__index"]?.toInt() }
+
+            Selection(selectedIndices, activeIndex)
+        })
+    }
+
+    /**
+     * The location to save the ASS file.
+     * Defaults to an automatically generated file in the build directory.
+     */
+    @get:OutputFiles
+    val out = outputFile("ass")
+
+    private fun toRange(indices: List<Int>): List<IntRange> {
+        val ranges = mutableListOf<IntRange>()
+        var curStart = -2
+        var curEnd = -2
+        indices.forEach { i ->
+            if (i == curEnd + 1) {
+                curEnd = i
+            } else {
+                if (curStart >= 0) {
+                    ranges.add(curStart..curEnd)
+                }
+                curStart = i
+                curEnd = i
+            }
+        }
+        if (curStart >= 0) {
+            ranges.add(curStart..curEnd)
+        }
+        return ranges
+    }
+
+    @TaskAction
+    fun run() {
+        val args = mutableListOf<String>()
+        args.add(aegisubCli.get())
+
+        _selection.orNull?.let { selection ->
+            selection.selected?.let { selected ->
+                val ranges = toRange(selected).joinToString(",") {
+                    if (it.first == it.last) "${it.first}"
+                    else "${it.first}-${it.last}"
+                }
+
+                args.add("--selected-lines")
+                args.add(ranges)
+            }
+
+            selection.active?.let {
+                args.add("--active-line")
+                args.add(it.toString())
+            }
+        }
+
+        video.files.takeIf { it.size > 0 }?.let {
+            val videoFile = it.single()
+            args.add("--video")
+            args.add(videoFile.absolutePath)
+        }
+
+        timecodes.files.takeIf { it.size > 0 }?.let {
+            val timecodesFile = it.single()
+            args.add("--timecodes")
+            args.add(timecodesFile.absolutePath)
+        }
+
+        keyframes.files.takeIf { it.size > 0 }?.let {
+            val keyframesFile = it.single()
+            args.add("--keyframes")
+            args.add(keyframesFile.absolutePath)
+        }
+
+        fileDialog.get().forEach {
+            args.add("--file")
+            args.add(it)
+        }
+
+        val gson = GsonBuilder()
+                .registerTypeHierarchyAdapter(Provider::class.java, ProviderSerializer)
+                .registerTypeAdapter(Color::class.java, ASSColorSerializer)
+                .create()
+
+        _dialog.get().forEach {
+            args.add("--dialog")
+            args.add(gson.toJson(it))
+        }
+
+        loglevel.orNull?.let { level ->
+            args.add("--loglevel")
+            args.add(level.ordinal.toString())
+        }
+
+        args.add(from.singleFile.absolutePath)
+        args.add(out.singleFile.absolutePath)
+        args.add(script.get())
+        args.add(macro.get())
+
+        println(args)
+
+        project.exec { spec ->
+            spec.commandLine(args)
+        }
     }
 }
 

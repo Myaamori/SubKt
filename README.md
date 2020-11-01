@@ -37,6 +37,7 @@ Features include:
 * Automatic font validation
 * Support for [Merge Scripts](https://github.com/TypesettingTools/Myaamori-Aegisub-Scripts#merge-scripts) template files
 * Support for [Autoswapper](https://github.com/Daiz/AegisubMacros#autoswapperlua---autoswapper) syntax for generating e.g. secondary honorifics tracks
+* Running Aegisub automations using [Aegisub CLI](https://github.com/Myaamori/aegisub-cli)
 * Generating torrent files
 * Uploading files via (S)FTP
 * Publishing to Nyaa/Anidex
