@@ -110,14 +110,21 @@ private fun range(a: String, b: String): List<String> {
     return (a.toInt() .. b.toInt()).map { "%0${leading}d".format(it) }
 }
 
-private val rangeRegex = Regex("\\{(\\d+)\\.\\.(\\d+)\\}")
+private val bracketRegex = Regex("""\{([^}]+)\}""")
+private val rangeRegex = Regex("""(\d+)\.\.(\d+)""")
 
 // OVA{01..03} -> OVA{01,02,03}
 // OVA{01..02}{02..03} -> OVA{01,02}{02,03}
+// OVA{01..02,04,06..08} -> OVA{01,02,04,06,07,08}
 private fun expandRanges(s: String) =
-        rangeRegex.replace(s) { match ->
-            val (a, b) = match.destructured
-            "{" + range(a, b).joinToString(",") + "}"
+        bracketRegex.replace(s) { match ->
+            val parts = match.groupValues[1].split(',').flatMap {
+                rangeRegex.matchEntire(it)?.let { rangeMatch ->
+                    val (a, b) = rangeMatch.destructured
+                    range(a, b)
+                } ?: listOf(it)
+            }
+            "{" + parts.joinToString(",") + "}"
         }
 
 private val groupRegex = Regex("(.*?)\\{([^}]*)\\}(.*)")
