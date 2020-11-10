@@ -72,6 +72,18 @@ class SubProperties {
     }
 
     /**
+     * Add or override existing properties from the build script.
+     *
+     * @param name The name of the property to add.
+     * @param entry The entry/episode for which to add the property. May contain a range expression.
+     * @param value The value of the property.
+     */
+    fun add(name: String, entry: String? = null, value: String) {
+        val propName = if (entry != null) "$entry.$name" else name
+        patterns.add(convertPattern(propName) to value)
+    }
+
+    /**
      * Finds the last property entry that matches the given property, entry and release.
      */
     fun match(property: String, entry: String = "", release: String = "") =
