@@ -750,16 +750,18 @@ open class Mux : PropertyTask() {
      * Attach one or more files to the output file.
      *
      * @sample myaa.subkt.tasks.samples.muxAttachSample
-     * @param dir A directory or a single file
+     * @param dirs A directory, collection of directories, or a single file
      * @param action A closure operating on a [ConfigurableAttachment] instance,
      * allowing you to filter what files to include.
      */
-    fun attach(dir: Any, action: ConfigurableAttachment.() -> Unit = {}):
-            Provider<ConfigurableAttachment> {
-        _inputFiles.from(dir)
+    fun attach(vararg dirs: Any, action: ConfigurableAttachment.() -> Unit = {}):
+            Provider<List<ConfigurableAttachment>> {
+        _inputFiles.from(dirs)
         return project.providers.provider {
-            ConfigurableAttachment(project.fileTree(dir)).apply(action)
-        }.also { _attachments.add(it) }
+            project.files(dirs).map { dir ->
+                ConfigurableAttachment(project.fileTree(dir)).apply(action)
+            }
+        }.also { _attachments.addAll(it) }
     }
 
     private fun getSync(delay: Property<Long>, stretch: Property<Double>): Provider<String> =
