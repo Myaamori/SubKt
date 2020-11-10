@@ -1596,12 +1596,25 @@ abstract class AbstractTransferTask<T> : AbstractCopyTask(), SubTask {
 
     protected abstract fun createClient(): T
 
-    protected abstract fun makedirs(client: T, path: String)
+    protected abstract fun makedir(client: T, path: String)
 
     protected abstract fun upload(client: T, file: InputStream, dest: String,
                                   callback: (Long) -> Unit): Boolean
 
     protected abstract fun stat(client: T, file: String): FileDetails?
+
+    fun makedirs(client: T, path: String) {
+        tailrec fun mkdirs(path: String, remaining: List<String>) {
+            makedir(client, path)
+
+            if (remaining.isNotEmpty()) {
+                mkdirs(path + remaining[0], remaining.drop(1))
+            }
+        }
+
+        val parts = path.split(Regex("(?<=/)(?!\$)"))
+        mkdirs(parts[0], parts.drop(1))
+    }
 
     final override fun createCopyAction() = CopyAction { stream ->
         val destDir = rootSpec.resolveDestDir()
@@ -1826,8 +1839,10 @@ abstract class FTP : AbstractTransferTask<FTPClient>() {
         return client
     }
 
-    override fun makedirs(client: FTPClient, path: String) {
-        client.makeDirectory(path)
+    override fun makedir(client: FTPClient, path: String) {
+        if (stat(client, path) == null && !client.makeDirectory(path)) {
+            error("Could not create directory: $path")
+        }
     }
 
     override fun stat(client: FTPClient, file: String): FileDetails? =
@@ -1992,19 +2007,10 @@ abstract class SFTP @Inject constructor(objects: ObjectFactory) :
         return channel
     }
 
-    override fun makedirs(client: ChannelSftp, path: String) {
-        tailrec fun mkdirs(path: String, remaining: List<String>) {
-            if (stat(client, path) == null) {
-                client.mkdir(path)
-            }
-
-            if (remaining.isNotEmpty()) {
-                mkdirs(path + remaining[0], remaining.drop(1))
-            }
+    override fun makedir(client: ChannelSftp, path: String) {
+        if (stat(client, path) == null) {
+            client.mkdir(path)
         }
-
-        val parts = path.split(Regex("(?<=/)(?!\$)"))
-        mkdirs(parts[0], parts.drop(1))
     }
 
     override fun stat(client: ChannelSftp, file: String): FileDetails? =
