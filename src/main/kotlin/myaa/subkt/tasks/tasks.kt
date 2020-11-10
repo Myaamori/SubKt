@@ -1803,7 +1803,6 @@ abstract class FTP : AbstractTransferTask<FTPClient>() {
         }
 
         if (client is FTPSClient) {
-            client.enabledProtocols = arrayOf("TLSv1.1")
             client.trustManager = when (certificateVerificationMode.get()) {
                 CertificateMode.VERIFY_NOT_EXPIRED ->
                     TrustManagerUtils.getValidateServerCertificateTrustManager()
