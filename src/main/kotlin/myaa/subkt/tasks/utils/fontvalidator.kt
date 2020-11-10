@@ -10,11 +10,12 @@ import kotlin.math.abs
 
 private data class Arg(val arg: String?)
 
-private data class State(val font: String, val italic: Boolean, val weight: Int, val drawing: Boolean)
+data class State(val font: String, val italic: Boolean, val weight: Int,
+                 val drawing: Boolean, val wrapStyle: Int)
 
 private val tagPattern = Regex("""\\\s*([^(\\]+)(?<!\s)\s*(?:\(\s*([^)]+)(?<!\s)\s*)?""")
 private val intPattern = Regex("""^[+-]?\d+""")
-private val linePattern = Regex("""(?:\{(?<tags>[^}]*)\}?)?(?<text>[^{]*)""")
+private val linePattern = Regex("""(?:(?<!\\)\{(?<tags>[^}]*)\}?)?(?<text>(?:\\\{|[^{])*)""")
 
 private fun parseIntArg(s: String) = intPattern.find(s)?.value?.toInt() ?: 0
 
@@ -72,7 +73,39 @@ private fun parseTags(s: String, initState: State, lineStyle: State, styles: Map
                 arg?.let {
                     parseTags(it, state, lineStyle, styles)
                 }
+            } ?: getTag("q")?.let { (arg) ->
+                val q = arg?.let { parseIntArg(it) }
+                val wrapStyle = when (q) {
+                    in (0..3) -> q
+                    else -> null
+                }
+                state.copy(wrapStyle = when (wrapStyle) {
+                    null -> lineStyle.wrapStyle
+                    else -> wrapStyle
+                })
             } ?: state
+        }
+
+private val escapeRegex = Regex("""(\\*)\\(.)""")
+private fun parseText(s: String, wrapStyle: Int) =
+        escapeRegex.replace(s.replace('\t', ' ')) { match ->
+            val (slashes, c) = match.destructured
+            val replace = if (c == "N" || (c == "n" && wrapStyle == 2)) {
+                // newlines are manually handled by libass
+                ""
+            } else if (c == "n") {
+                " "
+            } else if (c == "h") {
+                // nbsp is mapped to normal space when rendering in libass
+                " "
+            } else if (c == "{") {
+                "{"
+            } else if (c == "}") {
+                "}"
+            } else {
+                "\\$c"
+            }
+            slashes + replace
         }
 
 @OptIn(ExperimentalStdlibApi::class)
@@ -82,7 +115,8 @@ private fun parseLine(line: String, lineStyle: State, styles: Map<String, State>
             parseTags(value, state, lineStyle, styles)
         } ?: state
 
-        newState to (m.groups["text"]?.value ?: "")
+        val text = m.groups["text"]?.value?.let { parseText(it, newState.wrapStyle) } ?: ""
+        newState to text
     }.filterNot { it.second.isEmpty() }
 }
 
@@ -313,20 +347,31 @@ class FontReport {
     }
 }
 
-fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
-    val styles = assFile.styles.lines.associate { it.name to State(it.font, it.italic, if (it.bold) 700 else 400, false) }
-    val fonts = FontCollection(fontFiles)
-    val report = FontReport()
+fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
+    val styles = assFile.styles.lines.associate {
+        it.name to State(
+                it.font, it.italic, if (it.bold) 700 else 400, false,
+                assFile.scriptInfo.wrapStyle ?: 0)
+    }
 
-
-    assFile.events.lines.withIndex().filter { (_, line) -> !line.comment }.forEach { (i, line) ->
+    return assFile.events.lines.asSequence().withIndex().filter { (_, line) -> !line.comment }.map { (i, line) ->
         val lineNum = i + 1
         val lineStyle = styles[line.style] ?: run {
             println("Warning: Unknown style ${line.style} on line $lineNum; assuming default style")
-            State("Arial", false, 400, false)
+            State("Arial", false, 400, false, 0)
         }
 
-        parseLine(line.text, lineStyle, styles).forEach { (state, text) ->
+        parseLine(line.text, lineStyle, styles)
+    }
+}
+
+fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
+    val fonts = FontCollection(fontFiles)
+    val report = FontReport()
+
+    parseLines(assFile).withIndex().forEach { (i, line) ->
+        val lineNum = i + 1
+        line.forEach { (state, text) ->
             val (font, exactMatch) = fonts.match(state)
             when (font) {
                 null -> report.missingFont(lineNum, state.font)
