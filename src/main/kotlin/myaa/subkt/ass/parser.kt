@@ -4,8 +4,10 @@ import java.awt.Color
 import java.io.File
 import java.io.Serializable
 import java.lang.Exception
+import java.lang.NumberFormatException
 import java.lang.UnsupportedOperationException
 import java.nio.charset.StandardCharsets
+import java.text.DecimalFormat
 import java.time.Duration
 import java.time.temporal.ChronoUnit
 import kotlin.math.ceil
@@ -641,6 +643,18 @@ open class KeyValSection(name: String) : Section(name) {
                 }
             }.toMap()
 
+    @Transient private val serializers = this::class.declaredMemberProperties
+            .mapNotNull { property ->
+                property.findAnnotation<KeyValField>()?.let { keyValAnn ->
+                    property.findAnnotation<CustomSerializer>()?.let { serializerAnn ->
+                        val serializer = serializerAnn.serializer.constructors.find {
+                            it.parameters.isEmpty()
+                        }!!.call()
+                        keyValAnn.key to serializer
+                    }
+                }
+            }.toMap()
+
     protected inner class KeyValDelegate<T> : Serializable {
         operator fun getValue(thisRef: KeyValSection, property: KProperty<*>) =
                 values[property.findAnnotation<KeyValField>()!!.key] as T
@@ -657,25 +671,103 @@ open class KeyValSection(name: String) : Section(name) {
 
     override fun parse(data: List<KeyValLine>, extraData: ExtraData) {
         data.forEach { line ->
-            when (types[line.type]) {
-                null -> line.value
-                String::class -> line.value
-                Int::class -> line.value.toIntOrNull()
-                Double::class -> line.value.toDoubleOrNull()
-                else -> line.value
-            }?.also {
-                values[line.type] = it
-            } ?: run {
-                println("Warning: couldn't parse value of ${line.type}: ${line.value}")
+            val serializer = serializers[line.type]
+            if (serializer != null) {
+                values[line.type] = serializer.deserialize(line.value)
+            } else {
+                when (types[line.type]) {
+                    null -> line.value
+                    String::class -> line.value
+                    Int::class -> line.value.toIntOrNull()
+                    Double::class -> line.value.toDoubleOrNull()
+                    else -> line.value
+                }?.also {
+                    values[line.type] = it
+                } ?: run {
+                    println("Warning: couldn't parse value of ${line.type}: ${line.value}")
+                }
             }
         }
     }
 
     override fun serializeContents(includeExtraData: Boolean) = sequence {
         values.forEach { (k, v) ->
-            yield("$k: $v")
+            val serializer = serializers[k] as ASSSerializer<Any>?
+            val serializedValue = serializer?.serialize(v) ?: v.toString()
+            yield("$k: $serializedValue")
         }
     }
+}
+
+interface ASSSerializer<T> {
+    fun deserialize(s: String): T
+
+    fun serialize(a: T): String
+}
+
+annotation class CustomSerializer(val serializer: KClass<out ASSSerializer<out Any>>)
+
+class ScaledBorderAndShadowSerializer : ASSSerializer<Boolean> {
+    override fun deserialize(s: String) =
+            s == "yes" || try { s.toInt() > 0 } catch (e: NumberFormatException) { false }
+
+    override fun serialize(a: Boolean) = if (a) "yes" else "no"
+}
+
+data class ColorMatrix(val matrix: String) {
+    companion object {
+        val TV_601 = ColorMatrix("TV.601")
+        val PC_601 = ColorMatrix("PC.601")
+        val TV_709 = ColorMatrix("TV.709")
+        val PC_709 = ColorMatrix("PC.709")
+        val TV_FCC = ColorMatrix("TV.FCC")
+        val PC_FCC = ColorMatrix("PC.FCC")
+        val TV_240M = ColorMatrix("TV.240M")
+        val PC_240M = ColorMatrix("PC.240M")
+        val TV_2020 = ColorMatrix("TV.2020")
+        val PC_2020 = ColorMatrix("PC.2020")
+    }
+}
+
+class ColorMatrixSerializer : ASSSerializer<ColorMatrix> {
+    override fun deserialize(s: String) = ColorMatrix(s)
+
+    override fun serialize(a: ColorMatrix) = a.matrix
+}
+
+enum class WrapStyle {
+    SMART,
+    END_OF_LINE,
+    NO_WRAP,
+    SMART_BOTTOMWIDE
+}
+
+class WrapStyleSerializer : ASSSerializer<WrapStyle> {
+    override fun deserialize(s: String) = WrapStyle.values()[s.toInt()]
+
+    override fun serialize(a: WrapStyle) = a.ordinal.toString()
+}
+
+enum class Collisions(val value: String) {
+    NORMAL("Normal"),
+    REVERSE("Reverse")
+}
+
+class CollisionsSerializer : ASSSerializer<Collisions> {
+    override fun deserialize(s: String) =
+            when (s.toLowerCase()) {
+                Collisions.NORMAL.value.toLowerCase() -> Collisions.NORMAL
+                Collisions.REVERSE.value.toLowerCase() -> Collisions.REVERSE
+                else -> error("Invalid value for Collisions: $s")
+            }
+
+    override fun serialize(a: Collisions) = a.value
+}
+
+class TimerSerializer : ASSSerializer<Double> {
+    override fun deserialize(s: String) = s.toDouble()
+
+    override fun serialize(a: Double) = DecimalFormat("#.0000").format(a)
 }
 
 /**
@@ -711,15 +803,21 @@ class ScriptInfoSection(name: String) : KeyValSection(name) {
     @KeyValField("ScriptType")
     var scriptType: String? by KeyValDelegate()
     @KeyValField("WrapStyle")
-    var wrapStyle: Int? by KeyValDelegate()
+    @CustomSerializer(WrapStyleSerializer::class)
+    var wrapStyle: WrapStyle? by KeyValDelegate()
     @KeyValField("ScaledBorderAndShadow")
-    var scaledBorderAndShadow: String? by KeyValDelegate()
+    @CustomSerializer(ScaledBorderAndShadowSerializer::class)
+    var scaledBorderAndShadow: Boolean? by KeyValDelegate()
     @KeyValField("YCbCr Matrix")
-    var colorMatrix: String? by KeyValDelegate()
+    @CustomSerializer(ColorMatrixSerializer::class)
+    var colorMatrix: ColorMatrix? by KeyValDelegate()
     @KeyValField("PlayResX")
     var playResX: Int? by KeyValDelegate()
     @KeyValField("PlayResY")
     var playResY: Int? by KeyValDelegate()
+    @KeyValField("Timer")
+    @CustomSerializer(TimerSerializer::class)
+    var timer: Double? by KeyValDelegate()
 }
 
 /**

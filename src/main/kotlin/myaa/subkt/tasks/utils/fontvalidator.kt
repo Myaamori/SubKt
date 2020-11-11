@@ -351,7 +351,7 @@ fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
     val styles = assFile.styles.lines.associate {
         it.name to State(
                 it.font, it.italic, if (it.bold) 700 else 400, false,
-                assFile.scriptInfo.wrapStyle ?: 0)
+                assFile.scriptInfo.wrapStyle?.ordinal ?: 0)
     }
 
     return assFile.events.lines.asSequence().withIndex().filter { (_, line) -> !line.comment }.map { (i, line) ->
