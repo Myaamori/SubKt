@@ -5,6 +5,7 @@ import org.apache.velocity.context.AbstractContext
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
+import org.gradle.api.UnknownDomainObjectException
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.*
 import java.io.File
@@ -218,10 +219,15 @@ class TaskContext(val task: Task) : BaseContext() {
                     try { task.getList(key).orNull } catch (e: NoSuchElementException) { null }
                             ?.singleOrNull() ?:
                     task.takeIf { it.taskGroup.name == key } ?:
-                    task.taskDependencies.getDependencies(task).find {
-                        (it.extra.has("taskGroup") && it.taskGroup.name == key) ||
-                                it.name == key
-                    }
+                    try {
+                        val taskName = "$key.${task.entry}.${task.release}"
+                        val depTask = task.project.tasks[taskName]
+                        if (!depTask.state.executed) {
+                            error("Attempting to access unfinished task $taskName from ${task.name}. " +
+                                    "Have you added it as a dependency to the current task?")
+                        }
+                        depTask
+                    } catch (e: UnknownDomainObjectException) { null }
 }
 
 /**
