@@ -2,7 +2,7 @@
 
 # video
 
-`var video: `[`Discord.Video`](../-video/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L309)
+`var video: `[`Discord.Video`](../-video/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L309)
 
 The video of this embed.
 
@@ -10,7 +10,7 @@ The video of this embed.
 
 The video of this embed.
 
-`fun video(action: `[`Discord.Video`](../-video/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L368)
+`fun video(action: `[`Discord.Video`](../-video/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L368)
 
 Set the video of this embed.
 

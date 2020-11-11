@@ -2,7 +2,7 @@
 
 # file
 
-`val file: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/ass/parser.kt#L82)
+`val file: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L84)
 
 The file to parse.
 

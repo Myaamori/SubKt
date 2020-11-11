@@ -2,7 +2,7 @@
 
 # buildAss
 
-`protected open fun buildAss(): `[`ASSFile`](../../myaa.subkt.ass/-a-s-s-file/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L606)
+`protected open fun buildAss(): `[`ASSFile`](../../myaa.subkt.ass/-a-s-s-file/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L606)
 
 Overrides [ASSTask.buildAss](../-a-s-s-task/build-ass.md)
 

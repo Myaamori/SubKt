@@ -2,7 +2,7 @@
 
 # item
 
-`open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](item.md#T)`>.item(): `[`T`](item.md#T) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L595)
+`open fun <T> `[`ItemGroup`](../-item-group/index.md)`<`[`T`](item.md#T)`>.item(): `[`T`](item.md#T) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L595)
 
 Gets the item from the given item group that corresponds to [entry](../org.gradle.api.-task/entry.md).
 

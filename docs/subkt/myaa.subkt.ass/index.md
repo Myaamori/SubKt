@@ -12,6 +12,11 @@ Also provided are extensions for converting [java.awt.Color](https://docs.oracle
 |---|---|
 | [AegisubProjectGarbageSection](-aegisub-project-garbage-section/index.md) | `class AegisubProjectGarbageSection : `[`KeyValSection`](-key-val-section/index.md)<br>Represents an Aegisub project garbage section. |
 | [ASSFile](-a-s-s-file/index.md) | `class ASSFile`<br>Represents an ASS file. If provided, will parse the given file. |
+| [ASSSerializer](-a-s-s-serializer/index.md) | `interface ASSSerializer<T>` |
+| [Collisions](-collisions/index.md) | `enum class Collisions` |
+| [CollisionsSerializer](-collisions-serializer/index.md) | `class CollisionsSerializer : `[`ASSSerializer`](-a-s-s-serializer/index.md)`<`[`Collisions`](-collisions/index.md)`>` |
+| [ColorMatrix](-color-matrix/index.md) | `data class ColorMatrix` |
+| [ColorMatrixSerializer](-color-matrix-serializer/index.md) | `class ColorMatrixSerializer : `[`ASSSerializer`](-a-s-s-serializer/index.md)`<`[`ColorMatrix`](-color-matrix/index.md)`>` |
 | [EventLine](-event-line/index.md) | `class EventLine : `[`MapLine`](-map-line/index.md)`<`[`EventLine`](-event-line/index.md)`>`<br>A line in an [EventSection](-event-section/index.md). Its associated accessor is [EventLineAccessor](-event-line-accessor/index.md). |
 | [EventLineAccessor](-event-line-accessor/index.md) | `sealed class EventLineAccessor<T> : `[`LineAccessor`](-line-accessor/index.md)`<`[`T`](-event-line-accessor/index.md#T)`, `[`EventLine`](-event-line/index.md)`>`<br>A type-safe accessor for [EventLine](-event-line/index.md). |
 | [EventSection](-event-section/index.md) | `class EventSection : `[`FormatSection`](-format-section/index.md)`<`[`EventLine`](-event-line/index.md)`>`<br>Represents an events section, containing a list of [EventLine](-event-line/index.md) lines. |
@@ -21,16 +26,21 @@ Also provided are extensions for converting [java.awt.Color](https://docs.oracle
 | [Line](-line/index.md) | `abstract class Line : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html)<br>A basic line with a type. |
 | [LineAccessor](-line-accessor/index.md) | `sealed class LineAccessor<T, L : `[`MapLine`](-map-line/index.md)`<`[`L`](-line-accessor/index.md#L)`>> : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html)<br>Provides type-safe parametric access into a [MapLine](-map-line/index.md). |
 | [MapLine](-map-line/index.md) | `abstract class MapLine<L : `[`MapLine`](-map-line/index.md)`<`[`L`](-map-line/index.md#L)`>> : `[`Line`](-line/index.md)`, `[`MutableMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`>`<br>A line in a [FormatSection](-format-section/index.md). The fields contained in this object can be accessed in three ways: |
+| [ScaledBorderAndShadowSerializer](-scaled-border-and-shadow-serializer/index.md) | `class ScaledBorderAndShadowSerializer : `[`ASSSerializer`](-a-s-s-serializer/index.md)`<`[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`>` |
 | [ScriptInfoSection](-script-info-section/index.md) | `class ScriptInfoSection : `[`KeyValSection`](-key-val-section/index.md)<br>Represents a script info section. |
 | [Section](-section/index.md) | `abstract class Section : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html)<br>Represents a section in an ASS file, textually represented as a section name in square brackets followed by zero or more lines in a `Type: Value` format. |
 | [StyleLine](-style-line/index.md) | `class StyleLine : `[`MapLine`](-map-line/index.md)`<`[`StyleLine`](-style-line/index.md)`>`<br>A line in a [StyleSection](-style-section/index.md). Its associated accessor is [StyleLineAccessor](-style-line-accessor/index.md). |
 | [StyleLineAccessor](-style-line-accessor/index.md) | `sealed class StyleLineAccessor<T> : `[`LineAccessor`](-line-accessor/index.md)`<`[`T`](-style-line-accessor/index.md#T)`, `[`StyleLine`](-style-line/index.md)`>`<br>A type-safe accessor for [StyleLine](-style-line/index.md). |
 | [StyleSection](-style-section/index.md) | `class StyleSection : `[`FormatSection`](-format-section/index.md)`<`[`StyleLine`](-style-line/index.md)`>`<br>Represents a styles section, containing a list of [StyleLine](-style-line/index.md) lines. |
+| [TimerSerializer](-timer-serializer/index.md) | `class TimerSerializer : `[`ASSSerializer`](-a-s-s-serializer/index.md)`<`[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`>` |
+| [WrapStyle](-wrap-style/index.md) | `enum class WrapStyle` |
+| [WrapStyleSerializer](-wrap-style-serializer/index.md) | `class WrapStyleSerializer : `[`ASSSerializer`](-a-s-s-serializer/index.md)`<`[`WrapStyle`](-wrap-style/index.md)`>` |
 
 ### Annotations
 
 | Name | Summary |
 |---|---|
+| [CustomSerializer](-custom-serializer/index.md) | `annotation class CustomSerializer` |
 | [KeyValField](-key-val-field/index.md) | `annotation class KeyValField`<br>Annotates a property in a [KeyValSection](-key-val-section/index.md) with the corresponding ASS key. |
 | [LineField](-line-field/index.md) | `annotation class LineField`<br>Annotates a property in a [MapLine](-map-line/index.md) with the name of the corresponding ASS field. |
 

@@ -13,14 +13,20 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.ASS](../myaa.subkt.tasks/-a-s-s/index.md) | Generic task for modifying ASS files. See [ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) and related classes for more information. The modified file is written to a new file. |
 | [myaa.subkt.tasks.ASSColorSerializer](../myaa.subkt.tasks/-a-s-s-color-serializer/index.md) |  |
 | [myaa.subkt.ass.ASSFile](../myaa.subkt.ass/-a-s-s-file/index.md) | Represents an ASS file. If provided, will parse the given file. |
+| [myaa.subkt.ass.ASSSerializer](../myaa.subkt.ass/-a-s-s-serializer/index.md) |  |
 | [myaa.subkt.tasks.ASSTask](../myaa.subkt.tasks/-a-s-s-task/index.md) | Represents a task that outputs an ASS file. |
 | [myaa.subkt.tasks.Automation](../myaa.subkt.tasks/-automation/index.md) | Task for running Aegisub automations on a script using [Aegisub CLI](https://github.com/Myaamori/aegisub-cli). |
 | [myaa.subkt.tasks.BaseContext](../myaa.subkt.tasks/-base-context/index.md) | Simple base implementation of a Velocity [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html). |
 | [kotlin.Boolean](../myaa.subkt.ass/kotlin.-boolean/index.md) (extensions in package myaa.subkt.ass) |  |
 | [myaa.subkt.tasks.Chapters](../myaa.subkt.tasks/-chapters/index.md) | Generates a chapter file from an ASS file in the same way as Significance. The provided ASS file will be searched for lines where the field specified by [field](../myaa.subkt.tasks/-chapters/field.md) contains the value specified by [chapterMarker](../myaa.subkt.tasks/-chapters/chapter-marker.md), and for each such line a chapter will be generated using the start time as the time, and the value of the field specified by [chapterName](../myaa.subkt.tasks/-chapters/chapter-name.md) as the chapter name. A predefined task instance can be accessed through [Subs.chapters](../myaa.subkt.tasks/chapters.md). |
+| [myaa.subkt.ass.Collisions](../myaa.subkt.ass/-collisions/index.md) |  |
+| [myaa.subkt.ass.CollisionsSerializer](../myaa.subkt.ass/-collisions-serializer/index.md) |  |
 | [java.awt.Color](../myaa.subkt.ass/java.awt.-color/index.md) (extensions in package myaa.subkt.ass) |  |
+| [myaa.subkt.ass.ColorMatrix](../myaa.subkt.ass/-color-matrix/index.md) |  |
+| [myaa.subkt.ass.ColorMatrixSerializer](../myaa.subkt.ass/-color-matrix-serializer/index.md) |  |
 | [myaa.subkt.tasks.ColorSerializer](../myaa.subkt.tasks/-color-serializer/index.md) |  |
 | [org.gradle.api.file.ConfigurableFileCollection](../myaa.subkt.tasks/org.gradle.api.file.-configurable-file-collection/index.md) (extensions in package myaa.subkt.tasks) |  |
+| [myaa.subkt.ass.CustomSerializer](../myaa.subkt.ass/-custom-serializer/index.md) |  |
 | [myaa.subkt.tasks.DefaultSubTask](../myaa.subkt.tasks/-default-sub-task/index.md) | Wrapper task for [DefaultTask](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html) which implements [SubTask](../myaa.subkt.tasks/-sub-task/index.md), giving access to [SubTask.item](../myaa.subkt.tasks/-sub-task/item.md) and [SubTask.batchItems](../myaa.subkt.tasks/-sub-task/batch-items.md) for convenience. |
 | [myaa.subkt.tasks.Discord](../myaa.subkt.tasks/-discord/index.md) | Task for posting to a Discord webhook. Supports normal messages, embeds, and uploading files. A predefined task instance can be accessed through [Subs.discord](../myaa.subkt.tasks/discord.md). |
 | [java.time.Duration](../myaa.subkt.ass/java.time.-duration/index.md) (extensions in package myaa.subkt.ass) |  |
@@ -67,11 +73,13 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.PropertyTask](../myaa.subkt.tasks/-property-task/index.md) | Parent task type that automatically keeps track of and stores properties in JSON format. |
 | [myaa.subkt.tasks.ProviderGroup](../myaa.subkt.tasks/-provider-group/index.md) | [ItemGroup](../myaa.subkt.tasks/-item-group/index.md) that keeps track of providers for values of type [T](../myaa.subkt.tasks/-provider-group/index.md#T). A [Provider](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html) is generated for each entry, and the given closure is evaluated when the provider's value is requested. |
 | [myaa.subkt.tasks.ProviderSerializer](../myaa.subkt.tasks/-provider-serializer/index.md) |  |
+| [myaa.subkt.ass.ScaledBorderAndShadowSerializer](../myaa.subkt.ass/-scaled-border-and-shadow-serializer/index.md) |  |
 | [myaa.subkt.ass.ScriptInfoSection](../myaa.subkt.ass/-script-info-section/index.md) | Represents a script info section. |
 | [myaa.subkt.ass.Section](../myaa.subkt.ass/-section/index.md) | Represents a section in an ASS file, textually represented as a section name in square brackets followed by zero or more lines in a `Type: Value` format. |
 | [myaa.subkt.tasks.SFTP](../myaa.subkt.tasks/-s-f-t-p/index.md) | Task for uploading files via SFTP (SSH). A predefined task instance can be accessed through [Subs.sftp](../myaa.subkt.tasks/sftp.md). |
 | [myaa.subkt.tasks.SSHExec](../myaa.subkt.tasks/-s-s-h-exec/index.md) | Task for executing commands on a remote shell via SSH. |
 | [myaa.subkt.tasks.SSHTask](../myaa.subkt.tasks/-s-s-h-task/index.md) | Common interface for tasks that connect to SSH. |
+| [myaa.subkt.tasks.utils.State](../myaa.subkt.tasks.utils/-state/index.md) |  |
 | [kotlin.String](../myaa.subkt.ass/kotlin.-string/index.md) (extensions in package myaa.subkt.ass) |  |
 | [kotlin.String](../myaa.subkt.tasks/kotlin.-string/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.ass.StyleLine](../myaa.subkt.ass/-style-line/index.md) | A line in a [StyleSection](../myaa.subkt.ass/-style-section/index.md). Its associated accessor is [StyleLineAccessor](../myaa.subkt.ass/-style-line-accessor/index.md). |
@@ -90,7 +98,10 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.TaskContext](../myaa.subkt.tasks/-task-context/index.md) | [AbstractContext](https://velocity.apache.org/engine/2.2/apidocs/org/apache/velocity/context/AbstractContext.html) implementation for getting properties in a task context. |
 | [myaa.subkt.tasks.TaskCreator](../myaa.subkt.tasks/-task-creator/index.md) | Delegate for creation of tasks using property delegate syntax. See [ItemGroupContext.task](../myaa.subkt.tasks/-item-group-context/task.md). |
 | [myaa.subkt.tasks.TaskGroup](../myaa.subkt.tasks/-task-group/index.md) | A group of tasks of the same type. |
+| [myaa.subkt.ass.TimerSerializer](../myaa.subkt.ass/-timer-serializer/index.md) |  |
 | [myaa.subkt.tasks.Torrent](../myaa.subkt.tasks/-torrent/index.md) | Task to create a torrent file from a set of files. A predefined task instance can be accessed through [Subs.torrent](../myaa.subkt.tasks/torrent.md). |
 | [myaa.subkt.tasks.ValueClosure](../myaa.subkt.tasks/-value-closure/index.md) |  |
 | [myaa.subkt.tasks.ValueGroup](../myaa.subkt.tasks/-value-group/index.md) | [ItemGroup](../myaa.subkt.tasks/-item-group/index.md) that keeps track of simple values of type [T](../myaa.subkt.tasks/-value-group/index.md#T). The closure is evaluated immediately for each entry. |
+| [myaa.subkt.ass.WrapStyle](../myaa.subkt.ass/-wrap-style/index.md) |  |
+| [myaa.subkt.ass.WrapStyleSerializer](../myaa.subkt.ass/-wrap-style-serializer/index.md) |  |
 | [myaa.subkt.tasks.ZonedDateTimeSerializer](../myaa.subkt.tasks/-zoned-date-time-serializer/index.md) |  |

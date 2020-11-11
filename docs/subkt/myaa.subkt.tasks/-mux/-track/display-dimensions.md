@@ -2,7 +2,7 @@
 
 # displayDimensions
 
-`val displayDimensions: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Mux.Dimensions`](../-dimensions/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L252)
+`val displayDimensions: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Mux.Dimensions`](../-dimensions/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L252)
 
 Sets the display dimensions of this track, specified as a [Dimensions](../-dimensions/index.md) object, e.g.:
 

@@ -2,4 +2,4 @@
 
 # displayDimensios
 
-`val displayDimensios: `[`Mux.Dimensions`](../../-dimensions/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L177)
+`val displayDimensios: `[`Mux.Dimensions`](../../-dimensions/index.md)`?` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L177)

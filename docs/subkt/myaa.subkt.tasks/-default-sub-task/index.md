@@ -2,7 +2,7 @@
 
 # DefaultSubTask
 
-`open class DefaultSubTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2109)
+`open class DefaultSubTask : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2114)
 
 Wrapper task for [DefaultTask](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html) which implements [SubTask](../-sub-task/index.md), giving access to
 [SubTask.item](../-sub-task/item.md) and [SubTask.batchItems](../-sub-task/batch-items.md) for convenience.

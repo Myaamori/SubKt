@@ -2,7 +2,7 @@
 
 # ZonedDateTimeSerializer
 
-`object ZonedDateTimeSerializer : JsonSerializer<`[`ZonedDateTime`](https://docs.oracle.com/javase/9/docs/api/java/time/ZonedDateTime.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L39)
+`object ZonedDateTimeSerializer : JsonSerializer<`[`ZonedDateTime`](https://docs.oracle.com/javase/9/docs/api/java/time/ZonedDateTime.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L39)
 
 ### Functions
 

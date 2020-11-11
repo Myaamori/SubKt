@@ -2,7 +2,7 @@
 
 # StyleLine
 
-`class StyleLine : `[`MapLine`](../-map-line/index.md)`<`[`StyleLine`](./index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/ass/parser.kt#L530)
+`class StyleLine : `[`MapLine`](../-map-line/index.md)`<`[`StyleLine`](./index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L532)
 
 A line in a [StyleSection](../-style-section/index.md).
 Its associated accessor is [StyleLineAccessor](../-style-line-accessor/index.md).

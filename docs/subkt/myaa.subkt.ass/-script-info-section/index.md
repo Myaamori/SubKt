@@ -2,7 +2,7 @@
 
 # ScriptInfoSection
 
-`class ScriptInfoSection : `[`KeyValSection`](../-key-val-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/ass/parser.kt#L694)
+`class ScriptInfoSection : `[`KeyValSection`](../-key-val-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L786)
 
 Represents a script info section.
 
@@ -28,20 +28,21 @@ scriptInfoSection.values["PlayResX"] = 1920 // equivalent to the above
 
 | Name | Summary |
 |---|---|
-| [colorMatrix](color-matrix.md) | `var colorMatrix: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
+| [colorMatrix](color-matrix.md) | `var colorMatrix: `[`ColorMatrix`](../-color-matrix/index.md)`?` |
 | [editing](editing.md) | `var editing: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [originalScript](original-script.md) | `var originalScript: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [playResX](play-res-x.md) | `var playResX: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`?` |
 | [playResY](play-res-y.md) | `var playResY: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`?` |
-| [scaledBorderAndShadow](scaled-border-and-shadow.md) | `var scaledBorderAndShadow: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
+| [scaledBorderAndShadow](scaled-border-and-shadow.md) | `var scaledBorderAndShadow: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`?` |
 | [scriptType](script-type.md) | `var scriptType: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [synchPoint](synch-point.md) | `var synchPoint: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
+| [timer](timer.md) | `var timer: `[`Double`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)`?` |
 | [timing](timing.md) | `var timing: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [title](title.md) | `var title: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [translation](translation.md) | `var translation: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [updatedBy](updated-by.md) | `var updatedBy: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
 | [updateDetails](update-details.md) | `var updateDetails: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?` |
-| [wrapStyle](wrap-style.md) | `var wrapStyle: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`?` |
+| [wrapStyle](wrap-style.md) | `var wrapStyle: `[`WrapStyle`](../-wrap-style/index.md)`?` |
 
 ### Inherited Properties
 

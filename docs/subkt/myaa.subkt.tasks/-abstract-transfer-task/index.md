@@ -2,7 +2,7 @@
 
 # AbstractTransferTask
 
-`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1584)
+`abstract class AbstractTransferTask<T> : `[`AbstractCopyTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/AbstractCopyTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1584)
 
 ### Types
 
@@ -32,7 +32,8 @@
 | [createCopyAction](create-copy-action.md) | `fun createCopyAction(): CopyAction` |
 | [createRootSpec](create-root-spec.md) | `open fun createRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](-dest-dir-root-spec/index.md)`<`[`T`](-dest-dir-root-spec/index.md#T)`>` |
 | [getRootSpec](get-root-spec.md) | `open fun getRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](-dest-dir-root-spec/index.md)`<*>` |
-| [makedirs](makedirs.md) | `abstract fun makedirs(client: `[`T`](-dest-dir-root-spec/index.md#T)`, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [makedir](makedir.md) | `abstract fun makedir(client: `[`T`](-dest-dir-root-spec/index.md#T)`, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [makedirs](makedirs.md) | `fun makedirs(client: `[`T`](-dest-dir-root-spec/index.md#T)`, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [stat](stat.md) | `abstract fun stat(client: `[`T`](-dest-dir-root-spec/index.md#T)`, file: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`AbstractTransferTask.FileDetails`](-file-details/index.md)`?` |
 | [upload](upload.md) | `abstract fun upload(client: `[`T`](-dest-dir-root-spec/index.md#T)`, file: `[`InputStream`](https://docs.oracle.com/javase/9/docs/api/java/io/InputStream.html)`, dest: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, callback: (`[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 

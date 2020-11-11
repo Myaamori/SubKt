@@ -2,7 +2,7 @@
 
 # GREEK
 
-`GREEK` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1076)
+`GREEK` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1076)
 
 ### Inherited Properties
 

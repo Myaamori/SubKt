@@ -2,7 +2,7 @@
 
 # ASS
 
-`open class ASS : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L588)
+`open class ASS : `[`ASSTask`](../-a-s-s-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L588)
 
 Generic task for modifying ASS files. See [ASSFile](../../myaa.subkt.ass/-a-s-s-file/index.md) and related classes
 for more information. The modified file is written to a new file.

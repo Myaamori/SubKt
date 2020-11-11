@@ -2,7 +2,7 @@
 
 # FTP
 
-`abstract class FTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<FTPClient>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1723)
+`abstract class FTP : `[`AbstractTransferTask`](../-abstract-transfer-task/index.md)`<FTPClient>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1736)
 
 Task for uploading files via FTP.
 A predefined task instance can be accessed through [Subs.ftp](../ftp.md).
@@ -64,7 +64,7 @@ ftp {
 | Name | Summary |
 |---|---|
 | [createClient](create-client.md) | `open fun createClient(): FTPClient` |
-| [makedirs](makedirs.md) | `open fun makedirs(client: FTPClient, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [makedir](makedir.md) | `open fun makedir(client: FTPClient, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [stat](stat.md) | `open fun stat(client: FTPClient, file: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`AbstractTransferTask.FileDetails`](../-abstract-transfer-task/-file-details/index.md)`?` |
 | [upload](upload.md) | `open fun upload(client: FTPClient, file: `[`InputStream`](https://docs.oracle.com/javase/9/docs/api/java/io/InputStream.html)`, dest: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, callback: (`[`Long`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 
@@ -75,6 +75,7 @@ ftp {
 | [createCopyAction](../-abstract-transfer-task/create-copy-action.md) | `fun createCopyAction(): CopyAction` |
 | [createRootSpec](../-abstract-transfer-task/create-root-spec.md) | `open fun createRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](../-abstract-transfer-task/-dest-dir-root-spec/index.md)`<`[`T`](../-abstract-transfer-task/-dest-dir-root-spec/index.md#T)`>` |
 | [getRootSpec](../-abstract-transfer-task/get-root-spec.md) | `open fun getRootSpec(): `[`AbstractTransferTask.DestDirRootSpec`](../-abstract-transfer-task/-dest-dir-root-spec/index.md)`<*>` |
+| [makedirs](../-abstract-transfer-task/makedirs.md) | `fun makedirs(client: `[`T`](../-abstract-transfer-task/-dest-dir-root-spec/index.md#T)`, path: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 
 ### Extension Properties
 

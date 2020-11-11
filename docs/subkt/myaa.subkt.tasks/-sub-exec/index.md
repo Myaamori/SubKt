@@ -2,7 +2,7 @@
 
 # SubExec
 
-`open class SubExec : `[`Exec`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Exec.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2121)
+`open class SubExec : `[`Exec`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Exec.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2126)
 
 Wrapper task for [Exec](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/Exec.html) which implements [SubTask](../-sub-task/index.md), giving access to
 [SubTask.item](../-sub-task/item.md) and [SubTask.batchItems](../-sub-task/batch-items.md) for convenience.

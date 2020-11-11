@@ -2,7 +2,7 @@
 
 # KeyValDelegate
 
-`protected inner class KeyValDelegate<T> : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.11/src/main/kotlin/myaa/subkt/ass/parser.kt#L644)
+`protected inner class KeyValDelegate<T> : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L658)
 
 ### Constructors
 
