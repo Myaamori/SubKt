@@ -2,7 +2,7 @@
 
 # Thumbnail
 
-`inner class Thumbnail` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L115)
+`inner class Thumbnail` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L115)
 
 The thumbnail of an embed.
 

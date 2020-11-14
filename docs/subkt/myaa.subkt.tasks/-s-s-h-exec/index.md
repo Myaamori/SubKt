@@ -2,7 +2,7 @@
 
 # SSHExec
 
-`open class SSHExec : `[`DefaultSubTask`](../-default-sub-task/index.md)`, `[`SSHTask`](../-s-s-h-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2048)
+`open class SSHExec : `[`DefaultSubTask`](../-default-sub-task/index.md)`, `[`SSHTask`](../-s-s-h-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L2048)
 
 Task for executing commands on a remote shell via SSH.
 

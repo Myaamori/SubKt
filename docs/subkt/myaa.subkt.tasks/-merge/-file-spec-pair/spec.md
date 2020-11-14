@@ -2,7 +2,7 @@
 
 # spec
 
-`val spec: `[`Merge.MergeSpecification`](../-merge-specification/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L178)
+`val spec: `[`Merge.MergeSpecification`](../-merge-specification/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L178)
 
 Merge specification for the files in [FileSpecPair.files](files.md).
 

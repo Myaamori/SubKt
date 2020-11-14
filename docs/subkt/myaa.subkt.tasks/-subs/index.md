@@ -2,7 +2,7 @@
 
 # Subs
 
-`open class Subs : `[`ItemGroupContext`](../-item-group-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L365)
+`open class Subs : `[`ItemGroupContext`](../-item-group-context/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L365)
 
 Central object that keeps track of episodes, batches, tasks and user-loaded properties.
 For tasks to be generated correctly, [episodes](episodes.md) and optionally [batches](batches.md) should be set.

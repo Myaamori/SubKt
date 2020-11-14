@@ -2,7 +2,7 @@
 
 # SubProperties
 
-`class SubProperties` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L58)
+`class SubProperties` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/plugin.kt#L58)
 
 Reads a list of properties of the form `release.entry.property=value`, which can
 later be looked up using the [match](match.md) method.

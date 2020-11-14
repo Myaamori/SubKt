@@ -2,7 +2,7 @@
 
 # Discord
 
-`open class Discord : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L52)
+`open class Discord : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L52)
 
 Task for posting to a Discord webhook. Supports normal messages, embeds,
 and uploading files. A predefined task instance can be accessed through

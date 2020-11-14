@@ -102,6 +102,7 @@ In addition, simple wrappers of standard Gradle tasks implementing [SubTask](-su
 | [org.gradle.api.provider.MapProperty](org.gradle.api.provider.-map-property/index.md) |  |
 | [org.gradle.api.provider.Property](org.gradle.api.provider.-property/index.md) |  |
 | [org.gradle.api.Task](org.gradle.api.-task/index.md) |  |
+| [org.gradle.api.tasks.util.PatternFilterable](org.gradle.api.tasks.util.-pattern-filterable/index.md) |  |
 
 ### Properties
 

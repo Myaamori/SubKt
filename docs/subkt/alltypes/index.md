@@ -68,6 +68,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.MuxFlag](../myaa.subkt.tasks/-mux-flag/index.md) | Marks a property with its corresponding mkvmerge flag. |
 | [myaa.subkt.tasks.Nyaa](../myaa.subkt.tasks/-nyaa/index.md) | Task for uploading a torrent file to nyaa.si. A predefined task instance can be accessed through [Subs.nyaa](../myaa.subkt.tasks/nyaa.md). |
 | [myaa.subkt.tasks.OverwriteStrategy](../myaa.subkt.tasks/-overwrite-strategy/index.md) | The strategy for overwriting existing files. |
+| [org.gradle.api.tasks.util.PatternFilterable](../myaa.subkt.tasks/org.gradle.api.tasks.util.-pattern-filterable/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [org.gradle.api.Project](../myaa.subkt.tasks/org.gradle.api.-project/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [org.gradle.api.provider.Property](../myaa.subkt.tasks/org.gradle.api.provider.-property/index.md) (extensions in package myaa.subkt.tasks) |  |
 | [myaa.subkt.tasks.PropertyTask](../myaa.subkt.tasks/-property-task/index.md) | Parent task type that automatically keeps track of and stores properties in JSON format. |

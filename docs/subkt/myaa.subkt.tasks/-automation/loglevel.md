@@ -2,7 +2,7 @@
 
 # loglevel
 
-`val loglevel: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Automation.LogLevel`](-log-level/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L698)
+`val loglevel: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Automation.LogLevel`](-log-level/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L699)
 
 What Aegisub CLI should print to standard out.
 

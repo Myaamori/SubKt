@@ -2,7 +2,7 @@
 
 # Automation
 
-`open class Automation : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L633)
+`open class Automation : `[`DefaultTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/DefaultTask.html)`, `[`SubTask`](../-sub-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L633)
 
 Task for running Aegisub automations on a script using
 [Aegisub CLI](https://github.com/Myaamori/aegisub-cli).
@@ -65,7 +65,7 @@ val assWipe by task<Automation> {
 | [loglevel](loglevel.md) | `val loglevel: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`Automation.LogLevel`](-log-level/index.md)`>`<br>What Aegisub CLI should print to standard out. |
 | [macro](macro.md) | `val macro: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Name of macro to run, as defined by the script specified with [script](script.md). |
 | [out](out.md) | `val out: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)<br>The location to save the ASS file. Defaults to an automatically generated file in the build directory. |
-| [script](script.md) | `val script: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Filename of script to run. |
+| [script](script.md) | `val script: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>Filename of automation script to run. |
 | [selection](selection.md) | `val selection: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`Automation.Selection`](-selection/index.md)`>` |
 | [timecodes](timecodes.md) | `val timecodes: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)`!`<br>Timecodes file to load. |
 | [video](video.md) | `val video: `[`ConfigurableFileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html)`!`<br>Video file to load. |

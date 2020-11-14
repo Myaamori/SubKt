@@ -2,7 +2,7 @@
 
 # mux
 
-`val `[`Subs`](-subs/index.md)`.mux: `[`TaskGroup`](-task-group/index.md)`<`[`Mux`](-mux/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L991)
+`val `[`Subs`](-subs/index.md)`.mux: `[`TaskGroup`](-task-group/index.md)`<`[`Mux`](-mux/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L974)
 
 Convenience property that upon use automatically instantiates and returns a
 [TaskGroup](-task-group/index.md) of type [Mux](-mux/index.md) with the name `mux`.

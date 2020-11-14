@@ -2,7 +2,7 @@
 
 # SubTask
 
-`interface SubTask : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L586)
+`interface SubTask : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L586)
 
 Mixin task interface providing convenience functions for accessing [ItemGroup](../-item-group/index.md) instances.
 

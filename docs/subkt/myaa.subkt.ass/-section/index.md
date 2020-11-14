@@ -2,7 +2,7 @@
 
 # Section
 
-`abstract class Section : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L588)
+`abstract class Section : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L588)
 
 Represents a section in an ASS file, textually represented as a section name
 in square brackets followed by zero or more lines in a `Type: Value` format.

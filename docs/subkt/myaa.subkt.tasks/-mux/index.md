@@ -2,7 +2,7 @@
 
 # Mux
 
-`open class Mux : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L51)
+`open class Mux : `[`PropertyTask`](../-property-task/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L58)
 
 Task to mux a set of files into a single Matroska container using mkvmerge.
 
@@ -70,7 +70,6 @@ mux {
 | [Attachment](-attachment/index.md) | `inner class Attachment : `[`Filterable`](../-filterable/index.md)<br>Represents an attachment present in a [MuxFile](-mux-file/index.md). |
 | [Chapter](-chapter/index.md) | `inner class Chapter`<br>Represents a chapter file to mux, added using [chaptersProperty](chapters-property.md). |
 | [CompressionType](-compression-type/index.md) | `enum class CompressionType`<br>The type of compression to use, for use with [Track.compression](-track/compression.md). |
-| [ConfigurableAttachment](-configurable-attachment/index.md) | `inner class ConfigurableAttachment : `[`PatternFilterable`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/util/PatternFilterable.html)`, `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>`<br>Represents a set of files to attach, added using [attach](attach.md). |
 | [Dimensions](-dimensions/index.md) | `data class Dimensions : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html)<br>Represents the dimensions of a track in pixels. |
 | [MuxFile](-mux-file/index.md) | `inner class MuxFile`<br>Represents a file to mux, added using [from](from.md). |
 | [Track](-track/index.md) | `inner class Track : `[`Filterable`](../-filterable/index.md)<br>Represents a single track read from the source file. |
@@ -87,7 +86,7 @@ mux {
 
 | Name | Summary |
 |---|---|
-| [attachmentsProperty](attachments-property.md) | `val attachmentsProperty: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Mux.ConfigurableAttachment`](-configurable-attachment/index.md)`>>`<br>The files to attach, added via [attach](attach.md). |
+| [attachmentsProperty](attachments-property.md) | `val attachmentsProperty: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`FileCollection`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html)`>>`<br>The files to attach, added via [attach](attach.md). |
 | [chaptersProperty](chapters-property.md) | `val chaptersProperty: `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`Mux.Chapter`](-chapter/index.md)`>`<br>The chapters of the file, added via [chapters](chapters.md). |
 | [crc](crc.md) | `var crc: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>The CRC32 hash of the output file. Only available after the task has finished. |
 | [defaultLanguage](default-language.md) | `val defaultLanguage: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>`<br>The default language used for tracks which don't have a language specified. If not set, mkvmerge will default to `und`. |
@@ -119,7 +118,7 @@ mux {
 
 | Name | Summary |
 |---|---|
-| [attach](attach.md) | `fun attach(vararg dirs: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, action: `[`Mux.ConfigurableAttachment`](-configurable-attachment/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` = {}): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Mux.ConfigurableAttachment`](-configurable-attachment/index.md)`>>`<br>Attach one or more files to the output file. |
+| [attach](attach.md) | `fun attach(vararg dirs: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, action: `[`ConfigurableFileTree`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileTree.html)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` = {}): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`ConfigurableFileTree`](https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileTree.html)`>>`<br>Attach one or more files to the output file. |
 | [chapters](chapters.md) | `fun chapters(file: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, action: `[`Mux.Chapter`](-chapter/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` = {}): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`Mux.Chapter`](-chapter/index.md)`>`<br>Adds a chapter file. |
 | [from](from.md) | `fun from(vararg files: `[`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)`, action: `[`Mux.MuxFile`](-mux-file/index.md)`.() -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` = {}): `[`Provider`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)`<`[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`Mux.MuxFile`](-mux-file/index.md)`>>`<br>Adds files to mux. |
 | [run](run.md) | `open fun run(): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

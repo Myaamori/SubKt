@@ -2,7 +2,7 @@
 
 # CollisionsSerializer
 
-`class CollisionsSerializer : `[`ASSSerializer`](../-a-s-s-serializer/index.md)`<`[`Collisions`](../-collisions/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.12/src/main/kotlin/myaa/subkt/ass/parser.kt#L756)
+`class CollisionsSerializer : `[`ASSSerializer`](../-a-s-s-serializer/index.md)`<`[`Collisions`](../-collisions/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L756)
 
 ### Constructors
 
