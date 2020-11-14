@@ -644,13 +644,14 @@ open class Automation : DefaultTask(), SubTask {
     val from = project.objects.fileCollection()
 
     /**
-     * Filename of script to run.
+     * Filename of automation script to run.
      *
      * May be a relative path, absolute path, or a simple filename.
      * If a simple filename is provided, Aegisub CLI will search
      * for the script in the usual autoload locations.
      */
     @get:Input
+    @get:Optional
     val script = project.objects.property<String>()
 
     /**
@@ -844,6 +845,11 @@ open class Automation : DefaultTask(), SubTask {
             args.add(keyframesFile.absolutePath)
         }
 
+        script.orNull?.let {
+            args.add("--automation")
+            args.add(it)
+        }
+
         fileDialog.get().forEach {
             args.add("--file")
             args.add(it)
@@ -866,7 +872,6 @@ open class Automation : DefaultTask(), SubTask {
 
         args.add(from.singleFile.absolutePath)
         args.add(out.singleFile.absolutePath)
-        args.add(script.get())
         args.add(macro.get())
 
         println(args)
