@@ -42,6 +42,13 @@ interface Filterable {
 }
 
 /**
+ * Filter files by file extension. Case-insensitive.
+ */
+fun PatternFilterable.includeExtensions(vararg extensions: String) {
+    include { it.file.extension.toLowerCase() in extensions }
+}
+
+/**
  * Task to mux a set of files into a single Matroska container using mkvmerge.
  *
  * A predefined task instance can be accessed through [Subs.mux].
@@ -502,37 +509,13 @@ open class Mux : PropertyTask() {
         val sync = getSync(delay, stretch)
     }
 
-    /**
-     * Represents a set of files to attach, added using [attach].
-     */
-    inner class ConfigurableAttachment(
-            /**
-             * The backing [ConfigurableFileTree] instance, for more fine-grained
-             * control of the attached files.
-             */
-            val fileTree: ConfigurableFileTree
-    )
-        : PatternFilterable by fileTree, Iterable<File> by fileTree {
-        /**
-         * Filter files by file extension. Case-insensitive.
-         */
-        fun includeExtensions(vararg extensions: String) {
-            fileTree.include { it.file.extension.toLowerCase() in extensions }
-        }
-
-        /**
-         * Specifies base directory for this file tree using the given path.
-         */
-        fun from(dir: Any) = fileTree.from(dir)
-    }
-
-    private val _attachments = project.objects.listProperty<ConfigurableAttachment>()
+    private val _attachments = project.objects.listProperty<FileCollection>()
 
     /**
      * The files to attach, added via [attach].
      */
     @get:InputFiles
-    val attachmentsProperty: Provider<List<ConfigurableAttachment>> = _attachments
+    val attachmentsProperty: Provider<List<FileCollection>> = _attachments
 
     private val _files = project.objects.listProperty<MuxFile>().apply { finalizeValueOnRead() }
 
@@ -754,12 +737,12 @@ open class Mux : PropertyTask() {
      * @param action A closure operating on a [ConfigurableAttachment] instance,
      * allowing you to filter what files to include.
      */
-    fun attach(vararg dirs: Any, action: ConfigurableAttachment.() -> Unit = {}):
-            Provider<List<ConfigurableAttachment>> {
+    fun attach(vararg dirs: Any, action: ConfigurableFileTree.() -> Unit = {}):
+            Provider<List<ConfigurableFileTree>> {
         _inputFiles.from(dirs)
         return project.providers.provider {
             project.files(dirs).map { dir ->
-                ConfigurableAttachment(project.fileTree(dir)).apply(action)
+                project.fileTree(dir).apply(action)
             }
         }.also { _attachments.addAll(it) }
     }
