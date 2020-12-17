@@ -536,10 +536,10 @@ open class Swap : ASSTask() {
         val esc = Regex.escape(delim)
         listOf(
                 Regex("""\{$esc\}([^{]*)\{$esc([^}]*)\}""")
-                        to "{$esc}$2{$esc$1}",
+                        to "{$delim}$2{$delim$1}",
                 Regex("""\{$esc$esc([^}]+)\}""")
-                        to "{$esc}$1{$esc}",
-                Regex("""\{$esc\}\{$esc""") to "{$esc$esc"
+                        to "{$delim}$1{$delim}",
+                Regex("""\{$esc\}\{$esc""") to "{$delim$delim"
         )
     }
 
