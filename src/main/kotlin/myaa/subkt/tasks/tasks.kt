@@ -541,6 +541,12 @@ class ValueClosure<T>(
      */
     fun getFile(filename: String) =
             taskGroup.subs.getFile(filename, entry = entry, context = ClosureContext())
+
+    /**
+     * Processes the given file. See [Task.getFile].
+     */
+    fun getFile(filename: Provider<String>) =
+            taskGroup.subs.getFile(filename, entry = entry, context = ClosureContext())
 }
 
 /**

@@ -349,6 +349,18 @@ fun Task.getFile(filename: String) =
         taskGroup.subs.getFile(filename, entry = entry, context = TaskContext(this))
 
 /**
+ * Reads the specified file and processes it using
+ * [Velocity](https://velocity.apache.org/engine/2.2/user-guide.html).
+ *
+ * This function is run in a task context, using the [entry] and [release] values for this task.
+ *
+ * @sample myaa.subkt.tasks.samples.taskGetFileSample
+ * @param filename A provider returning the path to the file to read.
+ */
+fun Task.getFile(filename: Provider<String>) =
+        taskGroup.subs.getFile(filename, entry = entry, context = TaskContext(this))
+
+/**
  * Central object that keeps track of episodes, batches, tasks and user-loaded properties.
  * For tasks to be generated correctly, [episodes] and optionally [batches] should be set.
  * Set [release] if you wish to be able to differentiate between different releases
@@ -682,6 +694,22 @@ open class Subs(val project: Project) : ItemGroupContext() {
     fun getFile(filename: String, entry: String = "", context: AbstractContext? = null) =
             project.provider {
                 processFile(filename, entry = entry, context = context)
+            }
+
+    /**
+     * Reads the specified file and processes it using
+     * [Velocity](https://velocity.apache.org/engine/2.2/user-guide.html).
+     *
+     * This function is run outside of a task context, using only [release] for lookup
+     * unless an entry is manually specified.
+     *
+     * @sample myaa.subkt.tasks.samples.subsGetFileSample
+     * @param filename A provider returning the path to the file to read.
+     * @param entry Optional manually specified entry for property lookup.
+     */
+    fun getFile(filename: Provider<String>, entry: String = "", context: AbstractContext? = null) =
+            filename.map {
+                processFile(it, entry = entry, context = context)
             }
 
     /**
