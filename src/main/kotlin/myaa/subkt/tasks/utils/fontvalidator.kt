@@ -15,7 +15,7 @@ data class State(val font: String, val italic: Boolean, val weight: Int,
 
 private val tagPattern = Regex("""\\\s*([^(\\]+)(?<!\s)\s*(?:\(\s*([^)]+)(?<!\s)\s*)?""")
 private val intPattern = Regex("""^[+-]?\d+""")
-private val linePattern = Regex("""(?:(?<!\\)\{(?<tags>[^}]*)\}?)?(?<text>(?:\\\{|[^{])*)""")
+private val linePattern = Regex("""(?:(?<!\\)\{(?<tags>[^}]*)\}?)?(?<text>.*?(?=$|(?<!\\)\{))""")
 
 private fun parseIntArg(s: String) = intPattern.find(s)?.value?.toInt() ?: 0
 
