@@ -141,7 +141,8 @@ private class Font(val fontFile: File) {
     val fullNames = names.filter { it.nameId == NameRecord.NAME_FULL_FONT_NAME }.map { it.string }
     val postScriptName = font.name
 
-    val exactNames = if (font.isPostScript) listOf(postScriptName) else fullNames
+    val exactNames = (if (font.isPostScript) listOf(postScriptName) else fullNames)
+            .filterNot { full -> families.any { it.equals(full, ignoreCase = true) } }
 
     init {
         val italicMac = font.header.macStyle and HeaderTable.MAC_STYLE_ITALIC != 0
