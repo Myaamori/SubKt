@@ -139,38 +139,40 @@ class ASSFile(val file: File? = null) {
      * @param file The file to parse.
      */
     fun parse(file: File) {
-        val sectionMap = file.bufferedReader(StandardCharsets.UTF_8).lineSequence().withIndex()
-                // check and remove bom, trim lines, remove empty lines and comments
-                .mapNotNull { (i, l) ->
-                    val line = l.takeUnless { i == 0 }
-                            ?: l.takeIf { it.isEmpty() || it[0] != '\uFEFF' }?.also {
-                                println("Warning: ASS file $file does not start with a UTF-8 BOM")
-                            } ?: l.substring(1)
+        val sectionMap = file.bufferedReader(StandardCharsets.UTF_8).useLines { lines ->
+            lines.withIndex()
+                    // check and remove bom, trim lines, remove empty lines and comments
+                    .mapNotNull { (i, l) ->
+                        val line = l.takeUnless { i == 0 }
+                                ?: l.takeIf { it.isEmpty() || it[0] != '\uFEFF' }?.also {
+                                    println("Warning: ASS file $file does not start with a UTF-8 BOM")
+                                } ?: l.substring(1)
 
-                    line.trimStart().takeUnless { it.isEmpty() || it[0] == ';' }
-                }
-                // group into sections (String -> List<String>)
-                .asIterable().group { sectionPattern.matches(it) }
-                // remove null sections, rudimentary line parsing
-                .mapNotNull { (section, lines) ->
-                    if (section == null) {
-                        lines.forEach {
-                            println("Warning: found line outside section: $it")
-                        }
-                        null
-                    } else {
-                        section.drop(1).dropLast(1) to lines.mapNotNull { line ->
-                            linePattern.matchEntire(line)?.destructured?.let { (key, value) ->
-                                KeyValLine(key, value)
-                            } ?: run {
-                                println("Warning: could not parse line: $line")
-                                null
+                        line.trimStart().takeUnless { it.isEmpty() || it[0] == ';' }
+                    }
+                    // group into sections (String -> List<String>)
+                    .asIterable().group { sectionPattern.matches(it) }
+                    // remove null sections, rudimentary line parsing
+                    .mapNotNull { (section, lines) ->
+                        if (section == null) {
+                            lines.forEach {
+                                println("Warning: found line outside section: $it")
+                            }
+                            null
+                        } else {
+                            section.drop(1).dropLast(1) to lines.mapNotNull { line ->
+                                linePattern.matchEntire(line)?.destructured?.let { (key, value) ->
+                                    KeyValLine(key, value)
+                                } ?: run {
+                                    println("Warning: could not parse line: $line")
+                                    null
+                                }
                             }
                         }
                     }
-                }
-                // merge identically named sections (if any)
-                .groupBy({ it.first }, { it.second }).mapValues { it.value.flatten() }
+                    // merge identically named sections (if any)
+                    .groupBy({ it.first }, { it.second }).mapValues { it.value.flatten() }
+        }
 
         val extraData: ExtraData = sectionMap.getOrElse(extraDataHeader) { listOf() }
                 .mapNotNull {
