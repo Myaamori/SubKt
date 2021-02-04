@@ -97,6 +97,7 @@ class SubProperties {
  * Simple base implementation of a Velocity [AbstractContext].
  */
 abstract class BaseContext : AbstractContext() {
+    private val stack = LinkedList<String>()
     private var internalFields = mutableMapOf<String, Any?>()
 
     protected abstract fun doGet(key: String): Any?
@@ -104,8 +105,17 @@ abstract class BaseContext : AbstractContext() {
     override fun internalPut(key: String, value: Any?) =
             internalFields.put(key, value)
 
-    override fun internalGet(key: String) =
-            internalFields[key] ?: doGet(key)
+    override fun internalGet(key: String): Any? {
+        if (key in stack) {
+            stack.add(key)
+            val seq = stack.dropWhile { it != key }
+            error("Recursive property dependency detected: ${seq.joinToString(" -> ")}")
+        }
+        stack.add(key)
+        val result = internalFields[key] ?: doGet(key)
+        stack.removeLast()
+        return result
+    }
 
     override fun internalGetKeys() = throw UnsupportedOperationException()
 
@@ -216,7 +226,8 @@ fun Project.glob(s: String) =
 class TaskContext(val task: Task) : BaseContext() {
     override fun doGet(key: String) =
             task.extra.properties[key] ?:
-                    try { task.getList(key).orNull } catch (e: NoSuchElementException) { null }
+                    try { task.taskGroup.subs.getList(key, entry = task.entry, context = this).orNull }
+                    catch (e: NoSuchElementException) { null }
                             ?.singleOrNull() ?:
                     task.takeIf { it.taskGroup.name == key } ?:
                     try {
@@ -485,7 +496,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
 
         override fun doGet(key: String) =
                 extraProperties[key] ?:
-                        try { this@Subs.getList(key, entry = entry).orNull }
+                        try { this@Subs.getList(key, entry = entry, context = this).orNull }
                         catch (e: NoSuchElementException) { null }
                                 ?.singleOrNull()
     }
