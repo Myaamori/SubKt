@@ -627,6 +627,14 @@ open class Mux : PropertyTask() {
     val globalOptions = project.objects.listProperty<String>()
 
     /**
+     * If true, will verify the CRC of input files that have
+     * a CRC specified in square brackets, e.g. `premux [DEADBEEF].mkv`.
+     * Defaults to true.
+     */
+    @get:Internal
+    val verifyCRC = defaultProperty(true)
+
+    /**
      * If true, will warn about font issues in included subtitle tracks.
      * You can configure the error reporting using [onFaux], [onStyleMismatch],
      * [onMissingGlyphs] and [onMissingFonts].
@@ -760,6 +768,8 @@ open class Mux : PropertyTask() {
             crc32.value
         }
     }
+
+    private fun crcToString(crc: Long) = "%08X".format(crc)
 
     /* ported from https://github.com/dreamer2908/Python-CRC32-Forcer/blob/d574683049ec64d163fd51d6478e624a4c3086bc/python_crc32_forcer.py */
     private fun calculateForcedCRC(oldcrc: Long, targetcrc: Long): ByteArray {
@@ -928,7 +938,21 @@ open class Mux : PropertyTask() {
         }
     }
 
+    private val crcPattern = Regex("""\[([0-9a-fA-F]{8})]""")
+
     override fun run() {
+        if (verifyCRC.get()) {
+            _inputFiles.forEach { f ->
+                crcPattern.find(f.name)?.destructured?.let { (expectedCrc) ->
+                    val actualCrc = calculateCRC(f)
+                    if (actualCrc != expectedCrc.toLong(16)) {
+                        error("Unexpected CRC for ${f.name}; expected $expectedCrc," +
+                                " got ${crcToString(actualCrc)}")
+                    }
+                }
+            }
+        }
+
         // reset crc for more deterministic behaviour
         crc = "XXXXXXXX"
 
@@ -956,8 +980,8 @@ open class Mux : PropertyTask() {
 
             val contentToAdd = calculateForcedCRC(oldcrc, it.toLong(16))
             tempLocation.appendBytes(contentToAdd)
-            "%08X".format(calculateCRC(tempLocation))
-        } ?: "%08X".format(oldcrc)
+            crcToString(calculateCRC(tempLocation))
+        } ?: crcToString(oldcrc)
 
         val renamed = this.outFile.get()
         logger.quiet("Output: ${renamed.name}")
