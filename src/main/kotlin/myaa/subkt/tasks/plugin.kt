@@ -491,7 +491,10 @@ open class Subs(val project: Project) : ItemGroupContext() {
      */
     inner class SubContext(val entry: String) : BaseContext() {
         private val extraProperties = mapOf(
-                "release" to release
+                "release" to release,
+                "episode" to entry,
+                "batch" to entry,
+                "entry" to entry
         )
 
         override fun doGet(key: String) =
