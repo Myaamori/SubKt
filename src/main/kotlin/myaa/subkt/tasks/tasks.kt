@@ -286,7 +286,7 @@ abstract class ItemGroup<T>(
      * @sample myaa.subkt.tasks.samples.itemGroupItemsSample1
      */
     fun batchItems(entries: Provider<out Iterable<String>>) =
-            entries.get().map { items.getValue(it) }
+            entries.get().map(::item)
 
     /**
      * Get all items corresponding to the episodes of the given task.
@@ -300,7 +300,9 @@ abstract class ItemGroup<T>(
      *
      * @sample myaa.subkt.tasks.samples.itemGroupItemSample1
      */
-    fun item(entry: String) = items.getValue(entry)
+    fun item(entry: String) = items[entry]
+            ?: error("Attempted to access entry $entry of $this but no such entry existed; " +
+                    "available entries: ${items.keys.sorted().joinToString(", ")}")
 
     /**
      * Get the item of the same the entry as the given task.
@@ -363,6 +365,8 @@ class TaskGroup<T : Task>(
         }
         return newTask
     }
+
+    override fun toString() = "task group '$name'"
 }
 
 /**
