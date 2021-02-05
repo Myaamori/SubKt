@@ -635,6 +635,14 @@ open class Mux : PropertyTask() {
     val verifyCRC = defaultProperty(true)
 
     /**
+     * If true, will not attach any font files that are not used in
+     * any of the attached subtitle tracks.
+     * Defaults to false.
+     */
+    @get:Internal
+    val skipUnusedFonts = defaultProperty(false)
+
+    /**
      * If true, will warn about font issues in included subtitle tracks.
      * You can configure the error reporting using [onFaux], [onStyleMismatch],
      * [onMissingGlyphs] and [onMissingFonts].
@@ -863,15 +871,16 @@ open class Mux : PropertyTask() {
 
         // per-track flags
         val files = _files.get()
-        val attachments = _attachments.get().flatMap { project.files(it) }
-        files.forEach { file ->
+        val attachments = _attachments.get().flatMap { project.files(it) }.toSet()
+        val unusedFonts = files.mapNotNull { file ->
             logger.lifecycle(file.toString())
 
-            if (verifyFonts.get() && file.info.container?.type == "SSA/ASS subtitles") {
-                verifyFonts(ASSFile(file.file), attachments)
-                        .printReport(onMissingFonts.get(), onFaux.get(),
-                                onStyleMismatch.get(), onMissingGlyphs.get())
-            }
+            val unused = if (verifyFonts.get() && file.info.container?.type == "SSA/ASS subtitles") {
+                val report = verifyFonts(ASSFile(file.file), attachments)
+                report.printReport(onMissingFonts.get(), onFaux.get(),
+                        onStyleMismatch.get(), onMissingGlyphs.get())
+                report.unusedFonts()
+            } else { null }
 
             // options from included tracks
             file.tracks.filter { it.include.get() }.forEach { track ->
@@ -911,7 +920,9 @@ open class Mux : PropertyTask() {
 
             // output file
             yield(file.file.absolutePath)
-        }
+
+            unused
+        }.reduce { acc, files -> files.intersect(acc) }
 
         val trackOrder = files.withIndex().flatMap { (i, file) ->
             file.tracks.mapNotNull { track ->
@@ -924,8 +935,16 @@ open class Mux : PropertyTask() {
             yield(trackOrder.joinToString(","))
         }
 
+        val toAttach = if (skipUnusedFonts.get()) {
+            println("Not attaching unused fonts: " +
+                    unusedFonts.joinToString(", ") { it.name })
+            attachments - unusedFonts
+        } else {
+            attachments
+        }
+
         // attachments
-        attachments.forEach {
+        toAttach.forEach {
             val mime = mimeTypes[it.extension.toLowerCase()]
             logger.lifecycle("Attaching ${it.name} (content-type: ${mime ?: "autodetected"})")
             mime?.let {

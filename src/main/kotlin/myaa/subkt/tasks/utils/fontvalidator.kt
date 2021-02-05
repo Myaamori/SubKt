@@ -181,7 +181,7 @@ private class Font(val fontFile: File) {
 
 private data class FontMatch(val font: Font?, val exactMatch: Boolean)
 
-private class FontCollection(fontFiles: List<File>) {
+private class FontCollection(fontFiles: Iterable<File>) {
     val fonts = fontFiles.mapNotNull { file ->
         try {
             Font(file)
@@ -226,7 +226,7 @@ private class FontCollection(fontFiles: List<File>) {
     }
 }
 
-class FontReport {
+class FontReport(private val fontFiles: Set<File>) {
     private val missingFonts = sortedMapOf<String, MutableSet<Int>>()
     private val fauxItalic = sortedMapOf<String, MutableSet<Int>>()
     private val fauxBold = sortedMapOf<String, MutableMap<Pair<Int, Int>, MutableSet<Int>>>()
@@ -234,6 +234,7 @@ class FontReport {
     private val weightMismatch = sortedMapOf<String, MutableMap<Pair<Int, Int>, MutableSet<Int>>>()
     private val missingGlyphs = sortedMapOf<String, MutableSet<Char>>()
     private val missingGlyphLines = sortedMapOf<String, MutableSet<Int>>()
+    private val usedFonts = mutableSetOf<File>()
 
     fun missingFont(line: Int, font: String) {
         missingFonts.computeIfAbsent(font) { sortedSetOf() }.add(line)
@@ -262,6 +263,10 @@ class FontReport {
     fun missingGlyphs(line: Int, glyphs: String, font: String) {
         missingGlyphLines.computeIfAbsent(font) { sortedSetOf() }.add(line)
         missingGlyphs.computeIfAbsent(font) { mutableSetOf() }.addAll(glyphs.toList())
+    }
+
+    fun usedFont(font: File) {
+        usedFonts.add(font)
     }
 
     fun limitLines(lines: Collection<Int>, limit: Int = 10) =
@@ -346,6 +351,8 @@ class FontReport {
             error("one or more fatal font-related issues encountered")
         }
     }
+
+    fun unusedFonts() = fontFiles - usedFonts
 }
 
 fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
@@ -366,9 +373,9 @@ fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
     }
 }
 
-fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
+fun verifyFonts(assFile: ASSFile, fontFiles: Iterable<File>): FontReport {
     val fonts = FontCollection(fontFiles)
-    val report = FontReport()
+    val report = FontReport(fonts.fonts.map { it.fontFile }.toSet())
 
     parseLines(assFile).withIndex().forEach { (i, line) ->
         val lineNum = i + 1
@@ -377,6 +384,8 @@ fun verifyFonts(assFile: ASSFile, fontFiles: List<File>): FontReport {
             when (font) {
                 null -> report.missingFont(lineNum, state.font)
                 else -> {
+                    report.usedFont(font.fontFile)
+
                     if (state.italic && !font.italic) {
                         report.fauxItalic(lineNum, state.font)
                     }
