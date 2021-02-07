@@ -878,6 +878,8 @@ open class Mux : PropertyTask() {
         // per-track flags
         val files = _files.get()
         val attachments = _attachments.get().flatMap { project.files(it) }.toSet()
+
+        @OptIn(ExperimentalStdlibApi::class)
         val unusedFonts = files.mapNotNull { file ->
             logger.lifecycle(file.toString())
 
@@ -928,7 +930,7 @@ open class Mux : PropertyTask() {
             yield(file.file.absolutePath)
 
             unused
-        }.reduce { acc, files -> files.intersect(acc) }
+        }.reduceOrNull { acc, files -> files.intersect(acc) } ?: setOf()
 
         val trackOrder = files.withIndex().flatMap { (i, file) ->
             file.tracks.mapNotNull { track ->
