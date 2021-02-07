@@ -881,7 +881,7 @@ open class Mux : PropertyTask() {
         val unusedFonts = files.mapNotNull { file ->
             logger.lifecycle(file.toString())
 
-            val unused = if (verifyFonts.get() && file.info.container?.type == "SSA/ASS subtitles") {
+            val unused = if (verifyFonts.get() && file.info.container?.properties?.container_type == 28L) {
                 val report = verifyFonts(ASSFile(file.file), attachments)
                 report.printReport(onMissingFonts.get(), onFaux.get(),
                         onStyleMismatch.get(), onMissingGlyphs.get())
