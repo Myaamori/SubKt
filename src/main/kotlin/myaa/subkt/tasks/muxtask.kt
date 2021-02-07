@@ -763,6 +763,12 @@ open class Mux : PropertyTask() {
         }.also { _attachments.addAll(it) }
     }
 
+    init {
+        outputs.upToDateWhen {
+            outFile.get().exists()
+        }
+    }
+
     private fun getSync(delay: Property<Long>, stretch: Property<Double>): Provider<String> =
             stretch.map { "${delay.getOrElse(0)},$it/1" }
                     .orElse(delay.map { it.toString() })
