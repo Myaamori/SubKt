@@ -5,6 +5,7 @@ import myaa.subkt.ass.ASSFile
 import myaa.subkt.tasks.ErrorMode
 import org.apache.fontbox.ttf.*
 import java.io.File
+import java.io.IOException
 import java.nio.charset.Charset
 import kotlin.math.abs
 
@@ -120,17 +121,16 @@ private fun parseLine(line: String, lineStyle: State, styles: Map<String, State>
     }.filterNot { it.second.isEmpty() }
 }
 
-private class Font(val fontFile: File) {
+private class Font(val fontFile: File, val font: TrueTypeFont) {
     companion object {
         private val encoder = Charset.forName("MacRoman").newEncoder()
     }
 
-    private val font = OTFParser().parse(fontFile)
     val weight = font.oS2Windows.weightClass
     val italic = font.oS2Windows.fsSelection and 0b1 != 0
     val slant = if (italic) 110 else 0
     val width = 100
-    val isPostScript = font.isPostScript
+    val isPostScript = font is OpenTypeFont && font.isPostScript
 
     val names = font.naming.nameRecords.filter {
         it.platformId == NameRecord.PLATFORM_WINDOWS &&
@@ -141,7 +141,7 @@ private class Font(val fontFile: File) {
     val fullNames = names.filter { it.nameId == NameRecord.NAME_FULL_FONT_NAME }.map { it.string }
     val postScriptName = font.name
 
-    val exactNames = (if (font.isPostScript) listOf(postScriptName) else fullNames)
+    val exactNames = (if (isPostScript) listOf(postScriptName) else fullNames)
             .filterNot { full -> families.any { it.equals(full, ignoreCase = true) } }
 
     init {
@@ -184,9 +184,20 @@ private data class FontMatch(val font: Font?, val exactMatch: Boolean)
 private class FontCollection(fontFiles: Iterable<File>) {
     val fonts = fontFiles.mapNotNull { file ->
         try {
-            Font(file)
-        } catch (e: Exception) { null }
-    }
+            listOf(Font(file, OTFParser().parse(file)))
+        } catch (e: IOException) {
+            try {
+                val faces = mutableListOf<Font>()
+                TrueTypeCollection(file).processAllFonts {
+                    faces.add(Font(file, it))
+                }
+                faces
+            } catch (e: IOException) { null }
+        } catch (e: Exception) {
+            println("warnng: error parsing font $file: ${e.message}")
+            null
+        }
+    }.flatten()
 
     val byFullName = fonts.flatMap { font -> font.exactNames.map { it.toLowerCase() to font } }.toMap()
 
