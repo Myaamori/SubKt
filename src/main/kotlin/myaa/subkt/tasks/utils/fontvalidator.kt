@@ -182,7 +182,7 @@ private class Font(val fontFile: File, val font: TrueTypeFont) {
 private data class FontMatch(val font: Font?, val exactMatch: Boolean)
 
 private class FontCollection(fontFiles: Iterable<File>) {
-    val fonts = fontFiles.mapNotNull { file ->
+    val fonts = fontFiles.flatMap { file ->
         try {
             listOf(Font(file, OTFParser().parse(file)))
         } catch (e: IOException) {
@@ -192,12 +192,12 @@ private class FontCollection(fontFiles: Iterable<File>) {
                     faces.add(Font(file, it))
                 }
                 faces
-            } catch (e: IOException) { null }
+            } catch (e: IOException) { emptyList<Font>() }
         } catch (e: Exception) {
             println("warnng: error parsing font $file: ${e.message}")
-            null
+            emptyList<Font>()
         }
-    }.flatten()
+    }
 
     val byFullName = fonts.flatMap { font -> font.exactNames.map { it.toLowerCase() to font } }.toMap()
 
