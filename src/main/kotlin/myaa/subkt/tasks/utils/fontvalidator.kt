@@ -368,8 +368,12 @@ class FontReport(private val fontFiles: Set<File>) {
 
 fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
     val styles = assFile.styles.lines.associate {
+        val font = when {
+            it.font.startsWith("@") -> it.font.substring(1)
+            else -> it.font
+        }
         it.name to State(
-                it.font, it.italic, if (it.bold) 700 else 400, false,
+                font, it.italic, if (it.bold) 700 else 400, false,
                 assFile.scriptInfo.wrapStyle?.ordinal ?: 0)
     }
 
