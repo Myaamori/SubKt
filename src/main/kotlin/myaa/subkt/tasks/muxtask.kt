@@ -884,6 +884,7 @@ open class Mux : PropertyTask() {
             logger.lifecycle(file.toString())
 
             val unused = if (verifyFonts.get() && file.info.container?.properties?.container_type == 28L) {
+                logger.lifecycle("Validating fonts for ${file.file.name}...")
                 val report = verifyFonts(ASSFile(file.file), attachments)
                 report.printReport(onMissingFonts.get(), onFaux.get(),
                         onStyleMismatch.get(), onMissingGlyphs.get())
