@@ -1,10 +1,8 @@
 package myaa.subkt.tasks
 
+import com.google.gson.*
 import myaa.subkt.ass.ASSFile
-import myaa.subkt.tasks.utils.MkvAttachment
-import myaa.subkt.tasks.utils.MkvTrack
-import myaa.subkt.tasks.utils.getMkvInfo
-import myaa.subkt.tasks.utils.verifyFonts
+import myaa.subkt.tasks.utils.*
 import org.gradle.api.file.ConfigurableFileTree
 import org.gradle.api.file.FileCollection
 import org.gradle.api.provider.Property
@@ -16,6 +14,7 @@ import org.gradle.kotlin.dsl.property
 import java.io.File
 import java.io.Serializable
 import java.lang.RuntimeException
+import java.lang.reflect.Type
 import java.nio.ByteBuffer
 import java.util.zip.CRC32
 import kotlin.reflect.full.findAnnotation
@@ -689,6 +688,24 @@ open class Mux : PropertyTask() {
         private set
 
     /**
+     * Information about the output file as returned by `mkvinfo -J`.
+     * See the [mkvmerge identification output schema](https://mkvtoolnix.download/doc/mkvmerge-identification-output-schema-v12.json).
+     * Additionally, the map contains the keys `video_tracks`, `audio_tracks` and `subtitles_tracks`
+     * which are lists of tracks of the respective types.
+     *
+     * Example:
+     *
+     * ```
+     * res=$mux.info["video_tracks"][0]["properties"]["display_dimensions"].split("x")[1]
+     * acodec=$mux.info["audio_tracks"][0]["properties"]["codec_id"].substring(2)
+     * filename=$title - $episode (${source} ${res}p ${acodec}) [${mux.crc}].mkv
+     * ```
+     */
+    @get:Internal
+    var info by TaskProperty { mutableMapOf<String, Any>() }
+        private set
+
+    /**
      * The location to save the MKV file.
      * Defaults to an automatically generated file in the build directory.
      */
@@ -1010,6 +1027,20 @@ open class Mux : PropertyTask() {
             tempLocation.appendBytes(contentToAdd)
             crcToString(calculateCRC(tempLocation))
         } ?: crcToString(oldcrc)
+
+        // ugly hack to generate video_tracks etc more easily (using an MkvInfo instance)
+        // while still converting to a MutableMap to make deserialization of
+        // the cache files simpler (no need for PropertyTask to know about MkvInfo)
+        val outInfo = getMkvInfo(tempLocation, mkvmerge.get())
+        val outJson = GsonBuilder()
+                .registerTypeAdapter(Lazy::class.java, object : JsonSerializer<Lazy<*>> {
+                    override fun serialize(src: Lazy<*>, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
+                        return context.serialize(src.value)
+                    }
+                })
+                .create()
+                .toJson(outInfo)
+        info = Gson().fromJson(outJson, MutableMap::class.java) as MutableMap<String, Any>
 
         val renamed = this.outFile.get()
         logger.quiet("Output: ${renamed.name}")

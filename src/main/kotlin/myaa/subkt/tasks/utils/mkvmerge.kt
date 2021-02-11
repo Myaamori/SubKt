@@ -128,7 +128,13 @@ data class MkvInfo(
         val track_tags: List<MkvTrackTag>? = null,
         val tracks: List<MkvTrack>? = null,
         val warnings: List<String>
-) : Serializable
+) : Serializable {
+    val video_tracks = lazy { tracks.orEmpty().filter { it.type == "video" } }
+
+    val audio_tracks = lazy { tracks.orEmpty().filter { it.type == "audio" } }
+
+    val subtitles_tracks = lazy { tracks.orEmpty().filter { it.type == "subtitles" } }
+}
 
 /**
  * Reads metadata such as track and codec information from a Matroska-compatible
