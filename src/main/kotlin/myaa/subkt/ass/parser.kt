@@ -866,16 +866,24 @@ class AegisubProjectGarbageSection(name: String) : KeyValSection(name) {
     var videoPosition: Int? by KeyValDelegate()
 }
 
+private fun pad(t: Int) =
+        if (t >= 0) "%02d".format(t) else "%03d".format(t)
+
 /**
  * Converts this [Duration] into a time as represented in ASS.
  * See [String.assTime].
  */
 fun Duration.toAss() =
-        "%d:%02d:%02d.%02d".format(
-                toHoursPart(), toMinutesPart(), toSecondsPart(), toMillisPart() / 10
+        "%s:%s:%s.%s".format(
+                toHoursPart(), pad(toMinutesPart()),
+                pad(toSecondsPart()), pad(toMillisPart() / 10)
         )
 
-private val timePattern = Regex("""(\d+):(\d{2}):(\d{2})\.(\d{1,6})""")
+private val timePattern = Regex("""(-?\d+):(-?\d{2}):(-?\d{2})\.(-?\d{1,6})""")
+
+private fun padRight(t: String) =
+        (if (t.startsWith('-')) "%-7s".format(t) else "%-6s".format(t))
+                .replace(' ', '0')
 
 /**
  * Gets this string as a [Duration], parsing it as an ASS time.
@@ -887,7 +895,7 @@ private val timePattern = Regex("""(\d+):(\d{2}):(\d{2})\.(\d{1,6})""")
 val String.assTime
     get() = timePattern.matchEntire(this)?.let { match ->
         val (h, m, sec, dec) = match.groupValues.drop(1)
-        val us = "%-6s".format(dec).replace(' ', '0')
+        val us = padRight(dec)
         val ms = ((h.toLong() * 60 + m.toLong()) * 60 + sec.toLong()) * 1000000 + us.toLong()
         Duration.of(ms, ChronoUnit.MICROS)
     } ?: throw IllegalArgumentException("not a valid time: $this")

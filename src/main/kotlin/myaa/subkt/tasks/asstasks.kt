@@ -93,6 +93,13 @@ open class Merge : ASSTask() {
             @get:Input val value: String
     )
 
+    enum class OnNegativeTimestamp {
+        ERROR,
+        DELETE,
+        FORCE_ZERO,
+        IGNORE
+    }
+
     /**
      * Defines how the files associated with this specification should be merged.
      */
@@ -215,6 +222,13 @@ open class Merge : ASSTask() {
      */
     @get:Input
     val onStyleConflict = defaultProperty(ErrorMode.WARN)
+
+    /**
+     * What to do when encountering negative timestamps (e.g. after shifting).
+     * Defaults to [Merge.OnNegativeTimestamp.ERROR].
+     */
+    @get:Input
+    val onNegativeTimestamp = defaultProperty(OnNegativeTimestamp.ERROR)
 
     /**
      * If true, prepends every style name with an identifier unique to each file,
@@ -340,6 +354,30 @@ open class Merge : ASSTask() {
                     it.start += delta
                     it.end += delta
                 }
+            }
+
+            // handle negative times after shifting
+            ass.events.lines.forEach {
+                fun checkTime(time: Duration) =
+                        if (time < Duration.ZERO) {
+                            when (onNegativeTimestamp.get()) {
+                                OnNegativeTimestamp.ERROR -> {
+                                    val serializedLine = ass.events.serializeLine(it)
+                                    error("Negative time after shifting line from ${ass.file}: $serializedLine")
+                                }
+                                OnNegativeTimestamp.FORCE_ZERO -> Duration.ZERO
+                                else -> time
+                            }
+                        } else {
+                            time
+                        }
+
+                it.start = checkTime(it.start)
+                it.end = checkTime(it.end)
+            }
+
+            if (onNegativeTimestamp.get() == OnNegativeTimestamp.DELETE) {
+                ass.events.lines.removeAll { it.start < Duration.ZERO || it.end < Duration.ZERO }
             }
         }
 
