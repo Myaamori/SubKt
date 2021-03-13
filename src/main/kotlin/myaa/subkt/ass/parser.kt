@@ -537,7 +537,7 @@ class StyleLine(
         @LineField("Fontname")
         var font: String = "Arial",
         @LineField("Fontsize")
-        var fontSize: Int = 20,
+        var fontSize: Double = 20.0,
         @LineField("PrimaryColour")
         var primaryColor: Color = Color.WHITE,
         @LineField("SecondaryColour")
