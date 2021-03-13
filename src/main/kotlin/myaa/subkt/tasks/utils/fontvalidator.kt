@@ -377,14 +377,18 @@ fun parseLines(assFile: ASSFile): Sequence<Sequence<Pair<State, String>>> {
                 assFile.scriptInfo.wrapStyle?.ordinal ?: 0)
     }
 
-    return assFile.events.lines.asSequence().withIndex().filter { (_, line) -> !line.comment }.map { (i, line) ->
-        val lineNum = i + 1
-        val lineStyle = styles[line.style] ?: run {
-            println("Warning: Unknown style ${line.style} on line $lineNum; assuming default style")
-            State("Arial", false, 400, false, 0)
-        }
+    return assFile.events.lines.asSequence().withIndex().map { (i, line) ->
+        if (line.comment) {
+            sequenceOf()
+        } else {
+            val lineNum = i + 1
+            val lineStyle = styles[line.style] ?: run {
+                println("Warning: Unknown style ${line.style} on line $lineNum; assuming default style")
+                State("Arial", false, 400, false, 0)
+            }
 
-        parseLine(line.text, lineStyle, styles)
+            parseLine(line.text, lineStyle, styles)
+        }
     }
 }
 
