@@ -1,14 +1,18 @@
 package myaa.subkt.tasks.utils
 
-import com.google.gson.Gson
+import com.google.gson.*
+import com.google.gson.annotations.JsonAdapter
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.io.Serializable
 import java.lang.RuntimeException
+import java.lang.reflect.Type
 import java.math.BigInteger
 import java.util.concurrent.TimeUnit
+import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.jvm.javaField
 
 data class MkvAttachmentProperty(
         val uid: BigInteger? = null
@@ -129,11 +133,25 @@ data class MkvInfo(
         val tracks: List<MkvTrack>? = null,
         val warnings: List<String>
 ) : Serializable {
-    val video_tracks = lazy { tracks.orEmpty().filter { it.type == "video" } }
+    val video_tracks
+        get() = tracks.orEmpty().filter { it.type == "video" }
 
-    val audio_tracks = lazy { tracks.orEmpty().filter { it.type == "audio" } }
+    val audio_tracks
+        get() = tracks.orEmpty().filter { it.type == "audio" }
 
-    val subtitles_tracks = lazy { tracks.orEmpty().filter { it.type == "subtitles" } }
+    val subtitles_tracks
+        get() = tracks.orEmpty().filter { it.type == "subtitles" }
+}
+
+object MkvInfoSerializer : JsonSerializer<MkvInfo> {
+    private val serializer = Gson()
+    override fun serialize(src: MkvInfo, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
+        val elem = serializer.toJsonTree(src) as JsonObject
+        MkvInfo::class.declaredMemberProperties.filter { it.javaField == null }.forEach {
+            elem.add(it.name, context.serialize(it.get(src)))
+        }
+        return elem
+    }
 }
 
 /**

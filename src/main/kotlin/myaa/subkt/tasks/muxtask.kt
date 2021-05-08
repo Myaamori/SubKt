@@ -1034,11 +1034,7 @@ open class Mux : PropertyTask() {
         // the cache files simpler (no need for PropertyTask to know about MkvInfo)
         val outInfo = getMkvInfo(tempLocation, mkvmerge.get())
         val outJson = GsonBuilder()
-                .registerTypeAdapter(Lazy::class.java, object : JsonSerializer<Lazy<*>> {
-                    override fun serialize(src: Lazy<*>, typeOfSrc: Type, context: JsonSerializationContext): JsonElement {
-                        return context.serialize(src.value)
-                    }
-                })
+                .registerTypeAdapter(MkvInfo::class.java, MkvInfoSerializer)
                 .create()
                 .toJson(outInfo)
         info = Gson().fromJson(outJson, MutableMap::class.java) as MutableMap<String, Any>
