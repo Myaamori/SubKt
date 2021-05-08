@@ -182,7 +182,8 @@ fun getMkvInfo(file: File, mkvmerge: String = "mkvmerge"): MkvInfo {
         deferred.await()
     }
 
-    if (proc.exitValue() != 0) {
+    val exitValue = proc.exitValue()
+    if (exitValue != 0 && exitValue != 1) {
         val errors = parsed.errors.joinToString("")
         throw RuntimeException("mkvmerge -J command failed for file $filePath: $errors")
     }
