@@ -396,12 +396,13 @@ open class Mux : PropertyTask() {
          * @param action A closure operating on a [Track] instance.
          */
         fun tracks(vararg trackIds: Int, trackType: TrackType? = null,
-                   action: Track.() -> Unit) {
+                   action: Track.() -> Unit = {}): List<Track> {
             val tracksOfType = trackType
                     ?.let { type -> tracks.filter { it.track.type == type } } ?: tracks
             val tracksOfId = tracksOfType.takeIf { trackIds.isEmpty() }
                     ?: tracksOfType.slice(trackIds.asIterable())
             tracksOfId.forEach(action)
+            return tracksOfId
         }
 
         /**
@@ -412,7 +413,7 @@ open class Mux : PropertyTask() {
          * 0 refers to the first video track, 1 to the second video track, and so on.
          * @param action A closure operating on a [Track] instance.
          */
-        fun video(vararg trackIds: Int, action: Track.() -> Unit) =
+        fun video(vararg trackIds: Int, action: Track.() -> Unit = {}) =
                 tracks(*trackIds, trackType = TrackType.VIDEO, action = action)
 
         /**
@@ -423,7 +424,7 @@ open class Mux : PropertyTask() {
          * 0 refers to the first audio track, 1 to the second audio track, and so on.
          * @param action A closure operating on a [Track] instance.
          */
-        fun audio(vararg trackIds: Int, action: Track.() -> Unit) =
+        fun audio(vararg trackIds: Int, action: Track.() -> Unit = {}) =
                 tracks(*trackIds, trackType = TrackType.AUDIO, action = action)
 
         /**
@@ -434,7 +435,7 @@ open class Mux : PropertyTask() {
          * 0 refers to the first subtitle track, 1 to the second subtitle track, and so on.
          * @param action A closure operating on a [Track] instance.
          */
-        fun subtitles(vararg trackIds: Int, action: Track.() -> Unit) =
+        fun subtitles(vararg trackIds: Int, action: Track.() -> Unit = {}) =
                 tracks(*trackIds, trackType = TrackType.SUBTITLES, action = action)
 
         /**
