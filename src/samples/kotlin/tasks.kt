@@ -37,6 +37,17 @@ fun Merge.mergeFromSample() {
     }
 }
 
+fun Merge.mergeFromIfPresentSample() {
+    // property file: {01,03}.OP=OP_${episode}.ass
+    // silently ignores the input for episodes other than 01 and 03
+    // (for which the property isn't defined); fails for episodes
+    // 01 and 03 if e.g. OP_01.ass doesn't exist.
+    fromIfPresent(get("OP"))
+
+    // doesn't fail even if e.g. OP_01.ass doesn't exist.
+    fromIfPresent(get("OP"), ignoreMissingFiles = true)
+}
+
 fun Merge.mergeScriptInfoSample() {
     scriptInfo {
         playResX = 1920

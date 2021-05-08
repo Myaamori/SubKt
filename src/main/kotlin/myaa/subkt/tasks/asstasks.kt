@@ -11,6 +11,7 @@ import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.listProperty
 import org.gradle.kotlin.dsl.property
 import java.awt.Color
+import java.io.File
 import java.lang.reflect.Type
 import java.nio.charset.StandardCharsets
 import java.time.Duration
@@ -248,6 +249,38 @@ open class Merge : ASSTask() {
      */
     fun from(vararg files: Any, action: MergeSpecification.() -> Unit = {}) {
         _sources.add(FileSpecPair(files, MergeSpecification().apply(action)))
+    }
+
+    /**
+     * Adds files to merge, unless the given provider (property) isn't defined.
+     * Will still result in an error if the property is defined
+     * but the file it points to is missing on the file system,
+     * unless [ignoreMissingFiles] is `true`.
+     *
+     * @sample myaa.subkt.tasks.samples.mergeFromIfPresentSample
+     *
+     * @param files The files to merge.
+     * @param ignoreMissingFiles Whether to silently ignore files missing
+     * from the file system.
+     * @param action A closure operating on a [MergeSpecification] instance
+     * for customizing how the given files should be merged.
+     */
+    fun fromIfPresent(vararg files: Any, ignoreMissingFiles: Boolean = false,
+                      action: MergeSpecification.() -> Unit = {}) {
+        val fileProvider = project.provider {
+            val filesMaybe = try {
+                project.files(files).toList()
+            } catch (e: NoSuchElementException) {
+                listOf<File>()
+            }
+
+            if (ignoreMissingFiles) {
+                filesMaybe.filter { it.exists() }
+            } else {
+                filesMaybe
+            }
+        }
+        from(fileProvider, action = action)
     }
 
     /**
