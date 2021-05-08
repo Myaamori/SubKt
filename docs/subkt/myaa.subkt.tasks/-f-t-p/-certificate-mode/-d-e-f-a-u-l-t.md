@@ -2,7 +2,7 @@
 
 # DEFAULT
 
-`DEFAULT` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1744)
+`DEFAULT` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1754)
 
 Use the default Java trust manager.
 

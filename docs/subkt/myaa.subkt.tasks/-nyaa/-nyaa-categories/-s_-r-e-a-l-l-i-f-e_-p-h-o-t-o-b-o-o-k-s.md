@@ -2,7 +2,7 @@
 
 # S_REALLIFE_PHOTOBOOKS
 
-`S_REALLIFE_PHOTOBOOKS` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L804)
+`S_REALLIFE_PHOTOBOOKS` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L814)
 
 ### Inherited Properties
 

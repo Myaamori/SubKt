@@ -2,7 +2,7 @@
 
 # EventLine
 
-`class EventLine : `[`MapLine`](../-map-line/index.md)`<`[`EventLine`](./index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L453)
+`class EventLine : `[`MapLine`](../-map-line/index.md)`<`[`EventLine`](./index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L455)
 
 A line in an [EventSection](../-event-section/index.md).
 Its associated accessor is [EventLineAccessor](../-event-line-accessor/index.md).

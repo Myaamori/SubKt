@@ -2,7 +2,7 @@
 
 # ARABIC
 
-`ARABIC` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1082)
+`ARABIC` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1092)
 
 ### Inherited Properties
 

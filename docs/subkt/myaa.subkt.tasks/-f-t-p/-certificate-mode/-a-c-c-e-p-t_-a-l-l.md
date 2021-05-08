@@ -2,7 +2,7 @@
 
 # ACCEPT_ALL
 
-`ACCEPT_ALL` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1754)
+`ACCEPT_ALL` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L1764)
 
 Accept all certificates.
 

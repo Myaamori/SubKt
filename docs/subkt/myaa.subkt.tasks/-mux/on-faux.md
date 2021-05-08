@@ -2,7 +2,7 @@
 
 # onFaux
 
-`val onFaux: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`ErrorMode`](../-error-mode/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L644)
+`val onFaux: `[`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html)`<`[`ErrorMode`](../-error-mode/index.md)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L660)
 
 If [verifyFonts](../../myaa.subkt.tasks.utils/verify-fonts.md) is true, controls what to do if an instance of
 faux bold or faux italic is encountered.

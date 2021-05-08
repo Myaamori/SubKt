@@ -2,7 +2,7 @@
 
 # Selection
 
-`data class Selection` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L729)
+`data class Selection` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L800)
 
 ### Constructors
 

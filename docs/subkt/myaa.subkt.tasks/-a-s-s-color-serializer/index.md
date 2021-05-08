@@ -2,7 +2,7 @@
 
 # ASSColorSerializer
 
-`object ASSColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L617)
+`object ASSColorSerializer : JsonSerializer<`[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html)`>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L688)
 
 ### Functions
 

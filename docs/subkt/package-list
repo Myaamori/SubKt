@@ -18,6 +18,7 @@ $dokka.location:myaa.subkt.tasks$evaluateTemplate(org.gradle.api.Task, kotlin.St
 $dokka.location:myaa.subkt.tasks$get(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get.md
 $dokka.location:myaa.subkt.tasks$getAs(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-as.md
 $dokka.location:myaa.subkt.tasks$getFile(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-file.md
+$dokka.location:myaa.subkt.tasks$getFile(org.gradle.api.Task, org.gradle.api.provider.Provider((kotlin.String)))myaa.subkt.tasks/org.gradle.api.-task/get-file.md
 $dokka.location:myaa.subkt.tasks$getList(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-list.md
 $dokka.location:myaa.subkt.tasks$getListAs(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-list-as.md
 $dokka.location:myaa.subkt.tasks$getRaw(org.gradle.api.Task, kotlin.String)myaa.subkt.tasks/org.gradle.api.-task/get-raw.md

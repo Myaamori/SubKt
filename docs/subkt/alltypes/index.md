@@ -61,6 +61,7 @@ See https://github.com/Myaamori/SubKt/ for more information.
 | [myaa.subkt.tasks.utils.MkvContainerPropertiesProgram](../myaa.subkt.tasks.utils/-mkv-container-properties-program/index.md) |  |
 | [myaa.subkt.tasks.utils.MkvGlobalTag](../myaa.subkt.tasks.utils/-mkv-global-tag/index.md) |  |
 | [myaa.subkt.tasks.utils.MkvInfo](../myaa.subkt.tasks.utils/-mkv-info/index.md) |  |
+| [myaa.subkt.tasks.utils.MkvInfoSerializer](../myaa.subkt.tasks.utils/-mkv-info-serializer/index.md) |  |
 | [myaa.subkt.tasks.utils.MkvTrack](../myaa.subkt.tasks.utils/-mkv-track/index.md) |  |
 | [myaa.subkt.tasks.utils.MkvTrackProperties](../myaa.subkt.tasks.utils/-mkv-track-properties/index.md) |  |
 | [myaa.subkt.tasks.utils.MkvTrackTag](../myaa.subkt.tasks.utils/-mkv-track-tag/index.md) |  |

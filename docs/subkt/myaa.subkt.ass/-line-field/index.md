@@ -2,7 +2,7 @@
 
 # LineField
 
-`annotation class LineField` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L261)
+`annotation class LineField` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L263)
 
 Annotates a property in a [MapLine](../-map-line/index.md) with the name of the corresponding ASS field.
 

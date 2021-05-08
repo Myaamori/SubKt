@@ -2,7 +2,7 @@
 
 # KeyValSection
 
-`open class KeyValSection : `[`Section`](../-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L633)
+`open class KeyValSection : `[`Section`](../-section/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L635)
 
 Represents a generic key-value section such as [ScriptInfoSection](../-script-info-section/index.md) and
 [AegisubProjectGarbageSection](../-aegisub-project-garbage-section/index.md), where each line is given in in a

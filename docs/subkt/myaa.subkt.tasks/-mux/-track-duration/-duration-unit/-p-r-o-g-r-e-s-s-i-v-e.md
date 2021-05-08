@@ -2,7 +2,7 @@
 
 # PROGRESSIVE
 
-`PROGRESSIVE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L153)
+`PROGRESSIVE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L152)
 
 ### Inherited Properties
 

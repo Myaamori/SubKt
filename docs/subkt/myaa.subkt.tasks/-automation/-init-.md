@@ -21,7 +21,7 @@ val assWipe by task<Automation> {
     video("premux.mkv")
     dialog(
             // dialog values
-            "removeInvilible" to true,
+            "removeInvisible" to true,
             "cleanLevel" to 4,
             "extraDataMode" to "Remove all",
             // button to push to confirm dialog

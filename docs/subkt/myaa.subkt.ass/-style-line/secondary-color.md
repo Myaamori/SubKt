@@ -2,4 +2,4 @@
 
 # secondaryColor
 
-`var secondaryColor: `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L542)
+`var secondaryColor: `[`Color`](https://docs.oracle.com/javase/9/docs/api/java/awt/Color.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L544)

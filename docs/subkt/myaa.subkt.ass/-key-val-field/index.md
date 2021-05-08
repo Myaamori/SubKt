@@ -2,7 +2,7 @@
 
 # KeyValField
 
-`annotation class KeyValField` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L626)
+`annotation class KeyValField` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L628)
 
 Annotates a property in a [KeyValSection](../-key-val-section/index.md) with the corresponding ASS key.
 

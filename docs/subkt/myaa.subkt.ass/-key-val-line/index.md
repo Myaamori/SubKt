@@ -2,7 +2,7 @@
 
 # KeyValLine
 
-`class KeyValLine : `[`Line`](../-line/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L254)
+`class KeyValLine : `[`Line`](../-line/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L256)
 
 Corresponds to a raw ASS line represented textually as `Type: Value`,
 with the value unparsed.

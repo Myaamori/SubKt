@@ -2,7 +2,7 @@
 
 # REVERSE
 
-`REVERSE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L753)
+`REVERSE` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L755)
 
 ### Inherited Properties
 

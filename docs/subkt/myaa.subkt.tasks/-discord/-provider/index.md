@@ -2,7 +2,7 @@
 
 # Provider
 
-`inner class Provider` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L174)
+`inner class Provider` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/discordtask.kt#L174)
 
 The provider of an embed.
 

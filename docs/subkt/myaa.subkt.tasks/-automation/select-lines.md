@@ -2,7 +2,7 @@
 
 # selectLines
 
-`fun selectLines(f: `[`Automation.Selector`](-selector/index.md)`.(`[`ASSFile`](../../myaa.subkt.ass/-a-s-s-file/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L764)
+`fun selectLines(f: `[`Automation.Selector`](-selector/index.md)`.(`[`ASSFile`](../../myaa.subkt.ass/-a-s-s-file/index.md)`) -> `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L835)
 
 Specify what lines to mark as selected and active.
 

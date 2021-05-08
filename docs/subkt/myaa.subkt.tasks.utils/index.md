@@ -15,6 +15,7 @@
 | [MkvContainerPropertiesProgram](-mkv-container-properties-program/index.md) | `data class MkvContainerPropertiesProgram : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
 | [MkvGlobalTag](-mkv-global-tag/index.md) | `data class MkvGlobalTag : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
 | [MkvInfo](-mkv-info/index.md) | `data class MkvInfo : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
+| [MkvInfoSerializer](-mkv-info-serializer/index.md) | `object MkvInfoSerializer : JsonSerializer<`[`MkvInfo`](-mkv-info/index.md)`>` |
 | [MkvTrack](-mkv-track/index.md) | `data class MkvTrack : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
 | [MkvTrackProperties](-mkv-track-properties/index.md) | `data class MkvTrackProperties : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
 | [MkvTrackTag](-mkv-track-tag/index.md) | `data class MkvTrackTag : `[`Serializable`](https://docs.oracle.com/javase/9/docs/api/java/io/Serializable.html) |
@@ -26,4 +27,4 @@
 |---|---|
 | [getMkvInfo](get-mkv-info.md) | `fun getMkvInfo(file: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`, mkvmerge: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` = "mkvmerge"): `[`MkvInfo`](-mkv-info/index.md)<br>Reads metadata such as track and codec information from a Matroska-compatible file using `mkvmerge`. |
 | [parseLines](parse-lines.md) | `fun parseLines(assFile: `[`ASSFile`](../myaa.subkt.ass/-a-s-s-file/index.md)`): `[`Sequence`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)`<`[`Sequence`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)`<`[`Pair`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)`<`[`State`](-state/index.md)`, `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>>>` |
-| [verifyFonts](verify-fonts.md) | `fun verifyFonts(assFile: `[`ASSFile`](../myaa.subkt.ass/-a-s-s-file/index.md)`, fontFiles: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>): `[`FontReport`](-font-report/index.md) |
+| [verifyFonts](verify-fonts.md) | `fun verifyFonts(assFile: `[`ASSFile`](../myaa.subkt.ass/-a-s-s-file/index.md)`, fontFiles: `[`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>): `[`FontReport`](-font-report/index.md) |

@@ -2,7 +2,7 @@
 
 # Collisions
 
-`enum class Collisions` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/ass/parser.kt#L751)
+`enum class Collisions` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/ass/parser.kt#L753)
 
 ### Enum Values
 

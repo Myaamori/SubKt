@@ -2,7 +2,7 @@
 
 # Attachment
 
-`inner class Attachment : `[`Filterable`](../../-filterable/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L62)
+`inner class Attachment : `[`Filterable`](../../-filterable/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L61)
 
 Represents an attachment present in a [MuxFile](../-mux-file/index.md).
 

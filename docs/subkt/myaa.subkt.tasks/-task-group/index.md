@@ -2,7 +2,7 @@
 
 # TaskGroup
 
-`class TaskGroup<T : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`> : `[`ItemGroup`](../-item-group/index.md)`<`[`TaskProvider`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskProvider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L327)
+`class TaskGroup<T : `[`Task`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html)`> : `[`ItemGroup`](../-item-group/index.md)`<`[`TaskProvider`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskProvider.html)`<`[`T`](index.md#T)`>>` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/tasks.kt#L329)
 
 A group of tasks of the same type.
 
@@ -30,6 +30,7 @@ A group of tasks of the same type.
 | Name | Summary |
 |---|---|
 | [createItem](create-item.md) | `fun createItem(entry: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, isBatch: `[`Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)`, episodes: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`>): `[`TaskProvider`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskProvider.html)`<`[`T`](index.md#T)`>`<br>Registers a new task for the given entry, or returns an existing task if it exists. The returned task will following the naming scheme [name](name.md).[entry](create-item.md#myaa.subkt.tasks.TaskGroup$createItem(kotlin.String, kotlin.Boolean, kotlin.collections.List((kotlin.String)))/entry). |
+| [toString](to-string.md) | `fun toString(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
 ### Inherited Functions
 

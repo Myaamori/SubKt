@@ -2,7 +2,7 @@
 
 # track
 
-`val track: `[`Mux.Track.TrackInfo`](-track-info/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L193)
+`val track: `[`Mux.Track.TrackInfo`](-track-info/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L192)
 
 A [TrackInfo](-track-info/index.md) instance providing information about the source track.
 

@@ -2,13 +2,13 @@
 
 # FontReport
 
-`class FontReport` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/utils/fontvalidator.kt#L228)
+`class FontReport` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/utils/fontvalidator.kt#L240)
 
 ### Constructors
 
 | Name | Summary |
 |---|---|
-| [&lt;init&gt;](-init-.md) | `FontReport()` |
+| [&lt;init&gt;](-init-.md) | `FontReport(fontFiles: `[`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>)` |
 
 ### Functions
 
@@ -21,4 +21,6 @@
 | [missingFont](missing-font.md) | `fun missingFont(line: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, font: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [missingGlyphs](missing-glyphs.md) | `fun missingGlyphs(line: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, glyphs: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, font: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [printReport](print-report.md) | `fun printReport(onMissingFonts: `[`ErrorMode`](../../myaa.subkt.tasks/-error-mode/index.md)`, onFaux: `[`ErrorMode`](../../myaa.subkt.tasks/-error-mode/index.md)`, onStyleMismatch: `[`ErrorMode`](../../myaa.subkt.tasks/-error-mode/index.md)`, onMissingGlyphs: `[`ErrorMode`](../../myaa.subkt.tasks/-error-mode/index.md)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
+| [unusedFonts](unused-fonts.md) | `fun unusedFonts(): `[`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>` |
+| [usedFont](used-font.md) | `fun usedFont(font: `[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |
 | [weightMismatch](weight-mismatch.md) | `fun weightMismatch(line: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, requestedWeight: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, actualWeight: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`, font: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html) |

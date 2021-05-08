@@ -2,4 +2,4 @@
 
 # &lt;init&gt;
 
-`FontReport()`
+`FontReport(fontFiles: `[`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html)`<`[`File`](https://docs.oracle.com/javase/9/docs/api/java/io/File.html)`>)`

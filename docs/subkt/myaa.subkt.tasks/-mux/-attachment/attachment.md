@@ -2,7 +2,7 @@
 
 # attachment
 
-`val attachment: `[`Mux.Attachment.AttachmentInfo`](-attachment-info/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L86)
+`val attachment: `[`Mux.Attachment.AttachmentInfo`](-attachment-info/index.md) [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/muxtask.kt#L85)
 
 An [AttachmentInfo](-attachment-info/index.md) instance providing information about the attachment.
 

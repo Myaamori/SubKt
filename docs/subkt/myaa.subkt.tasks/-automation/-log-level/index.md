@@ -2,7 +2,7 @@
 
 # LogLevel
 
-`enum class LogLevel` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.13/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L685)
+`enum class LogLevel` [(source)](https://github.com/Myaamori/SubKt/blob/0.1.19/src/main/kotlin/myaa/subkt/tasks/asstasks.kt#L756)
 
 ### Enum Values
 
