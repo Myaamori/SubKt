@@ -226,9 +226,8 @@ fun Project.glob(s: String) =
 class TaskContext(val task: Task) : BaseContext() {
     override fun doGet(key: String) =
             task.extra.properties[key] ?:
-                    try { task.taskGroup.subs.getList(key, entry = task.entry, context = this).orNull }
-                    catch (e: NoSuchElementException) { null }
-                            ?.singleOrNull() ?:
+                    try { task.taskGroup.subs.get(key, entry = task.entry, context = this).orNull }
+                    catch (e: NoSuchElementException) { null } ?:
                     task.takeIf { it.taskGroup.name == key } ?:
                     try {
                         val taskName = "$key.${task.entry}.${task.release}"
@@ -499,9 +498,8 @@ open class Subs(val project: Project) : ItemGroupContext() {
 
         override fun doGet(key: String) =
                 extraProperties[key] ?:
-                        try { this@Subs.getList(key, entry = entry, context = this).orNull }
+                        try { this@Subs.get(key, entry = entry, context = this).orNull }
                         catch (e: NoSuchElementException) { null }
-                                ?.singleOrNull()
     }
 
     /**
@@ -547,7 +545,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
      */
     fun evaluate(expression: String, entry: String = "", context: AbstractContext? = null) =
             project.provider {
-                if (expression.startsWith('!')) {
+                val list = if (expression.startsWith('!')) {
                     expression.drop(1).split("|")
                 } else {
                     val evaluated = evaluateTemplate(
@@ -556,6 +554,7 @@ open class Subs(val project: Project) : ItemGroupContext() {
                         project.glob(it)
                     }
                 }
+                list.filterNot { it.isEmpty() }
             }
 
     /**
@@ -648,7 +647,13 @@ open class Subs(val project: Project) : ItemGroupContext() {
      * @param entry Optional manually specified entry for property lookup.
      */
     fun get(propertyName: String, entry: String = "", context: AbstractContext? = null) =
-            getList(propertyName, entry = entry, context = context).map { it.single() }
+            getList(propertyName, entry = entry, context = context).map {
+                if (it.isEmpty()) {
+                    ""
+                } else {
+                    it.single()
+                }
+            }
 
     /**
      * Searches for the given property in the [Subs] object's [SubProperties] instance,
