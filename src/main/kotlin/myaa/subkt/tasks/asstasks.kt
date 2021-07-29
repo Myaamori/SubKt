@@ -168,6 +168,12 @@ open class Merge : ASSTask() {
         @get:Input
         @get:Optional
         val syncTargetTime = project.objects.property<Duration>()
+
+        /**
+         * Specifies whether to ignore all styles from associated files.
+         */
+        @get:Input
+        val removeStyles = defaultProperty(false)
     }
 
     /**
@@ -344,6 +350,10 @@ open class Merge : ASSTask() {
                     line.layer += spec.incrementLayer.get()
                     line.start += spec.shiftBy.get()
                     line.end += spec.shiftBy.get()
+                }
+
+                if (spec.removeStyles.get()) {
+                    ass.styles.lines.clear()
                 }
 
                 spec.syncTargetLine.orNull?.let {
