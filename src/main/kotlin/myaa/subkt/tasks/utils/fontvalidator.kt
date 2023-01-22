@@ -126,7 +126,18 @@ private class Font(val fontFile: File, val font: TrueTypeFont) {
         private val encoder = Charset.forName("MacRoman").newEncoder()
     }
 
-    val weight = font.oS2Windows.weightClass
+    val weight = when(font.oS2Windows.weightClass) {
+        1 -> 100;
+        2 -> 200;
+        3 -> 300;
+        4 -> 350;
+        5 -> 400;
+        6 -> 600;
+        7 -> 700;
+        8 -> 800;
+        9 -> 900;
+        else -> font.oS2Windows.weightClass;
+    }
     val italic = font.oS2Windows.fsSelection and 0b1 != 0
     val slant = if (italic) 110 else 0
     val width = 100
